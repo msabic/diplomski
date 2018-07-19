@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.cornetmijo.appdiplomski.DoctorViewActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="match_parent"
+                android:layout_height="203dp"
+                app:srcCompat="@drawable/common_google_signin_btn_icon_light_normal" />
+
+            <EditText
+                android:id="@+id/NameTE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp"
+                android:drawableLeft="@drawable/ic_person"
+                android:ems="10"
+                android:hint="Name:"
+                android:inputType="text"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text=""
+                android:enabled="false"/>
+            <EditText
+                android:id="@+id/EmailTE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp"
+                android:ems="10"
+                android:text=""
+                android:inputType="textEmailAddress"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:hint="Email:"
+                android:drawableLeft="@drawable/ic_email"
+                android:enabled="false"/>
+            <EditText
+                android:id="@+id/AddressTE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp"
+                android:layout_weight="0.63"
+                android:drawableLeft="@drawable/ic_location"
+                android:ems="10"
+                android:hint="Address:"
+                android:inputType="textPostalAddress"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text=""
+                android:enabled="false"/>
+            <EditText
+                android:id="@+id/PhoneTE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp"
+                android:layout_weight="0.63"
+                android:drawableLeft="@drawable/ic_phone"
+                android:ems="10"
+                android:hint="Phone:"
+                android:inputType="phone"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text=""
+                android:enabled="false"
+                />
+            <EditText
+                android:id="@+id/subjectTE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp"
+                android:hint="Email subject:"/>
+            <MultiAutoCompleteTextView
+                android:id="@+id/messageTE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp"
+                android:hint="Email message:" />
+            <Button
+                android:id="@+id/sendEmailBTN"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Send email"
+                android:layout_marginLeft="130dp"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

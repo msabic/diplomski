@@ -1,0 +1,7 @@
+C:\Users\Mijo Šabić\Documents\DIPLOMSKI\OrdinacijaDevExpress\DBCommunication\bin\Debug\DBCommunication.dll
+C:\Users\Mijo Šabić\Documents\DIPLOMSKI\OrdinacijaDevExpress\DBCommunication\bin\Debug\DBCommunication.pdb
+C:\Users\Mijo Šabić\Documents\DIPLOMSKI\OrdinacijaDevExpress\DBCommunication\bin\Debug\Models.dll
+C:\Users\Mijo Šabić\Documents\DIPLOMSKI\OrdinacijaDevExpress\DBCommunication\bin\Debug\Models.pdb
+C:\Users\Mijo Šabić\Documents\DIPLOMSKI\OrdinacijaDevExpress\DBCommunication\obj\Debug\DBCommunication.csprojResolveAssemblyReference.cache
+C:\Users\Mijo Šabić\Documents\DIPLOMSKI\OrdinacijaDevExpress\DBCommunication\obj\Debug\DBCommunication.dll
+C:\Users\Mijo Šabić\Documents\DIPLOMSKI\OrdinacijaDevExpress\DBCommunication\obj\Debug\DBCommunication.pdb
