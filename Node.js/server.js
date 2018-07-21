@@ -26,7 +26,7 @@ res.status(400).send('Bad Request');
 }})
 app.get('/SelectDoktorId', function(req,res) {
   if(req.headers.id ){
-  db.SelectDoktorId(req.headers.id,).then((resoult) => {
+  db.SelectDoktorId(req.headers.id).then((resoult) => {
     res.send(resoult);
   }).catch((err) => {
     console.log('Error: ', err);
