@@ -24,7 +24,6 @@
         <activity android:name=".ListActivity" />
         <activity android:name=".DoctorListActivity" />
         <activity android:name=".DoctorViewActivity" />
-        <activity android:name=".PrescriptionActivity" />
         <activity android:name=".PrescriptionsActivity" />
         <activity android:name=".ReferralActivity"></activity>
     </application>

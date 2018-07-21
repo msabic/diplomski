@@ -502,6 +502,16 @@ app.get('/SelectUputnica', function(req,res) {
 });} else {
 res.status(400).send('Bad Request');
 }})
+app.get('/SelectUputnicaForPatient', function(req,res) {
+  if(req.headers.patient ){
+  db.SelectUputnicaForPatient(req.headers.patient).then((resoult) => {
+    res.send(resoult);
+  }).catch((err) => {
+    console.log('Error: ', err);
+    res.status(400).send('Bad Request');
+});} else {
+res.status(400).send('Bad Request');
+}})
 app.get('/SelectUputnicaAll', function(req,res) {
   db.SelectUputnicaAll().then((resoult) => {
     res.send(resoult);

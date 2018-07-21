@@ -431,6 +431,13 @@ let SelectUputnica = function (id) {
         })
     });
 };
+let SelectUputnicaForPatient = function (patient) {
+    return new Promise((resolve, reject) => {
+        connection.query("SELECT * FROM ordinacija.uputnica where Pacijent_ID_Pacijent="+mysql.escape(patient)+";", function (err, result, fiels) {
+            resolve(result);
+        })
+    });
+};
 let DeleteUputnica = function (id) {
     return new Promise((resolve, reject) => {
         connection.query("DELETE FROM ordinacija.uputnica where ID_Uputnica="+mysql.escape(id)+";", function (err, result, fiels) {
@@ -581,6 +588,7 @@ module.exports = {
 
     SelectUputnicaAll: SelectUputnicaAll,
     SelectUputnica: SelectUputnica,
+    SelectUputnicaForPatient: SelectUputnicaForPatient,
     DeleteUputnica: DeleteUputnica,
     InsertUputnica: InsertUputnica,
     UpdateUputnica:UpdateUputnica,

@@ -4,18 +4,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ExpandableListView;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ReferralActivity extends AppCompatActivity {
     ExpandableListAdapter listAdapter;
@@ -30,12 +35,18 @@ public class ReferralActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_referral);
+        userID= Integer.parseInt(getIntent().getStringExtra("userID"));
+        IPAddress=getIntent().getStringExtra("IPAddress");
+        referral=new Referral();
+        _referral_list=new ArrayList<Referral>();
+
+        SelectReferral();
     }
-    public void SelectPrescription()
+    public void SelectReferral()
     {
 
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://"+IPAddress+":3000/SelectReceptForPatient";
+        String url = "http://"+IPAddress+":3000/SelectUputnicaForPatient";
         JsonArrayRequest jsonObjReq = new JsonArrayRequest(Request.Method.GET,
                 url, null,
                 new Response.Listener<JSONArray>() {
@@ -74,7 +85,7 @@ public class ReferralActivity extends AppCompatActivity {
         { @Override
         public Map<String,String> getHeaders() throws AuthFailureError {
             HashMap<String,String> headers = new HashMap();
-            headers.put("patientid", ""+userID+"");
+            headers.put("patient", ""+userID+"");
 
             return headers;
         }

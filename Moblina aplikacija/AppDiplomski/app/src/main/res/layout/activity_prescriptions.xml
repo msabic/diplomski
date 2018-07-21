@@ -6,6 +6,13 @@
     android:layout_height="fill_parent"
     android:orientation="vertical"
     android:background="#f4f4f4">
+    <ImageView
+        android:id="@+id/slika"
+        android:layout_width="match_parent"
+        android:layout_height="148dp"
+        android:maxHeight="100dp"
+        android:minHeight="100dp"
+        app:srcCompat="@drawable/patientinfo"/>
     <ExpandableListView
         android:id="@+id/lvExpp"
         android:layout_height="match_parent"
