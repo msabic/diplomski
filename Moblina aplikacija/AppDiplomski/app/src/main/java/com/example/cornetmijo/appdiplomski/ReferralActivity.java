@@ -98,7 +98,7 @@ public class ReferralActivity extends AppCompatActivity {
         for(int i=0; i<_referral_list.size(); i++)
         {
 
-            listDataHeader.add(_referral_list.get(i).getOpis().toString());
+            listDataHeader.add(_referral_list.get(i).getNaziv().toString());
             List<String> diag_description = new ArrayList<String>();
             diag_description.add(_referral_list.get(i).getOpis().toString());
             listDataChild.put(listDataHeader.get(i),diag_description);

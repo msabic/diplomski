@@ -1,32 +1,29 @@
 package com.example.cornetmijo.appdiplomski;
 
-import java.security.Timestamp;
-import java.sql.Time;
-import java.text.DateFormat;
 import java.util.Date;
 
-public class Prescription {
-    private int ID_Recept;
+public class VisitDoctor {
+    private int ID_Posjet;
+    private String Razlog;
     private Date Datum;
-    private String Naziv;
     private String Opis;
     private int Pacijent_ID_Pacijent;
     private int Pacijent_Doktor_ID_Doktor;
 
-    public String getNaziv() {
-        return Naziv;
+    public int getID_Posjet() {
+        return ID_Posjet;
     }
 
-    public void setNaziv(String naziv) {
-        Naziv = naziv;
+    public void setID_Posjet(int ID_Posjet) {
+        this.ID_Posjet = ID_Posjet;
     }
 
-    public int getID_Recept() {
-        return ID_Recept;
+    public String getRazlog() {
+        return Razlog;
     }
 
-    public void setID_Recept(int ID_Recept) {
-        this.ID_Recept = ID_Recept;
+    public void setRazlog(String razlog) {
+        Razlog = razlog;
     }
 
     public Date getDatum() {
@@ -61,20 +58,20 @@ public class Prescription {
         Pacijent_Doktor_ID_Doktor = pacijent_Doktor_ID_Doktor;
     }
 
-    public Prescription(int ID_Recept,String naziv, Date datum, String opis, int pacijent_ID_Pacijent, int pacijent_Doktor_ID_Doktor) {
-        this.ID_Recept = ID_Recept;
+    public VisitDoctor(int ID_Posjet, String razlog, Date datum, String opis, int pacijent_ID_Pacijent, int pacijent_Doktor_ID_Doktor) {
+        this.ID_Posjet = ID_Posjet;
+        Razlog = razlog;
         Datum = datum;
-        Naziv = naziv;
         Opis = opis;
         Pacijent_ID_Pacijent = pacijent_ID_Pacijent;
         Pacijent_Doktor_ID_Doktor = pacijent_Doktor_ID_Doktor;
     }
-    public Prescription() {
-        this.ID_Recept = 0;
+    public VisitDoctor() {
+        this.ID_Posjet = 0;
+        Razlog = "";
         Datum = new Date(2018,12,15);
-        Naziv="";
         Opis = "";
-        Pacijent_ID_Pacijent = 0;
+        Pacijent_ID_Pacijent =0;
         Pacijent_Doktor_ID_Doktor = 0;
     }
 }

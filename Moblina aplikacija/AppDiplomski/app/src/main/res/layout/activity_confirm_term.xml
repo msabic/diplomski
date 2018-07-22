@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ConfirmTermActivity">
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="match_parent"
+        android:layout_height="124dp"
+        app:srcCompat="@drawable/calendar" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_height="30dp"
+        android:text="Select term for visit doctor!"
+        android:fontFamily="@string/common_google_play_services_enable_button"
+        android:textAlignment="center"
+        android:textSize="24dp"
+
+        android:textColor="#3333ff"/>
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        tools:layout_editor_absoluteY="100dp"
+        tools:layout_editor_absoluteX="8dp"
+        android:paddingTop="5dp">
+    </ListView>
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="confirmed"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"/>
+</LinearLayout>

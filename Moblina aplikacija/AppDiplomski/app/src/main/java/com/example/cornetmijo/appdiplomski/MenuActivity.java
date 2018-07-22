@@ -64,5 +64,27 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        ImageButton btnVisitDoctor= (ImageButton) findViewById(R.id.btnVisitDoctor);
+
+        btnVisitDoctor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MenuActivity.this, VisitDoctorActivity.class);
+                i.putExtra("userID",""+userID+"");
+                i.putExtra("IPAddress",IPAddress);
+                startActivity(i);
+            }
+        });
+        ImageButton btnTerm= (ImageButton) findViewById(R.id.btnTerm);
+
+        btnTerm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MenuActivity.this, TermActivity.class);
+               // i.putExtra("userID",""+userID+"");
+               // i.putExtra("IPAddress",IPAddress);
+                startActivity(i);
+            }
+        });
     }
 }

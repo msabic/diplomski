@@ -317,6 +317,16 @@ app.get('/SelectPosjet', function(req,res) {
 });} else {
 res.status(400).send('Bad Request');
 }})
+app.get('/SelectPosjetForPatient', function(req,res) {
+  if(req.headers.patient ){
+  db.SelectPosjetForPatient(req.headers.patient).then((resoult) => {
+    res.send(resoult);
+  }).catch((err) => {
+    console.log('Error: ', err);
+    res.status(400).send('Bad Request');
+});} else {
+res.status(400).send('Bad Request');
+}})
 app.get('/SelectPosjetAll', function(req,res) {
   db.SelectPosjetAll().then((resoult) => {
     res.send(resoult);
@@ -441,14 +451,14 @@ app.get('/DeleteRecept', function(req,res) {
 res.status(400).send('Bad Request');
 }})
 app.get('/InsertRecept', function(req,res){
-  if(req.headers.date_time && req.headers.description && req.headers.patient && req.headers.doctor){
-    db.InsertRecept(req.headers.date_time,req.headers.description, req.headers.patient, req.headers.doctor).then((resoult)=>{
+  if(req.headers.name, req.headers.date_time && req.headers.description && req.headers.patient && req.headers.doctor){
+    db.InsertRecept(req.headers.name, req.headers.date_time,req.headers.description, req.headers.patient, req.headers.doctor).then((resoult)=>{
       res.send(true);
     }).catch((err)=>{
     console.log('Error; ', err);
-    res.status(400).send('Bad Request');
+    res.status(400).send('Bad Request1');
   });}else{
-    res.status(400).send('Bad Request');
+    res.status(400).send('Bad Request2');
   }})
   app.get('/UpdateRecept', function(req,res){
     if(req.headers.id && req.headers.date_time && req.headers.description && req.headers.patient && req.headers.doctor){

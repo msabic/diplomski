@@ -62,7 +62,7 @@
                 app:srcCompat="@drawable/calendar" />
 
             <ImageButton
-                android:id="@+id/imageButton5"
+                android:id="@+id/btnVisitDoctor"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="245dp"
@@ -110,7 +110,7 @@
                 app:srcCompat="@drawable/calendar" />
 
             <ImageButton
-                android:id="@+id/imageButton"
+                android:id="@+id/btnTerm"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="15dp"

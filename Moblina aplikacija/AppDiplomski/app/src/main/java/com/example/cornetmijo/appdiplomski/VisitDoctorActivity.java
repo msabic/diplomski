@@ -22,30 +22,30 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class PrescriptionsActivity extends AppCompatActivity {
-
+public class VisitDoctorActivity extends AppCompatActivity {
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
-    public static Prescription prescription=new Prescription();
-    public static ArrayList<Prescription> _prescription_list=new ArrayList<>();
+    public static VisitDoctor visitDoctor=new VisitDoctor();
+    public static ArrayList<VisitDoctor> _visitDoctor_list=new ArrayList<>();
     public String IPAddress;
     public int userID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_prescriptions);
+        setContentView(R.layout.activity_visit_doctor);
         userID= Integer.parseInt(getIntent().getStringExtra("userID"));
         IPAddress=getIntent().getStringExtra("IPAddress");
-        prescription=new Prescription();
-        _prescription_list=new ArrayList<Prescription>();
-        SelectPrescription();
+        visitDoctor=new VisitDoctor();
+        _visitDoctor_list=new ArrayList<VisitDoctor>();
+        SelectVisitDoctor();
     }
-    public void SelectPrescription()
+    public void SelectVisitDoctor()
     {
+
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://"+IPAddress+":3000/SelectReceptForPatient";
+        String url = "http://"+IPAddress+":3000/SelectPosjetForPatient";
         JsonArrayRequest jsonObjReq = new JsonArrayRequest(Request.Method.GET,
                 url, null,
                 new Response.Listener<JSONArray>() {
@@ -57,9 +57,9 @@ public class PrescriptionsActivity extends AppCompatActivity {
                             try {
 
                                 JSONObject objectjson=response.getJSONObject(i);
-                                Prescription pres = new Gson().fromJson(objectjson.toString(), Prescription.class);
-                                prescription=pres;
-                                _prescription_list.add(pres);
+                                VisitDoctor visit = new Gson().fromJson(objectjson.toString(), VisitDoctor.class);
+                                visitDoctor=visit;
+                                _visitDoctor_list.add(visit);
                             }
                             catch (JSONException ex)
                             {
@@ -84,7 +84,7 @@ public class PrescriptionsActivity extends AppCompatActivity {
         { @Override
         public Map<String,String> getHeaders() throws AuthFailureError {
             HashMap<String,String> headers = new HashMap();
-            headers.put("patientid", ""+userID+"");
+            headers.put("patient", ""+userID+"");
 
             return headers;
         }
@@ -94,15 +94,15 @@ public class PrescriptionsActivity extends AppCompatActivity {
     private void prepareListData() {
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();
-        for(int i=0; i<_prescription_list.size(); i++)
+        for(int i=0; i<_visitDoctor_list.size(); i++)
         {
 
-            listDataHeader.add(_prescription_list.get(i).getNaziv().toString());
+            listDataHeader.add(_visitDoctor_list.get(i).getRazlog().toString());
             List<String> diag_description = new ArrayList<String>();
-            diag_description.add(_prescription_list.get(i).getOpis().toString());
+            diag_description.add(_visitDoctor_list.get(i).getOpis().toString());
             listDataChild.put(listDataHeader.get(i),diag_description);
         }
-        expListView = (ExpandableListView) findViewById(R.id.lvExpp);
+        expListView = (ExpandableListView)findViewById(R.id.lvExpVisitDoctor);
 
         // preparing list data
 
@@ -112,5 +112,4 @@ public class PrescriptionsActivity extends AppCompatActivity {
         // setting list adapter
         expListView.setAdapter(listAdapter);
     }
-
 }

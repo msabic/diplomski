@@ -25,7 +25,10 @@
         <activity android:name=".DoctorListActivity" />
         <activity android:name=".DoctorViewActivity" />
         <activity android:name=".PrescriptionsActivity" />
-        <activity android:name=".ReferralActivity"></activity>
+        <activity android:name=".ReferralActivity" />
+        <activity android:name=".VisitDoctorActivity" />
+        <activity android:name=".TermActivity" />
+        <activity android:name=".ConfirmTermActivity"></activity>
     </application>
 
 </manifest>

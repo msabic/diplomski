@@ -7,9 +7,9 @@ const base64 = require('base-64');
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : '12345',
+  password : '',
   database :'ordinacija',
-  port : '3306'
+  port : '3309'
 });
 
 
@@ -270,6 +270,13 @@ let SelectPosjet = function (id) {
         })
     });
 };
+let SelectPosjetForPatient = function (patient) {
+    return new Promise((resolve, reject) => {
+        connection.query("SELECT * FROM ordinacija.posjet where Pacijent_ID_Pacijent="+mysql.escape(patient)+";", function (err, result, fiels) {
+            resolve(result);
+        })
+    });
+};
 let DeletePosjet = function (id) {
     return new Promise((resolve, reject) => {
         console.log("DELETE FROM `ordinacija`.`posjet` where ID_Posjet="+mysql.escape(id)+";")
@@ -371,10 +378,10 @@ let DeleteRecept = function (id) {
         })
     });
 };
-let InsertRecept = function (date_time,description,patient,doctor) {
-    console.log("INSERT INTO `ordinacija`.`recept`(`Datum`,`Opis`,`Pacijent_ID_Pacijent`,`Pacijent_Doktor_ID_Doktor`) VALUES ("+mysql.escape(date_time)+", "+mysql.escape(description)+","+mysql.escape(patient)+","+mysql.escape(doctor)+");");
+let InsertRecept = function (name,date_time,description,patient,doctor) {
+    console.log("INSERT INTO `ordinacija`.`recept`(`Naziv`, Datum`,`Opis`,`Pacijent_ID_Pacijent`,`Pacijent_Doktor_ID_Doktor`) VALUES ("+mysql.escape(name)+", "+mysql.escape(date_time)+", "+mysql.escape(description)+","+mysql.escape(patient)+","+mysql.escape(doctor)+");");
        return new Promise((resolve, reject) => {
-           connection.query("INSERT INTO `ordinacija`.`recept`(`Datum`,`Opis`,`Pacijent_ID_Pacijent`,`Pacijent_Doktor_ID_Doktor`) VALUES ("+mysql.escape(date_time)+", "+mysql.escape(description)+","+mysql.escape(patient)+","+mysql.escape(doctor)+");", function (err, result, fiels) {
+           connection.query("INSERT INTO `ordinacija`.`recept`(`Naziv`, `Datum`,`Opis`,`Pacijent_ID_Pacijent`,`Pacijent_Doktor_ID_Doktor`) VALUES ("+mysql.escape(name)+","+mysql.escape(date_time)+", "+mysql.escape(description)+","+mysql.escape(patient)+","+mysql.escape(doctor)+");", function (err, result, fiels) {
             resolve(result);
            })
        });
@@ -565,6 +572,7 @@ module.exports = {
 
     SelectPosjetAll: SelectPosjetAll,
     SelectPosjet: SelectPosjet,
+    SelectPosjetForPatient: SelectPosjetForPatient,
     DeletePosjet: DeletePosjet,
     InsertPosjet:InsertPosjet,
     UpdatePosjet:UpdatePosjet,
