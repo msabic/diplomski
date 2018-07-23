@@ -365,6 +365,7 @@ app.get('/InsertPosjet', function(req,res){
 //////////////////POSJET/////////////////////////////////////
 
 //////////////////////////RADNO_VRIJEME////////////////////////////////////
+
 app.get('/SelectRadnoVrijemeAll', function(req,res) {
   db.SelectRadnoVrijemeAll().then((resoult) => {
     res.send(resoult);
@@ -378,6 +379,16 @@ app.get('/SelectRadnoVrijemeAll', function(req,res) {
       res.status(400).send('Bad Request');
   });} else {
   res.status(400).send('Bad Request');
+  }})
+  app.get('/SelectRadnovrijemeForPatient', function(req,res) {
+    if(req.headers.patient ){
+    db.SelectRadnovrijemeForPatient(req.headers.patient).then((resoult) => {
+      res.send(resoult);
+    }).catch((err) => {
+      console.log('Error: ', err);
+      res.status(400).send('Bad Request1');
+  });} else {
+  res.status(400).send('Bad Request2');
   }})
   app.get('/DeleteRadnoVrijeme', function(req,res) {
     if(req.headers.id){

@@ -81,8 +81,8 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MenuActivity.this, TermActivity.class);
-               // i.putExtra("userID",""+userID+"");
-               // i.putExtra("IPAddress",IPAddress);
+               i.putExtra("userID",""+userID+"");
+               i.putExtra("IPAddress",IPAddress);
                 startActivity(i);
             }
         });

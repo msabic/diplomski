@@ -100,7 +100,7 @@ let DeletePacijent = function (id) {
     });
 };
 let InsertPacijent = function (name,surname,email,password,contact,doctor) {
- //console.log("INSERT INTO `ordinacija`.`pacijent`(`Ime`,`Prezime`,`Email`,`Lozinka`,`Kontakt`,`Aktivan`,`Doktor_ID_Doktor`) VALUES ("+mysql.escape(name)+", "+mysql.escape(surname)+", "+mysql.escape(email)+", "+mysql.escape(password)+", "+mysql.escape(contact)+", '0',"+mysql.escape(doktor)+");")
+ console.log("INSERT INTO `ordinacija`.`pacijent`(`Ime`,`Prezime`,`Email`,`Lozinka`,`Kontakt`,`Aktivan`,`Doktor_ID_Doktor`) VALUES ("+mysql.escape(name)+", "+mysql.escape(surname)+", "+mysql.escape(email)+", "+mysql.escape(password)+", "+mysql.escape(contact)+", '0',"+mysql.escape(doktor)+");")
     return new Promise((resolve, reject) => {
         connection.query("INSERT INTO `ordinacija`.`pacijent`(`Ime`,`Prezime`,`Email`,`Lozinka`,`Kontakt`,`Aktivan`,`Doktor_ID_Doktor`) VALUES ("+mysql.escape(name)+", "+mysql.escape(surname)+", "+mysql.escape(email)+", "+mysql.escape(password)+", "+mysql.escape(contact)+", '0',"+mysql.escape(doctor)+");", function (err, result, fiels) {
          resolve(result);
@@ -109,7 +109,7 @@ let InsertPacijent = function (name,surname,email,password,contact,doctor) {
 };
 
 let UpdatePacijent = function (id,name,surname,email,contact,doctor,active) {
-  //console.log("INSERT INTO `ordinacija`.`pacijent`(`Ime`,`Prezime`,`Email`,`Lozinka`,`Kontakt`,`Aktivan`,`Doktor_ID_Doktor`) VALUES ("+mysql.escape(name)+", "+mysql.escape(surname)+", "+mysql.escape(email)+", "+mysql.escape(contact)+", '0',"+mysql.escape(doktor)+");")
+  console.log("INSERT INTO `ordinacija`.`pacijent`(`Ime`,`Prezime`,`Email`,`Lozinka`,`Kontakt`,`Aktivan`,`Doktor_ID_Doktor`) VALUES ("+mysql.escape(name)+", "+mysql.escape(surname)+", "+mysql.escape(email)+", "+mysql.escape(contact)+", '0',"+mysql.escape(doktor)+");")
        return new Promise((resolve, reject) => {
            connection.query("UPDATE  `ordinacija`.`pacijent` SET `Ime` = "+mysql.escape(name)+",`Prezime` = "+mysql.escape(surname)+",`Email` = "+mysql.escape(email)+", `Kontakt` = "+mysql.escape(contact)+",`Aktivan` = "+mysql.escape(active)+",`Doktor_ID_Doktor` = "+mysql.escape(doctor)+" WHERE `ID_Pacijent` = "+mysql.escape(id)+";", function (err, result, fiels) {
             resolve(result);
@@ -321,6 +321,17 @@ let SelectRadnovrijeme = function (id) {
         })
     });
 };
+let SelectRadnovrijemeForPatient = function (patient) {
+    //console.log("SELECT * FROM ordinacija.radno_vrijeme where ID_Radno_vrijeme="+mysql.escape(connection.query("select Radno_vrijeme_ID_Radno_vrijeme from ordinacija.doktor where  ID_Doktor="+mysql.escape(connection.query("select Doktor_ID_Doktor from ordinacija.pacijent where ID_Pacijent="+mysql.escape(patient))+";"))+";")+";");
+    console.log("select * from radno_vrijeme where ID_Radno_vrijeme=(select Radno_vrijeme_ID_Radno_vrijeme from ordinacija.doktor where ID_Doktor=(select Doktor_ID_Doktor from ordinacija.pacijent where ID_Pacijent="+mysql.escape(patient)+"));");
+    return new Promise((resolve, reject) => {
+        connection.query("select * from radno_vrijeme where ID_Radno_vrijeme=(select Radno_vrijeme_ID_Radno_vrijeme from ordinacija.doktor where ID_Doktor=(select Doktor_ID_Doktor from ordinacija.pacijent where ID_Pacijent="+mysql.escape(patient)+"));", function (err, result, fiels) {
+            resolve(result);
+            
+        })
+       
+    });
+};
 let DeleteRadnoVrijeme = function (id) {
     return new Promise((resolve, reject) => {
         connection.query("DELETE FROM `ordinacija`.`radno_vrijeme`WHERE ID_Radno_vrijeme="+mysql.escape(id)+";", function (err, result, fiels) {
@@ -378,7 +389,7 @@ let DeleteRecept = function (id) {
         })
     });
 };
-let InsertRecept = function (name,date_time,description,patient,doctor) {
+let InsertRecept = function (name, date_time,description,patient,doctor) {
     console.log("INSERT INTO `ordinacija`.`recept`(`Naziv`, Datum`,`Opis`,`Pacijent_ID_Pacijent`,`Pacijent_Doktor_ID_Doktor`) VALUES ("+mysql.escape(name)+", "+mysql.escape(date_time)+", "+mysql.escape(description)+","+mysql.escape(patient)+","+mysql.escape(doctor)+");");
        return new Promise((resolve, reject) => {
            connection.query("INSERT INTO `ordinacija`.`recept`(`Naziv`, `Datum`,`Opis`,`Pacijent_ID_Pacijent`,`Pacijent_Doktor_ID_Doktor`) VALUES ("+mysql.escape(name)+","+mysql.escape(date_time)+", "+mysql.escape(description)+","+mysql.escape(patient)+","+mysql.escape(doctor)+");", function (err, result, fiels) {
@@ -527,7 +538,7 @@ let Login = function (email, password) {
 
 
 let ChangePasswordPacijent = function (id,password) {
-    //console.log("INSERT INTO `ordinacija`.`pacijent`(`Ime`,`Prezime`,`Email`,`Lozinka`,`Kontakt`,`Aktivan`,`Doktor_ID_Doktor`) VALUES ("+mysql.escape(name)+", "+mysql.escape(surname)+", "+mysql.escape(email)+", "+mysql.escape(contact)+", '0',"+mysql.escape(doktor)+");")
+    console.log("INSERT INTO `ordinacija`.`pacijent`(`Ime`,`Prezime`,`Email`,`Lozinka`,`Kontakt`,`Aktivan`,`Doktor_ID_Doktor`) VALUES ("+mysql.escape(name)+", "+mysql.escape(surname)+", "+mysql.escape(email)+", "+mysql.escape(contact)+", '0',"+mysql.escape(doktor)+");")
          return new Promise((resolve, reject) => {
              connection.query("UPDATE  `ordinacija`.`pacijent` SET `Lozinka` = "+mysql.escape(md5(password))+",`Aktivan` = '1' WHERE `ID_Pacijent` = "+mysql.escape(id)+";", function (err, result, fiels) {
               resolve(result);
@@ -579,6 +590,7 @@ module.exports = {
 
     SelectRadnoVrijemeAll: SelectRadnoVrijemeAll,
     SelectRadnovrijeme:SelectRadnovrijeme,
+    SelectRadnovrijemeForPatient:SelectRadnovrijemeForPatient,
     DeleteRadnoVrijeme: DeleteRadnoVrijeme,
     InsertRadnoVrijeme:InsertRadnoVrijeme,
     UpdateRadnoVrijeme:UpdateRadnoVrijeme,
