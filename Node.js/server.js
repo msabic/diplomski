@@ -581,6 +581,16 @@ app.get('/SelectZakazaniTermin', function(req,res) {
 });} else {
 res.status(400).send('Bad Request');
 }})
+app.get('/SelectZakazaniTerminForDate', function(req,res) {
+  if(req.headers.datum && req.headers.doctor ){
+  db.SelectZakazaniTerminForDate(req.headers.datum, req.headers.doctor).then((resoult) => {
+    res.send(resoult);
+  }).catch((err) => {
+    console.log('Error: ', err);
+    res.status(400).send('Bad Request');
+});} else {
+res.status(400).send('Bad Request');
+}})
 app.get('/SelectZakazaniTerminAll', function(req,res) {
   db.SelectZakazaniTerminAll().then((resoult) => {
     res.send(resoult);

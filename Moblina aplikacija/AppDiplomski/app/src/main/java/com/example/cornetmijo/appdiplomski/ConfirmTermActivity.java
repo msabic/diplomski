@@ -48,14 +48,17 @@ public class ConfirmTermActivity extends AppCompatActivity {
     public static Integer[] imgid = new Integer[1];
     public static List<Time> timesAM ;
     public static List<Time> timesPM ;
+    public static AgreedTerm agreedTerm;
+    public static List<AgreedTerm> _agreedTerm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm_term);
         String d=getIntent().getStringExtra("date");
-
+        _agreedTerm=new ArrayList<AgreedTerm>();
+        agreedTerm= new AgreedTerm();
         pDay=Integer.parseInt(d.split(",")[2]);
-        pMonth=Integer.parseInt(d.split(",")[1]);
+        pMonth=Integer.parseInt(d.split(",")[1])+1;
         pYear=Integer.parseInt(d.split(",")[0]);
         date=new Date(Integer.parseInt(d.split(",")[0]),Integer.parseInt(d.split(",")[1])+1,Integer.parseInt(d.split(",")[1]));
         itemname[0]="a";
@@ -121,6 +124,7 @@ public class ConfirmTermActivity extends AppCompatActivity {
         timesPM.add(new Time(19,15,00));
         timesPM.add(new Time(19,30,00));
         timesPM.add(new Time(19,45,00));
+        SelectTermForDoctor();
         SelectDoctor();
     }
     public void SelectDoctor()
@@ -140,38 +144,36 @@ public class ConfirmTermActivity extends AppCompatActivity {
                                 JSONObject objectjson=response.getJSONObject(0);
                                 WorkingTime wt = new Gson().fromJson(objectjson.toString(), WorkingTime.class);
                                 workingTime=wt;
-
                             }
                             catch (JSONException ex)
                             {
-
                             }
                             finally {
                                // prepareListData();
-                                int f=0;
+                                boolean parni=false;
+                                boolean neparni=false;
                                 if(workingTime.getParni_Neparni().toString().equalsIgnoreCase("Parni") && workingTime.getJutro_Posljepodne().equalsIgnoreCase("Jutro"))
-                                { f=1;}
+                                { parni=true; neparni=false;}
                                 if(workingTime.getParni_Neparni().toString().equalsIgnoreCase("Neparni") && workingTime.getJutro_Posljepodne().equalsIgnoreCase("Jutro"))
-                                { f=2;}
+                                {parni=false; neparni=true;}
                                 if(workingTime.getParni_Neparni().toString().equalsIgnoreCase("Parni") && workingTime.getJutro_Posljepodne().equalsIgnoreCase("Posljepodne"))
-                                { f=3;}
+                                {parni=false; neparni=true;}
                                 if(workingTime.getParni_Neparni().toString().equalsIgnoreCase("Neparni") && workingTime.getJutro_Posljepodne().equalsIgnoreCase("Posljepodne"))
-                                { f=4;}
+                                { parni=true; neparni=false;}
                                 if(pDay%2==0)
                                 {
-                                    if(f==1)   {
-                                    //jutranji
-                                    itemname=new String[timesAM.size()];
-                                    imgid=new Integer[timesAM.size()];
-                                    for(int j =0; j<timesAM.size(); j++)
+                                    if(parni)
                                     {
-                                        itemname[j]=timesAM.get(j).toString();
-                                        imgid[j]=R.drawable.ic_person;
-                                    }
+                                        itemname=new String[timesAM.size()];
+                                        imgid=new Integer[timesAM.size()];
+                                        for(int j =0; j<timesAM.size(); j++)
+                                        {
+                                            itemname[j]=timesAM.get(j).toString();
+                                            imgid[j]=R.drawable.ic_person;
+                                        }
                                     }
                                     else
                                     {
-                                        //posljepoden
                                         itemname=new String[timesPM.size()];
                                         imgid=new Integer[timesPM.size()];
                                         for(int j =0; j<timesPM.size(); j++)
@@ -183,8 +185,8 @@ public class ConfirmTermActivity extends AppCompatActivity {
                                 }
                                 else
                                 {
-                                    if(f==2)   {
-                                        //jutranji
+                                    if(neparni)
+                                    {
                                         itemname=new String[timesAM.size()];
                                         imgid=new Integer[timesAM.size()];
                                         for(int j =0; j<timesAM.size(); j++)
@@ -195,7 +197,6 @@ public class ConfirmTermActivity extends AppCompatActivity {
                                     }
                                     else
                                     {
-                                        //posljepoden
                                         itemname=new String[timesPM.size()];
                                         imgid=new Integer[timesPM.size()];
                                         for(int j =0; j<timesPM.size(); j++)
@@ -205,30 +206,6 @@ public class ConfirmTermActivity extends AppCompatActivity {
                                         }
                                     }
                                 }
-
-//                                if((pDay%2==0 && f==3) || (pDay!=0 && f==4))
-//                                {
-//                                    //posljepoden
-//                                    itemname=new String[timesPM.size()];
-//                                    imgid=new Integer[timesPM.size()];
-//                                    for(int j =0; j<timesPM.size(); j++)
-//                                    {
-//                                        itemname[j]=timesPM.get(j).toString();
-//                                        imgid[j]=R.drawable.ic_person;
-//                                    }
-//                                }
-//                                else
-//                                {
-//                                    //jutranji
-//                                    itemname=new String[timesAM.size()];
-//                                    imgid=new Integer[timesAM.size()];
-//                                    for(int j =0; j<timesAM.size(); j++)
-//                                    {
-//                                        itemname[j]=timesAM.get(j).toString();
-//                                        imgid[j]=R.drawable.ic_person;
-//                                    }
-//                                }
-
                                 adapter=new DoctorList(confirmTermActivity, itemname, imgid);
                                 AddListeners();
                             }
@@ -255,7 +232,55 @@ public class ConfirmTermActivity extends AppCompatActivity {
         };
         queue.add(jsonObjReq);
     }
+    public void SelectTermForDoctor()
+    {
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url = "http://"+IPAddress+":3000/SelectZakazaniTerminForDate";
+        JsonArrayRequest jsonObjReq = new JsonArrayRequest(Request.Method.GET,
+                url, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        for(int i=0; i<response.length(); i++)
+                        {
+                            Gson gson = new Gson();
+                            try {
 
+                                JSONObject objectjson=response.getJSONObject(i);
+                                AgreedTerm agreedT= new Gson().fromJson(objectjson.toString(), AgreedTerm.class);
+                                agreedTerm=agreedT;
+                                _agreedTerm.add(agreedT);
+                            }
+                            catch (JSONException ex)
+                            {
+
+                            }
+                            finally {
+
+                            }
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                        //Failure Callback
+                        System.out.println("FAILLL BABAC: " + error);
+                    }
+                })
+
+        { @Override
+        public Map<String,String> getHeaders() throws AuthFailureError {
+            HashMap<String,String> headers = new HashMap();
+            headers.put("doctor", ""+30+"");
+            headers.put("datum", ""+pYear+"-"+pMonth+"-"+pDay);
+            return headers;
+        }
+        };
+        queue.add(jsonObjReq);
+    }
     public void AddListeners(){
         list=(ListView)findViewById(R.id.list);
         list.setAdapter(adapter);

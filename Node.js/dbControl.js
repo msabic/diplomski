@@ -7,9 +7,9 @@ const base64 = require('base-64');
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : '',
+  password : '12345',
   database :'ordinacija',
-  port : '3309'
+  port : '3306'
 });
 
 
@@ -499,6 +499,14 @@ let SelectZakazaniTermin = function (id) {
         })
     });
 };
+let SelectZakazaniTerminForDate = function (datum, doctor) {
+    console.log("SELECT * FROM ordinacija.zakazani_termin where Pacijent_Doktor_ID_Doktor="+mysql.escape(doctor)+" and Datum="+mysql.escape(datum)+";");
+    return new Promise((resolve, reject) => {
+        connection.query("SELECT * FROM ordinacija.zakazani_termin where Pacijent_Doktor_ID_Doktor="+mysql.escape(doctor)+" and Datum="+mysql.escape(datum)+";", function (err, result, fiels) {
+            resolve(result);
+        })
+    });
+};
 let DeleteZakazaniTermin = function (id) {
     return new Promise((resolve, reject) => {
         connection.query("DELETE FROM ordinacija.zakazani_termin where ID_Zakazani_termin="+mysql.escape(id)+";", function (err, result, fiels) {
@@ -615,6 +623,7 @@ module.exports = {
 
     SelectZakazaniTerminAll: SelectZakazaniTerminAll,
     SelectZakazaniTermin: SelectZakazaniTermin,
+    SelectZakazaniTerminForDate:SelectZakazaniTerminForDate,
     DeleteZakazaniTermin: DeleteZakazaniTermin,
     InsertZakazaniTermini:InsertZakazaniTermini,
     UpdateZakazaniTermini,UpdateZakazaniTermini,
