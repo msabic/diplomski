@@ -34,6 +34,7 @@ public class ConfirmTermActivity extends AppCompatActivity {
     public String IPAddress;
     public int userID;
     public Date date;
+    public static boolean jutro=false;
     public static int pYear;
     public static int pDay;
     public static int pMonth;
@@ -124,8 +125,56 @@ public class ConfirmTermActivity extends AppCompatActivity {
         timesPM.add(new Time(19,15,00));
         timesPM.add(new Time(19,30,00));
         timesPM.add(new Time(19,45,00));
-        SelectTermForDoctor();
         SelectDoctor();
+
+        SelectTermForDoctor();
+
+
+    }
+    public void PrintListForReervation()
+    {
+        if(!jutro)
+        {
+        for(int i=0; i<_agreedTerm.size(); i++)
+        {
+            for(int j =0 ; j<timesPM.size(); j++)
+            {
+                if(_agreedTerm.get(i).getVrijeme().equalsIgnoreCase(timesPM.get(j).toString()))
+                {
+                    timesPM.remove(j);
+                }
+            }
+
+        }
+            itemname=new String[timesPM.size()];
+            imgid=new Integer[timesPM.size()];
+            for(int j =0; j<timesPM.size(); j++)
+            {
+                itemname[j]=timesPM.get(j).toString();
+                imgid[j]=R.drawable.ic_person;
+            }
+        }
+        else {
+            for(int i=0; i<_agreedTerm.size(); i++)
+            {
+                for(int j =0 ; j<timesAM.size(); j++)
+                {
+                    if(_agreedTerm.get(i).getVrijeme().equalsIgnoreCase(timesAM.get(j).toString()))
+                    {
+                        timesAM.remove(j);
+                    }
+                }
+            }
+            itemname=new String[timesAM.size()];
+            imgid=new Integer[timesAM.size()];
+            for(int j =0; j<timesAM.size(); j++)
+            {
+                itemname[j]=timesAM.get(j).toString();
+                imgid[j]=R.drawable.ic_person;
+            }
+        }
+        adapter=new DoctorList(confirmTermActivity, itemname, imgid);
+        AddListeners();
     }
     public void SelectDoctor()
     {
@@ -164,50 +213,54 @@ public class ConfirmTermActivity extends AppCompatActivity {
                                 {
                                     if(parni)
                                     {
-                                        itemname=new String[timesAM.size()];
-                                        imgid=new Integer[timesAM.size()];
-                                        for(int j =0; j<timesAM.size(); j++)
-                                        {
-                                            itemname[j]=timesAM.get(j).toString();
-                                            imgid[j]=R.drawable.ic_person;
-                                        }
+                                        jutro=true;
+//                                        itemname=new String[timesAM.size()];
+//                                        imgid=new Integer[timesAM.size()];
+//                                        for(int j =0; j<timesAM.size(); j++)
+//                                        {
+//                                            itemname[j]=timesAM.get(j).toString();
+//                                            imgid[j]=R.drawable.ic_person;
+//                                        }
                                     }
                                     else
                                     {
-                                        itemname=new String[timesPM.size()];
-                                        imgid=new Integer[timesPM.size()];
-                                        for(int j =0; j<timesPM.size(); j++)
-                                        {
-                                            itemname[j]=timesPM.get(j).toString();
-                                            imgid[j]=R.drawable.ic_person;
-                                        }
+                                        jutro=false;
+//                                        itemname=new String[timesPM.size()];
+//                                        imgid=new Integer[timesPM.size()];
+//                                        for(int j =0; j<timesPM.size(); j++)
+//                                        {
+//                                            itemname[j]=timesPM.get(j).toString();
+//                                            imgid[j]=R.drawable.ic_person;
+//                                        }
                                     }
                                 }
                                 else
                                 {
                                     if(neparni)
                                     {
-                                        itemname=new String[timesAM.size()];
-                                        imgid=new Integer[timesAM.size()];
-                                        for(int j =0; j<timesAM.size(); j++)
-                                        {
-                                            itemname[j]=timesAM.get(j).toString();
-                                            imgid[j]=R.drawable.ic_person;
-                                        }
+                                        jutro=true;
+//                                        itemname=new String[timesAM.size()];
+//                                        imgid=new Integer[timesAM.size()];
+//                                        for(int j =0; j<timesAM.size(); j++)
+//                                        {
+//                                            itemname[j]=timesAM.get(j).toString();
+//                                            imgid[j]=R.drawable.ic_person;
+//                                        }
                                     }
                                     else
                                     {
-                                        itemname=new String[timesPM.size()];
-                                        imgid=new Integer[timesPM.size()];
-                                        for(int j =0; j<timesPM.size(); j++)
-                                        {
-                                            itemname[j]=timesPM.get(j).toString();
-                                            imgid[j]=R.drawable.ic_person;
-                                        }
+                                        jutro=false;
+//                                        itemname=new String[timesPM.size()];
+//                                        imgid=new Integer[timesPM.size()];
+//                                        for(int j =0; j<timesPM.size(); j++)
+//                                        {
+//                                            itemname[j]=timesPM.get(j).toString();
+//                                            imgid[j]=R.drawable.ic_person;
+//                                        }
                                     }
                                 }
-                                adapter=new DoctorList(confirmTermActivity, itemname, imgid);
-                                AddListeners();
+//                                adapter=new DoctorList(confirmTermActivity, itemname, imgid);
+//                                AddListeners();
                             }
                         }
 
@@ -256,8 +309,33 @@ public class ConfirmTermActivity extends AppCompatActivity {
 
                             }
                             finally {
-
+                                PrintListForReervation();
                             }
+                        }
+                        if(response.length()<=0)
+                        {
+                            if(jutro)
+                            {
+                                itemname=new String[timesAM.size()];
+                                imgid=new Integer[timesAM.size()];
+                                for(int j =0; j<timesAM.size(); j++)
+                                {
+                                    itemname[j]=timesAM.get(j).toString();
+                                    imgid[j]=R.drawable.ic_person;
+                                }
+                            }
+                            else
+                            {
+                                itemname=new String[timesPM.size()];
+                                imgid=new Integer[timesPM.size()];
+                                for(int j =0; j<timesPM.size(); j++)
+                                {
+                                    itemname[j]=timesPM.get(j).toString();
+                                    imgid[j]=R.drawable.ic_person;
+                                }
+                            }
+                                    adapter=new DoctorList(confirmTermActivity, itemname, imgid);
+                                    AddListeners();
                         }
 
                     }

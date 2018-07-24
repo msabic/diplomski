@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: ordinacija
 -- ------------------------------------------------------
--- Server version	5.7.20-log
+-- Server version	5.7.19
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `dijagnoza`;
 CREATE TABLE `dijagnoza` (
   `ID_Dijagnoza` int(11) NOT NULL AUTO_INCREMENT,
   `Naziv` varchar(45) NOT NULL,
-  `Opis` varchar(500) NOT NULL,
+  `Opis` varchar(1000) NOT NULL,
   `Pacijent_ID_Pacijent` int(11) NOT NULL,
   `Pacijent_Doktor_ID_Doktor` int(11) NOT NULL,
   PRIMARY KEY (`ID_Dijagnoza`,`Pacijent_ID_Pacijent`,`Pacijent_Doktor_ID_Doktor`)
@@ -38,7 +38,7 @@ CREATE TABLE `dijagnoza` (
 
 LOCK TABLES `dijagnoza` WRITE;
 /*!40000 ALTER TABLE `dijagnoza` DISABLE KEYS */;
-INSERT INTO `dijagnoza` VALUES (1,'Dijagnoza','Here mylist got cleared, the references to the elements held by it got nulled out, but it keeps the same backing array. Then mylist was reinitialized and got a new backing array, the old one got GCed. So one way holds onto memory, the other one throws out its memory and gets reallocated from scratch (with the default capacity).',8,30),(2,'Dijagnoza','Opis',8,32),(3,'Dijagnoza','Opis',8,32),(4,'Dijagnoza','Opis',8,32),(5,'Dijagnoza','Opis',8,32),(6,'Dijagnoza','Opis',8,32),(7,'Dijagnoza','Opis',8,32),(8,'Dijagnoza','Opis',8,32),(9,'Dijagnoza','Opis',8,32),(10,'Dijagnoza','Opis',8,32),(11,'Dijagnoza','Opis',8,32);
+INSERT INTO `dijagnoza` VALUES (1,'Dijagnoza','Here mylist got cleared, the references to the elements held by it got nulled out, but it keeps the same backing array. Then mylist was reinitialized and got a new backing array, the old one got GCed. So one way holds onto memory, the other one throws out its memory and gets reallocated from scratch (with the default capacity).',8,30),(2,'Dijagnoza','Up branch to easily missed by do. Admiration considered acceptance too led one melancholy expression. Are will took form the nor true. Winding enjoyed minuter her letters evident use eat colonel. He attacks observe mr cottage inquiry am examine gravity. Are dear but near left was. Year kept on over so as this of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued. Was drawing natural fat respect husband. An as noisy an offer drawn blush place. These tried for way joy wrote witty. In mr began music weeks after at begin. Education no dejection so direction pretended household do to. Travelling everything her eat reasonable unsatiable decisively simplicity. Morning request be lasting it fortune demands highest of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued.',8,32),(3,'Dijagnoza','Up branch to easily missed by do. Admiration considered acceptance too led one melancholy expression. Are will took form the nor true. Winding enjoyed minuter her letters evident use eat colonel. He attacks observe mr cottage inquiry am examine gravity. Are dear but near left was. Year kept on over so as this of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued. Was drawing natural fat respect husband. An as noisy an offer drawn blush place. These tried for way joy wrote witty. In mr began music weeks after at begin. Education no dejection so direction pretended household do to. Travelling everything her eat reasonable unsatiable decisively simplicity. Morning request be lasting it fortune demands highest of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued.',8,32),(4,'Dijagnoza','Up branch to easily missed by do. Admiration considered acceptance too led one melancholy expression. Are will took form the nor true. Winding enjoyed minuter her letters evident use eat colonel. He attacks observe mr cottage inquiry am examine gravity. Are dear but near left was. Year kept on over so as this of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued. Was drawing natural fat respect husband. An as noisy an offer drawn blush place. These tried for way joy wrote witty. In mr began music weeks after at begin. Education no dejection so direction pretended household do to. Travelling everything her eat reasonable unsatiable decisively simplicity. Morning request be lasting it fortune demands highest of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued.',8,32),(5,'Dijagnoza','Up branch to easily missed by do. Admiration considered acceptance too led one melancholy expression. Are will took form the nor true. Winding enjoyed minuter her letters evident use eat colonel. He attacks observe mr cottage inquiry am examine gravity. Are dear but near left was. Year kept on over so as this of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued. Was drawing natural fat respect husband. An as noisy an offer drawn blush place. These tried for way joy wrote witty. In mr began music weeks after at begin. Education no dejection so direction pretended household do to. Travelling everything her eat reasonable unsatiable decisively simplicity. Morning request be lasting it fortune demands highest of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued.',8,32),(6,'Dijagnoza','Up branch to easily missed by do. Admiration considered acceptance too led one melancholy expression. Are will took form the nor true. Winding enjoyed minuter her letters evident use eat colonel. He attacks observe mr cottage inquiry am examine gravity. Are dear but near left was. Year kept on over so as this of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued. Was drawing natural fat respect husband. An as noisy an offer drawn blush place. These tried for way joy wrote witty. In mr began music weeks after at begin. Education no dejection so direction pretended household do to. Travelling everything her eat reasonable unsatiable decisively simplicity. Morning request be lasting it fortune demands highest of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued.',8,32),(7,'Dijagnoza','Up branch to easily missed by do. Admiration considered acceptance too led one melancholy expression. Are will took form the nor true. Winding enjoyed minuter her letters evident use eat colonel. He attacks observe mr cottage inquiry am examine gravity. Are dear but near left was. Year kept on over so as this of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued. Was drawing natural fat respect husband. An as noisy an offer drawn blush place. These tried for way joy wrote witty. In mr began music weeks after at begin. Education no dejection so direction pretended household do to. Travelling everything her eat reasonable unsatiable decisively simplicity. Morning request be lasting it fortune demands highest of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued.',8,32),(8,'Dijagnoza','Up branch to easily missed by do. Admiration considered acceptance too led one melancholy expression. Are will took form the nor true. Winding enjoyed minuter her letters evident use eat colonel. He attacks observe mr cottage inquiry am examine gravity. Are dear but near left was. Year kept on over so as this of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued. Was drawing natural fat respect husband. An as noisy an offer drawn blush place. These tried for way joy wrote witty. In mr began music weeks after at begin. Education no dejection so direction pretended household do to. Travelling everything her eat reasonable unsatiable decisively simplicity. Morning request be lasting it fortune demands highest of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued.',8,32),(9,'Dijagnoza','Up branch to easily missed by do. Admiration considered acceptance too led one melancholy expression. Are will took form the nor true. Winding enjoyed minuter her letters evident use eat colonel. He attacks observe mr cottage inquiry am examine gravity. Are dear but near left was. Year kept on over so as this of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued. Was drawing natural fat respect husband. An as noisy an offer drawn blush place. These tried for way joy wrote witty. In mr began music weeks after at begin. Education no dejection so direction pretended household do to. Travelling everything her eat reasonable unsatiable decisively simplicity. Morning request be lasting it fortune demands highest of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued.',8,32),(10,'Dijagnoza','Up branch to easily missed by do. Admiration considered acceptance too led one melancholy expression. Are will took form the nor true. Winding enjoyed minuter her letters evident use eat colonel. He attacks observe mr cottage inquiry am examine gravity. Are dear but near left was. Year kept on over so as this of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued. Was drawing natural fat respect husband. An as noisy an offer drawn blush place. These tried for way joy wrote witty. In mr began music weeks after at begin. Education no dejection so direction pretended household do to. Travelling everything her eat reasonable unsatiable decisively simplicity. Morning request be lasting it fortune demands highest of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued.',8,32),(11,'Dijagnoza','Up branch to easily missed by do. Admiration considered acceptance too led one melancholy expression. Are will took form the nor true. Winding enjoyed minuter her letters evident use eat colonel. He attacks observe mr cottage inquiry am examine gravity. Are dear but near left was. Year kept on over so as this of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued. Was drawing natural fat respect husband. An as noisy an offer drawn blush place. These tried for way joy wrote witty. In mr began music weeks after at begin. Education no dejection so direction pretended household do to. Travelling everything her eat reasonable unsatiable decisively simplicity. Morning request be lasting it fortune demands highest of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued.',8,32);
 /*!40000 ALTER TABLE `dijagnoza` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -145,7 +145,7 @@ CREATE TABLE `pacijent_dodatno` (
   `Pusac` tinyint(4) NOT NULL,
   `Pacijent_ID_Pacijent` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`ID_Pacijent_dodatno`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -154,7 +154,7 @@ CREATE TABLE `pacijent_dodatno` (
 
 LOCK TABLES `pacijent_dodatno` WRITE;
 /*!40000 ALTER TABLE `pacijent_dodatno` DISABLE KEYS */;
-INSERT INTO `pacijent_dodatno` VALUES (1,'Mate','Milena','K. Tomislava','123123','321321','123321','da',0,NULL),(3,'MM','mm','mm','mmm','mm','mm','Ozenjen',1,NULL),(4,'hjk','jjm','G','5','5','5','ne ozenjen',0,NULL),(5,'Mate','Milena','K. Tomislava 55','021840362','0994089598','0502994368800','ne ozenjen',1,'9'),(6,'mijo','mijo','Mijo','9999','9999','9999','ozenjen',1,'9'),(7,'h','h','C','9','9','7','ozenjen',1,'9'),(8,'jkk','jbn','Vv','9','0','8','ozenjen',1,'9'),(9,'mijo','mijo','Mijo','9','9','7','ozenjen',1,'8'),(10,'mmn','bnj','Hhh','6','9','7','ozenjen',1,'8'),(11,'jhgh','hjk','Ghj','69','99','8','ne ozenjen',0,'8'),(12,'hh','hh','Vh','96','99','85','ozenjen',0,'8'),(13,'bhg','h','H.','6','9','5','ozenjen',1,'8'),(14,'h','h','J','9','9','8','ozenjen',1,'8'),(15,'mijo','nb','Jj','6','9','7','ne ozenjen',0,'8'),(16,'hv','hb','Bb','//6','88','5','ne ozenjen',0,'8'),(17,'hhh','h','H','6','9','5','ne ozenjen',0,'8'),(18,'manda','manda','Manda','7965488','8547','8855','ozenjen',1,'8'),(19,'manda','manda','Manda','99','888','855','ozenjen',1,'8'),(20,'nmana','nsbsja','Hahaha','6494','9464','888','ozenjen',1,'8'),(21,'Mate','Milena','Zmijavci','021840362','063272486','0502994380066','ozenjen',1,'8'),(22,'b','j','H','9','8','8','ozenjen',1,'8'),(23,'mte','milena','Zmija','8679','8454','554','ozenjen',1,'8'),(24,'mate','milena','Zmijavci','986598','989797','8557885','ozenjen',1,'8'),(25,'mate','milena','Zmijavci','97975','494654','85882','ozenjen',1,'8');
+INSERT INTO `pacijent_dodatno` VALUES (1,'Mate','Milena','K. Tomislava','123123','321321','123321','da',0,NULL),(3,'MM','mm','mm','mmm','mm','mm','Ozenjen',1,NULL),(4,'hjk','jjm','G','5','5','5','ne ozenjen',0,NULL),(5,'Mate','Milena','K. Tomislava 55','021840362','0994089598','0502994368800','ne ozenjen',1,'9'),(6,'mijo','mijo','Mijo','9999','9999','9999','ozenjen',1,'9'),(7,'h','h','C','9','9','7','ozenjen',1,'9'),(8,'jkk','jbn','Vv','9','0','8','ozenjen',1,'9'),(9,'mijo','mijo','Mijo','9','9','7','ozenjen',1,'8'),(10,'mmn','bnj','Hhh','6','9','7','ozenjen',1,'8'),(11,'jhgh','hjk','Ghj','69','99','8','ne ozenjen',0,'8'),(12,'hh','hh','Vh','96','99','85','ozenjen',0,'8'),(13,'bhg','h','H.','6','9','5','ozenjen',1,'8'),(14,'h','h','J','9','9','8','ozenjen',1,'8'),(15,'mijo','nb','Jj','6','9','7','ne ozenjen',0,'8'),(16,'hv','hb','Bb','//6','88','5','ne ozenjen',0,'8'),(17,'hhh','h','H','6','9','5','ne ozenjen',0,'8'),(18,'manda','manda','Manda','7965488','8547','8855','ozenjen',1,'8'),(19,'manda','manda','Manda','99','888','855','ozenjen',1,'8'),(20,'nmana','nsbsja','Hahaha','6494','9464','888','ozenjen',1,'8'),(21,'Mate','Milena','Zmijavci','021840362','063272486','0502994380066','ozenjen',1,'8'),(22,'b','j','H','9','8','8','ozenjen',1,'8'),(23,'mte','milena','Zmija','8679','8454','554','ozenjen',1,'8'),(24,'mate','milena','Zmijavci','986598','989797','8557885','ozenjen',1,'8'),(25,'mate','milena','Zmijavci','97975','494654','85882','ozenjen',1,'8'),(26,'m','y','D','9','8','8','ozenjen',1,'8');
 /*!40000 ALTER TABLE `pacijent_dodatno` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -169,7 +169,7 @@ CREATE TABLE `posjet` (
   `ID_Posjet` int(11) NOT NULL AUTO_INCREMENT,
   `Datum` date NOT NULL,
   `Razlog` varchar(100) NOT NULL,
-  `Opis` varchar(500) NOT NULL,
+  `Opis` varchar(1000) NOT NULL,
   `Pacijent_ID_Pacijent` int(11) NOT NULL,
   `Pacijent_Doktor_ID_Doktor` int(11) NOT NULL,
   PRIMARY KEY (`ID_Posjet`,`Pacijent_ID_Pacijent`,`Pacijent_Doktor_ID_Doktor`)
@@ -182,7 +182,7 @@ CREATE TABLE `posjet` (
 
 LOCK TABLES `posjet` WRITE;
 /*!40000 ALTER TABLE `posjet` DISABLE KEYS */;
-INSERT INTO `posjet` VALUES (2,'2018-05-06','aaa','ccc',3,1),(3,'2018-07-13','razlog','o',7,30);
+INSERT INTO `posjet` VALUES (2,'2018-05-06','Bolest grla','Up branch to easily missed by do. Admiration considered acceptance too led one melancholy expression. Are will took form the nor true. Winding enjoyed minuter her letters evident use eat colonel. He attacks observe mr cottage inquiry am examine gravity. Are dear but near left was. Year kept on over so as this of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued. Was drawing natural fat respect husband. An as noisy an offer drawn blush place. These tried for way joy wrote witty. In mr began music weeks after at begin. Education no dejection so direction pretended household do to. Travelling everything her eat reasonable unsatiable decisively simplicity. Morning request be lasting it fortune demands highest of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued.',8,1),(3,'2018-07-13','Pregled','Up branch to easily missed by do. Admiration considered acceptance too led one melancholy expression. Are will took form the nor true. Winding enjoyed minuter her letters evident use eat colonel. He attacks observe mr cottage inquiry am examine gravity. Are dear but near left was. Year kept on over so as this of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued. Was drawing natural fat respect husband. An as noisy an offer drawn blush place. These tried for way joy wrote witty. In mr began music weeks after at begin. Education no dejection so direction pretended household do to. Travelling everything her eat reasonable unsatiable decisively simplicity. Morning request be lasting it fortune demands highest of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued.',8,30);
 /*!40000 ALTER TABLE `posjet` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -207,7 +207,7 @@ CREATE TABLE `radno_vrijeme` (
 
 LOCK TABLES `radno_vrijeme` WRITE;
 /*!40000 ALTER TABLE `radno_vrijeme` DISABLE KEYS */;
-INSERT INTO `radno_vrijeme` VALUES (8,'Neparni','Jutro'),(9,'Neparni','Posljepodne'),(10,'Parni','Posljepodne'),(11,'Parni','Posljepodne');
+INSERT INTO `radno_vrijeme` VALUES (8,'Neparni','Jutro'),(9,'Neparni','Posljepodne'),(10,'Parni','Jutro'),(11,'Parni','Posljepodne');
 /*!40000 ALTER TABLE `radno_vrijeme` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -220,12 +220,13 @@ DROP TABLE IF EXISTS `recept`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `recept` (
   `ID_Recept` int(11) NOT NULL AUTO_INCREMENT,
+  `Naziv` varchar(45) NOT NULL,
   `Datum` date NOT NULL,
-  `Opis` varchar(500) NOT NULL,
+  `Opis` varchar(1000) NOT NULL,
   `Pacijent_ID_Pacijent` int(11) NOT NULL,
   `Pacijent_Doktor_ID_Doktor` int(11) NOT NULL,
   PRIMARY KEY (`ID_Recept`,`Pacijent_ID_Pacijent`,`Pacijent_Doktor_ID_Doktor`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -234,7 +235,7 @@ CREATE TABLE `recept` (
 
 LOCK TABLES `recept` WRITE;
 /*!40000 ALTER TABLE `recept` DISABLE KEYS */;
-INSERT INTO `recept` VALUES (5,'2018-06-20','Ovo je testni recept 1950',8,30);
+INSERT INTO `recept` VALUES (5,'Recept ','2018-06-20','Up branch to easily missed by do. Admiration considered acceptance too led one melancholy expression. Are will took form the nor true. Winding enjoyed minuter her letters evident use eat colonel. He attacks observe mr cottage inquiry am examine gravity. Are dear but near left was. Year kept on over so as this of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued. Was drawing natural fat respect husband. An as noisy an offer drawn blush place. These tried for way joy wrote witty. In mr began music weeks after at begin. Education no dejection so direction pretended household do to. Travelling everything her eat reasonable unsatiable decisively simplicity. Morning request be lasting it fortune demands highest of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued.',8,30),(6,'Recept','2018-05-05','Up branch to easily missed by do. Admiration considered acceptance too led one melancholy expression. Are will took form the nor true. Winding enjoyed minuter her letters evident use eat colonel. He attacks observe mr cottage inquiry am examine gravity. Are dear but near left was. Year kept on over so as this of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued. Was drawing natural fat respect husband. An as noisy an offer drawn blush place. These tried for way joy wrote witty. In mr began music weeks after at begin. Education no dejection so direction pretended household do to. Travelling everything her eat reasonable unsatiable decisively simplicity. Morning request be lasting it fortune demands highest of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued.',8,1);
 /*!40000 ALTER TABLE `recept` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -272,11 +273,11 @@ DROP TABLE IF EXISTS `uputnica`;
 CREATE TABLE `uputnica` (
   `ID_Uputnica` int(11) NOT NULL AUTO_INCREMENT,
   `Naziv` varchar(45) NOT NULL,
-  `Opis` varchar(500) NOT NULL,
+  `Opis` varchar(1000) NOT NULL,
   `Pacijent_ID_Pacijent` int(11) NOT NULL,
   `Pacijent_Doktor_ID_Doktor` int(11) NOT NULL,
   PRIMARY KEY (`ID_Uputnica`,`Pacijent_ID_Pacijent`,`Pacijent_Doktor_ID_Doktor`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -285,7 +286,7 @@ CREATE TABLE `uputnica` (
 
 LOCK TABLES `uputnica` WRITE;
 /*!40000 ALTER TABLE `uputnica` DISABLE KEYS */;
-INSERT INTO `uputnica` VALUES (2,'dsfadfasdfasd','fasdfasdf',7,30);
+INSERT INTO `uputnica` VALUES (2,'Uputnica za snimanje','Up branch to easily missed by do. Admiration considered acceptance too led one melancholy expression. Are will took form the nor true. Winding enjoyed minuter her letters evident use eat colonel. He attacks observe mr cottage inquiry am examine gravity. Are dear but near left was. Year kept on over so as this of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued. Was drawing natural fat respect husband. An as noisy an offer drawn blush place. These tried for way joy wrote witty. In mr began music weeks after at begin. Education no dejection so direction pretended household do to. Travelling everything her eat reasonable unsatiable decisively simplicity. Morning request be lasting it fortune demands highest of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued.',8,30),(3,'Uputnica za ultrazvuk','Up branch to easily missed by do. Admiration considered acceptance too led one melancholy expression. Are will took form the nor true. Winding enjoyed minuter her letters evident use eat colonel. He attacks observe mr cottage inquiry am examine gravity. Are dear but near left was. Year kept on over so as this of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued. Was drawing natural fat respect husband. An as noisy an offer drawn blush place. These tried for way joy wrote witty. In mr began music weeks after at begin. Education no dejection so direction pretended household do to. Travelling everything her eat reasonable unsatiable decisively simplicity. Morning request be lasting it fortune demands highest of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued.',8,30),(4,'Masaža','Up branch to easily missed by do. Admiration considered acceptance too led one melancholy expression. Are will took form the nor true. Winding enjoyed minuter her letters evident use eat colonel. He attacks observe mr cottage inquiry am examine gravity. Are dear but near left was. Year kept on over so as this of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued. Was drawing natural fat respect husband. An as noisy an offer drawn blush place. These tried for way joy wrote witty. In mr began music weeks after at begin. Education no dejection so direction pretended household do to. Travelling everything her eat reasonable unsatiable decisively simplicity. Morning request be lasting it fortune demands highest of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued.',8,30);
 /*!40000 ALTER TABLE `uputnica` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -303,7 +304,7 @@ CREATE TABLE `zakazani_termin` (
   `Pacijent_ID_Pacijent` int(11) NOT NULL,
   `Pacijent_Doktor_ID_Doktor` int(11) NOT NULL,
   PRIMARY KEY (`ID_Zakazani_termin`,`Pacijent_ID_Pacijent`,`Pacijent_Doktor_ID_Doktor`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -312,9 +313,17 @@ CREATE TABLE `zakazani_termin` (
 
 LOCK TABLES `zakazani_termin` WRITE;
 /*!40000 ALTER TABLE `zakazani_termin` DISABLE KEYS */;
-INSERT INTO `zakazani_termin` VALUES (2,'2018-07-24','19:11:00',8,30);
+INSERT INTO `zakazani_termin` VALUES (2,'2018-07-25','15:00:00',8,30),(3,'2018-07-24','08:00:00',8,30),(4,'2018-07-26','08:30:00',8,30),(5,'2018-07-27','15:30:00',8,30);
 /*!40000 ALTER TABLE `zakazani_termin` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping events for database 'ordinacija'
+--
+
+--
+-- Dumping routines for database 'ordinacija'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -325,4 +334,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-07-24  9:37:30
+-- Dump completed on 2018-07-24 22:36:01

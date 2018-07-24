@@ -6,7 +6,7 @@ import java.util.Date;
 public class AgreedTerm {
     private int ID_Zakazani_termin;
     private Date Datum;
-    private Time Vrijeme;
+    private String Vrijeme;
     private int Pacijent_ID_Pacijent;
     private int Pacijent_Doktor_ID_Doktor;
 
@@ -26,11 +26,11 @@ public class AgreedTerm {
         Datum = datum;
     }
 
-    public Date getVrijeme() {
+    public String getVrijeme() {
         return Vrijeme;
     }
 
-    public void setVrijeme(Time vrijeme) {
+    public void setVrijeme(String vrijeme) {
         Vrijeme = vrijeme;
     }
 
@@ -50,7 +50,7 @@ public class AgreedTerm {
         Pacijent_Doktor_ID_Doktor = pacijent_Doktor_ID_Doktor;
     }
 
-    public AgreedTerm(int ID_Zakazani_termin, Date datum, Time vrijeme, int pacijent_ID_Pacijent, int pacijent_Doktor_ID_Doktor) {
+    public AgreedTerm(int ID_Zakazani_termin, Date datum, String vrijeme, int pacijent_ID_Pacijent, int pacijent_Doktor_ID_Doktor) {
         this.ID_Zakazani_termin = ID_Zakazani_termin;
         Datum = datum;
         Vrijeme = vrijeme;
@@ -60,7 +60,7 @@ public class AgreedTerm {
     public AgreedTerm() {
         this.ID_Zakazani_termin =0;
         Datum = new Date(2018,01,01);
-        Vrijeme = new Time(10,10,10);
+        Vrijeme = "";
         Pacijent_ID_Pacijent = 0;
         Pacijent_Doktor_ID_Doktor = 0;
     }
