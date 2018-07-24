@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: ordinacija
 -- ------------------------------------------------------
--- Server version	5.7.19
+-- Server version	5.7.20-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -195,8 +195,8 @@ DROP TABLE IF EXISTS `radno_vrijeme`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `radno_vrijeme` (
   `ID_Radno_vrijeme` int(11) NOT NULL AUTO_INCREMENT,
-  `Parni/Neparni` varchar(20) NOT NULL,
-  `Jutro/Posljepodne` varchar(20) NOT NULL,
+  `Parni_Neparni` varchar(20) NOT NULL,
+  `Jutro_Posljepodne` varchar(20) NOT NULL,
   PRIMARY KEY (`ID_Radno_vrijeme`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -207,7 +207,7 @@ CREATE TABLE `radno_vrijeme` (
 
 LOCK TABLES `radno_vrijeme` WRITE;
 /*!40000 ALTER TABLE `radno_vrijeme` DISABLE KEYS */;
-INSERT INTO `radno_vrijeme` VALUES (8,'Neparni','Jutro'),(9,'Neparni','Posljepodne'),(10,'Parni','Jutro'),(11,'Parni','Posljepodne');
+INSERT INTO `radno_vrijeme` VALUES (8,'Neparni','Jutro'),(9,'Neparni','Posljepodne'),(10,'Parni','Posljepodne'),(11,'Parni','Posljepodne');
 /*!40000 ALTER TABLE `radno_vrijeme` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -312,17 +312,9 @@ CREATE TABLE `zakazani_termin` (
 
 LOCK TABLES `zakazani_termin` WRITE;
 /*!40000 ALTER TABLE `zakazani_termin` DISABLE KEYS */;
-INSERT INTO `zakazani_termin` VALUES (2,'2018-02-13','19:11:00',3,1);
+INSERT INTO `zakazani_termin` VALUES (2,'2018-07-24','19:11:00',8,30);
 /*!40000 ALTER TABLE `zakazani_termin` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping events for database 'ordinacija'
---
-
---
--- Dumping routines for database 'ordinacija'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -333,4 +325,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-07-19  8:43:08
+-- Dump completed on 2018-07-24  9:37:30
