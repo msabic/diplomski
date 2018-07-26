@@ -5,13 +5,17 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:hardwareAccelerated="false"
+        android:largeHeap="true"
+
         android:allowBackup="true"
         android:icon="@drawable/hospital"
         android:label="OrdinacijaSabic"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:noHistory = "true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,14 +24,16 @@
         </activity>
         <activity android:name=".PatientInfoActivity" />
         <activity android:name=".ChangePassword" />
-        <activity android:name=".MenuActivity" />
+        <activity android:name=".MenuActivity"
+            android:noHistory = "true" />
         <activity android:name=".ListActivity" />
         <activity android:name=".DoctorListActivity" />
         <activity android:name=".DoctorViewActivity" />
         <activity android:name=".PrescriptionsActivity" />
         <activity android:name=".ReferralActivity" />
         <activity android:name=".VisitDoctorActivity" />
-        <activity android:name=".TermActivity" />
+        <activity android:name=".TermActivity"
+            android:noHistory = "true"/>
         <activity android:name=".ConfirmTermActivity"></activity>
     </application>
 

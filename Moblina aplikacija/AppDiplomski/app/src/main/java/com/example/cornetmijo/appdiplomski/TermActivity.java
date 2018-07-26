@@ -1,5 +1,6 @@
 package com.example.cornetmijo.appdiplomski;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.PathEffect;
 import android.provider.ContactsContract;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -27,11 +29,12 @@ import org.json.JSONObject;
 
 import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+import android.text.format.DateFormat;
 public class TermActivity extends AppCompatActivity {
     int pYear;
     int pDay;
@@ -56,14 +59,27 @@ public class TermActivity extends AppCompatActivity {
                 pDay=datePicker.getDayOfMonth();
                 pMonth=datePicker.getMonth();
                 pYear=datePicker.getYear();
-                Date date=new Date(pYear,pMonth,pDay);
-                Intent i = new Intent(TermActivity.this, ConfirmTermActivity.class);
-                i.putExtra("date",""+pYear+","+pMonth+","+pDay);
-                i.putExtra("userID",""+userID+"");
-                i.putExtra("IPAddress",IPAddress);
-                i.putExtra("doctorID",patient.getDoktor_ID_Doktor());
-                startActivity(i);
 
+                Date dNew=new Date();
+
+                    Date date = new Date(pYear, pMonth, pDay);
+                    if(date>dNew)
+                    Intent i = new Intent(TermActivity.this, ConfirmTermActivity.class);
+                    i.putExtra("date", "" + pYear + "," + pMonth + "," + pDay);
+                    i.putExtra("userID", "" + userID + "");
+                    i.putExtra("IPAddress", IPAddress);
+                    i.putExtra("doctorID", patient.getDoktor_ID_Doktor());
+                    startActivity(i);
+                }
+                else
+                {
+                    Context context = getApplicationContext();
+                    CharSequence text = "Date is invalid!";
+                    int duration = Toast.LENGTH_SHORT;
+
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+                }
 
 
             }
