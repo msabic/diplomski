@@ -514,10 +514,10 @@ let DeleteZakazaniTermin = function (id) {
         })
     });
 };
-let InsertZakazaniTermini = function (date,time,patient,doctor) {
-    console.log("INSERT INTO `ordinacija`.`zakazani_termin`(`Datum`,`Vrijeme`,`Pacijent_ID_Pacijent`,`Pacijent_Doktor_ID_Doktor`) VALUES ("+mysql.escape(date)+", "+mysql.escape(time)+","+mysql.escape(patient)+","+mysql.escape(doctor)+");");
+let InsertZakazaniTermini = function (date_time,time,patient,doctor) {
+    console.log("INSERT INTO `ordinacija`.`zakazani_termin`(`Datum`,`Vrijeme`,`Pacijent_ID_Pacijent`,`Pacijent_Doktor_ID_Doktor`) VALUES ("+mysql.escape(date_time)+", "+mysql.escape(time)+","+mysql.escape(patient)+","+mysql.escape(doctor)+");");
        return new Promise((resolve, reject) => {
-           connection.query("INSERT INTO `ordinacija`.`zakazani_termin`(`Datum`,`Vrijeme`,`Pacijent_ID_Pacijent`,`Pacijent_Doktor_ID_Doktor`) VALUES ("+mysql.escape(date)+", "+mysql.escape(time)+","+mysql.escape(patient)+","+mysql.escape(doctor)+");", function (err, result, fiels) {
+           connection.query("INSERT INTO `ordinacija`.`zakazani_termin`(`Datum`,`Vrijeme`,`Pacijent_ID_Pacijent`,`Pacijent_Doktor_ID_Doktor`) VALUES ("+mysql.escape(date_time)+", "+mysql.escape(time)+","+mysql.escape(patient)+","+mysql.escape(doctor)+");", function (err, result, fiels) {
             resolve(result);
            })
        });

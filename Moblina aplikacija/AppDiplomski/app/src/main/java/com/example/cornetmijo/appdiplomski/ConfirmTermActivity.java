@@ -1,8 +1,12 @@
 package com.example.cornetmijo.appdiplomski;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -14,6 +18,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 
@@ -32,8 +37,10 @@ import java.util.Map;
 
 public class ConfirmTermActivity extends AppCompatActivity {
     public String IPAddress;
+    public static int DRID=0;
     public int userID;
     public Date date;
+    public Date date_new;
     public static boolean jutro=false;
     public static int pYear;
     public static int pDay;
@@ -56,6 +63,7 @@ public class ConfirmTermActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm_term);
         String d=getIntent().getStringExtra("date");
+        DRID=Integer.parseInt(getIntent().getStringExtra("doctorID"));
         _agreedTerm=new ArrayList<AgreedTerm>();
         agreedTerm= new AgreedTerm();
         pDay=Integer.parseInt(d.split(",")[2]);
@@ -69,6 +77,10 @@ public class ConfirmTermActivity extends AppCompatActivity {
         confirmTermActivity=this;
         doctor=new Doctor();
         workingTime=new WorkingTime();
+
+
+
+
         timesAM=new ArrayList<Time>();
         timesAM.add(new Time(8,00,00));
         timesAM.add(new Time(8,15,00));
@@ -214,24 +226,10 @@ public class ConfirmTermActivity extends AppCompatActivity {
                                     if(parni)
                                     {
                                         jutro=true;
-//                                        itemname=new String[timesAM.size()];
-//                                        imgid=new Integer[timesAM.size()];
-//                                        for(int j =0; j<timesAM.size(); j++)
-//                                        {
-//                                            itemname[j]=timesAM.get(j).toString();
-//                                            imgid[j]=R.drawable.ic_person;
-//                                        }
                                     }
                                     else
                                     {
                                         jutro=false;
-//                                        itemname=new String[timesPM.size()];
-//                                        imgid=new Integer[timesPM.size()];
-//                                        for(int j =0; j<timesPM.size(); j++)
-//                                        {
-//                                            itemname[j]=timesPM.get(j).toString();
-//                                            imgid[j]=R.drawable.ic_person;
-//                                        }
                                     }
                                 }
                                 else
@@ -239,28 +237,12 @@ public class ConfirmTermActivity extends AppCompatActivity {
                                     if(neparni)
                                     {
                                         jutro=true;
-//                                        itemname=new String[timesAM.size()];
-//                                        imgid=new Integer[timesAM.size()];
-//                                        for(int j =0; j<timesAM.size(); j++)
-//                                        {
-//                                            itemname[j]=timesAM.get(j).toString();
-//                                            imgid[j]=R.drawable.ic_person;
-//                                        }
                                     }
                                     else
                                     {
                                         jutro=false;
-//                                        itemname=new String[timesPM.size()];
-//                                        imgid=new Integer[timesPM.size()];
-//                                        for(int j =0; j<timesPM.size(); j++)
-//                                        {
-//                                            itemname[j]=timesPM.get(j).toString();
-//                                            imgid[j]=R.drawable.ic_person;
-//                                        }
                                     }
                                 }
-//                                adapter=new DoctorList(confirmTermActivity, itemname, imgid);
-//                                AddListeners();
                             }
                         }
 
@@ -269,8 +251,6 @@ public class ConfirmTermActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
-                        //Failure Callback
                         System.out.println("FAILLL BABAC: " + error);
                     }
                 })
@@ -352,7 +332,7 @@ public class ConfirmTermActivity extends AppCompatActivity {
         { @Override
         public Map<String,String> getHeaders() throws AuthFailureError {
             HashMap<String,String> headers = new HashMap();
-            headers.put("doctor", ""+30+"");
+            headers.put("doctor", ""+DRID+"");
             headers.put("datum", ""+pYear+"-"+pMonth+"-"+pDay);
             return headers;
         }
@@ -367,8 +347,34 @@ public class ConfirmTermActivity extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
+                                    final int position, long id) {
 
+                AlertDialog.Builder builder = new AlertDialog.Builder(confirmTermActivity);
+
+                builder.setTitle("Confirm");
+                builder.setMessage("Are you sure?");
+
+                builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Do nothing but close the dialog
+                        InsertTerm(itemname[+position]);
+                        dialog.dismiss();
+                    }
+                });
+
+                builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        // Do nothing
+                        dialog.dismiss();
+                    }
+                });
+
+                AlertDialog alert = builder.create();
+                alert.show();
                 //Doctor dr=(Doctor)_doctor_list.get(+position);
                 //String Slecteditem= itemname[+position];
                 //Toast.makeText(getApplicationContext(), Slecteditem, Toast.LENGTH_SHORT).show();
@@ -378,5 +384,49 @@ public class ConfirmTermActivity extends AppCompatActivity {
                 //startActivity(i);
             }
         });
+    }
+    public void InsertTerm(final String termin)
+    {
+        RequestQueue queue = Volley.newRequestQueue(this);
+        //String url = "http://192.168.31.146:3000/InsertPacijentDodatno";
+        String url = "http://"+IPAddress+":3000/InsertZakazaniTermin";
+        StringRequest postRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>()
+                {
+                    @Override
+                    public void onResponse(String response) {
+                        // response
+                        if(response.equalsIgnoreCase("true")){
+                            Context context = getApplicationContext();
+                            CharSequence text = "Term is added!";
+                            int duration = Toast.LENGTH_SHORT;
+
+                            Toast toast = Toast.makeText(context, text, duration);
+                            toast.show();
+                            SelectTermForDoctor();
+                        }
+                        Log.d("Response", response);
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                        Log.d("ERROR","error => "+error.toString());
+                    }
+                }
+        ) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String>  params = new HashMap<String, String>();
+                params.put("date_time", ""+String.valueOf(pYear)+"-"+String.valueOf(pMonth)+"-"+String.valueOf(pDay));
+                params.put("time", termin);
+                params.put("patient", ""+userID+"");
+                params.put("doctor", ""+DRID+"");
+                return params;
+            }
+        };
+        queue.add(postRequest);
     }
 }

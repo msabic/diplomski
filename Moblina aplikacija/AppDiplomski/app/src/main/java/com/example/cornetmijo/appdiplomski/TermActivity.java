@@ -1,6 +1,7 @@
 package com.example.cornetmijo.appdiplomski;
 
 import android.content.Intent;
+import android.graphics.PathEffect;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -38,12 +39,15 @@ public class TermActivity extends AppCompatActivity {
     public String IPAddress;
     public int userID;
     public   DatePicker datePicker;
+    public static Patient patient;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_term);
         IPAddress=getIntent().getStringExtra("IPAddress");
         userID= Integer.parseInt(getIntent().getStringExtra("userID"));
+        patient = new Patient();
+
         Button btnChooseTime= (Button) findViewById(R.id.btnChooseTime);
         datePicker=(DatePicker)findViewById(R.id.simpleDatePicker);
         btnChooseTime.setOnClickListener(new View.OnClickListener() {
@@ -57,6 +61,7 @@ public class TermActivity extends AppCompatActivity {
                 i.putExtra("date",""+pYear+","+pMonth+","+pDay);
                 i.putExtra("userID",""+userID+"");
                 i.putExtra("IPAddress",IPAddress);
+                i.putExtra("doctorID",patient.getDoktor_ID_Doktor());
                 startActivity(i);
 
 
@@ -65,5 +70,52 @@ public class TermActivity extends AppCompatActivity {
         });
 
     }
+    public void SelectVisitDoctor()
+    {
 
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url = "http://"+IPAddress+":3000/SelectPacijentID";
+        JsonArrayRequest jsonObjReq = new JsonArrayRequest(Request.Method.GET,
+                url, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        for(int i=0; i<response.length(); i++)
+                        {
+                            Gson gson = new Gson();
+                            try {
+
+                                JSONObject objectjson=response.getJSONObject(i);
+                                Patient p = new Gson().fromJson(objectjson.toString(), Patient.class);
+                                patient=p;
+
+                            }
+                            catch (JSONException ex)
+                            {
+
+                            }
+
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                        //Failure Callback
+                        System.out.println("FAILLL BABAC: " + error);
+                    }
+                })
+
+        { @Override
+        public Map<String,String> getHeaders() throws AuthFailureError {
+            HashMap<String,String> headers = new HashMap();
+            headers.put("id", ""+userID+"");
+
+            return headers;
+        }
+        };
+        queue.add(jsonObjReq);
+    }
 }

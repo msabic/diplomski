@@ -607,8 +607,8 @@ app.get('/DeleteZakazaniTermin', function(req,res) {
 res.status(400).send('Bad Request');
 }})
 app.get('/InsertZakazaniTermin', function(req,res){
-  if(req.headers.date && req.headers.time && req.headers.patient && req.headers.doctor){
-    db.InsertZakazaniTermini(req.headers.date,req.headers.time, req.headers.patient, req.headers.doctor).then((resoult)=>{
+  if(req.headers.date_time && req.headers.time && req.headers.patient && req.headers.doctor){
+    db.InsertZakazaniTermini(req.headers.date_time,req.headers.time, req.headers.patient, req.headers.doctor).then((resoult)=>{
       res.send(true);
     }).catch((err)=>{
     console.log('Error; ', err);
@@ -617,8 +617,8 @@ app.get('/InsertZakazaniTermin', function(req,res){
     res.status(400).send('Bad Request');
   }})
   app.get('/UpdateZakazaniTermin', function(req,res){
-    if(req.headers.id && req.headers.date && req.headers.time && req.headers.patient && req.headers.doctor){
-      db.UpdateZakazaniTermini(req.headers.id, req.headers.date,req.headers.time, req.headers.patient, req.headers.doctor).then((resoult)=>{
+    if(req.headers.id && req.headers.date_time && req.headers.time && req.headers.patient && req.headers.doctor){
+      db.UpdateZakazaniTermini(req.headers.id, req.headers.date_time,req.headers.time, req.headers.patient, req.headers.doctor).then((resoult)=>{
         res.send(true);
       }).catch((err)=>{
       console.log('Error; ', err);
