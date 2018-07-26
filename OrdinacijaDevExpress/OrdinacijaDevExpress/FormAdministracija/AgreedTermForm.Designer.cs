@@ -105,13 +105,14 @@
             // 
             // DateCalendar
             // 
-            this.DateCalendar.Location = new System.Drawing.Point(53, 159);
+            this.DateCalendar.Location = new System.Drawing.Point(52, 216);
             this.DateCalendar.Name = "DateCalendar";
             this.DateCalendar.TabIndex = 1;
+            this.DateCalendar.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.DateCalendar_DateSelected);
             // 
             // FreeTermLE
             // 
-            this.FreeTermLE.Location = new System.Drawing.Point(53, 366);
+            this.FreeTermLE.Location = new System.Drawing.Point(52, 423);
             this.FreeTermLE.Name = "FreeTermLE";
             this.FreeTermLE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -120,7 +121,7 @@
             // 
             // PatientLE
             // 
-            this.PatientLE.Location = new System.Drawing.Point(53, 426);
+            this.PatientLE.Location = new System.Drawing.Point(52, 483);
             this.PatientLE.Name = "PatientLE";
             this.PatientLE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -201,7 +202,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(56, 140);
+            this.label1.Location = new System.Drawing.Point(55, 197);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(30, 13);
             this.label1.TabIndex = 5;
@@ -210,7 +211,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(56, 350);
+            this.label2.Location = new System.Drawing.Point(55, 407);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 6;
@@ -219,7 +220,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(56, 410);
+            this.label3.Location = new System.Drawing.Point(55, 467);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 7;
@@ -228,7 +229,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(56, 481);
+            this.label4.Location = new System.Drawing.Point(50, 147);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(39, 13);
             this.label4.TabIndex = 8;
@@ -236,7 +237,7 @@
             // 
             // DoctorLE
             // 
-            this.DoctorLE.Location = new System.Drawing.Point(54, 497);
+            this.DoctorLE.Location = new System.Drawing.Point(52, 163);
             this.DoctorLE.Name = "DoctorLE";
             this.DoctorLE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -246,6 +247,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Surname", "Surname")});
             this.DoctorLE.Size = new System.Drawing.Size(198, 20);
             this.DoctorLE.TabIndex = 9;
+            this.DoctorLE.EditValueChanged += new System.EventHandler(this.DoctorLE_EditValueChanged);
             // 
             // AgreedTermForm
             // 
