@@ -47,5 +47,11 @@ namespace DBCommunication
         bool InsertDiagnosis(Diagnosis diagnosis);
         bool UpdateDiagnosis(Diagnosis diagnosis);
         bool DeleteDiagnosis(Diagnosis diagnosis);
+
+        List<AgreedTerm> GetAgreedTerm();
+        bool InsertAgreedTerm(AgreedTerm agreedTerm);
+        bool UpdateAgreedTerm(AgreedTerm agreedTerm);
+        bool DeleteAgreedTerm(AgreedTerm agreedTerm);
+
     }
 }

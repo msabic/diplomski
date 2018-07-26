@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\AgreedTerm.cs" />
     <Compile Include="Model\Diagnosis.cs" />
     <Compile Include="Model\Doctor.cs" />
     <Compile Include="Model\NonWorkingDays.cs" />

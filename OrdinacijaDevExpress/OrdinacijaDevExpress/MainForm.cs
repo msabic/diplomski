@@ -99,6 +99,11 @@ namespace OrdinacijaDevExpress
                 }
                 
             }
+            if (e.Page.Name == "AgreedTermPage")
+            {
+                AgreedTermForm _agreedTermForm = new AgreedTermForm(_DB);
+                OpenForm(_agreedTermForm);
+            }
         }
     }
 }

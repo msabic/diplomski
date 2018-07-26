@@ -31,6 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DoctorForm));
             this.DoctorGridControl = new DevExpress.XtraGrid.GridControl();
             this.DoctorGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.DoctorID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.DoctorName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.DoctorSurname = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.DoctorEmail = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.DoctorPassword = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.DoctorContact = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.DoctorWorkingTime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -46,13 +53,6 @@
             this.EditDoctorBarItem = new DevExpress.XtraEditors.SimpleButton();
             this.NewDoctorBarItem = new DevExpress.XtraEditors.SimpleButton();
             this.WorkingTimeLE = new DevExpress.XtraEditors.LookUpEdit();
-            this.DoctorID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.DoctorName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.DoctorSurname = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.DoctorEmail = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.DoctorPassword = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.DoctorContact = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.DoctorWorkingTime = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DoctorGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DoctorGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NameTE.Properties)).BeginInit();
@@ -92,9 +92,71 @@
             this.DoctorGridView.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.DoctorGridView_RowClick);
             this.DoctorGridView.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.DoctorGridView_CustomColumnDisplayText);
             // 
+            // DoctorID
+            // 
+            this.DoctorID.Caption = "ID";
+            this.DoctorID.FieldName = "ID";
+            this.DoctorID.Name = "DoctorID";
+            this.DoctorID.OptionsColumn.AllowEdit = false;
+            // 
+            // DoctorName
+            // 
+            this.DoctorName.Caption = "Name";
+            this.DoctorName.FieldName = "Name";
+            this.DoctorName.Name = "DoctorName";
+            this.DoctorName.OptionsColumn.AllowEdit = false;
+            this.DoctorName.Visible = true;
+            this.DoctorName.VisibleIndex = 0;
+            // 
+            // DoctorSurname
+            // 
+            this.DoctorSurname.Caption = "Surname";
+            this.DoctorSurname.FieldName = "Surname";
+            this.DoctorSurname.Name = "DoctorSurname";
+            this.DoctorSurname.OptionsColumn.AllowEdit = false;
+            this.DoctorSurname.Visible = true;
+            this.DoctorSurname.VisibleIndex = 1;
+            // 
+            // DoctorEmail
+            // 
+            this.DoctorEmail.Caption = "Email";
+            this.DoctorEmail.FieldName = "Email";
+            this.DoctorEmail.Name = "DoctorEmail";
+            this.DoctorEmail.OptionsColumn.AllowEdit = false;
+            this.DoctorEmail.Visible = true;
+            this.DoctorEmail.VisibleIndex = 2;
+            // 
+            // DoctorPassword
+            // 
+            this.DoctorPassword.Caption = "Password";
+            this.DoctorPassword.FieldName = "Password";
+            this.DoctorPassword.Name = "DoctorPassword";
+            this.DoctorPassword.OptionsColumn.AllowEdit = false;
+            this.DoctorPassword.Visible = true;
+            this.DoctorPassword.VisibleIndex = 3;
+            // 
+            // DoctorContact
+            // 
+            this.DoctorContact.Caption = "Contact";
+            this.DoctorContact.FieldName = "Contact";
+            this.DoctorContact.Name = "DoctorContact";
+            this.DoctorContact.OptionsColumn.AllowEdit = false;
+            this.DoctorContact.Visible = true;
+            this.DoctorContact.VisibleIndex = 4;
+            // 
+            // DoctorWorkingTime
+            // 
+            this.DoctorWorkingTime.Caption = "Working time";
+            this.DoctorWorkingTime.FieldName = "Working_time";
+            this.DoctorWorkingTime.Name = "DoctorWorkingTime";
+            this.DoctorWorkingTime.OptionsColumn.AllowEdit = false;
+            this.DoctorWorkingTime.Visible = true;
+            this.DoctorWorkingTime.VisibleIndex = 5;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(8, 91);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(34, 13);
@@ -104,6 +166,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(123, 91);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 13);
@@ -113,6 +176,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Location = new System.Drawing.Point(371, 91);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 13);
@@ -143,6 +207,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Location = new System.Drawing.Point(247, 91);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(31, 13);
@@ -159,6 +224,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Location = new System.Drawing.Point(489, 91);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 13);
@@ -234,67 +300,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.WorkingTimeLE.Size = new System.Drawing.Size(100, 20);
             this.WorkingTimeLE.TabIndex = 12;
-            // 
-            // DoctorID
-            // 
-            this.DoctorID.Caption = "ID";
-            this.DoctorID.FieldName = "ID";
-            this.DoctorID.Name = "DoctorID";
-            this.DoctorID.OptionsColumn.AllowEdit = false;
-            // 
-            // DoctorName
-            // 
-            this.DoctorName.Caption = "Name";
-            this.DoctorName.FieldName = "Name";
-            this.DoctorName.Name = "DoctorName";
-            this.DoctorName.OptionsColumn.AllowEdit = false;
-            this.DoctorName.Visible = true;
-            this.DoctorName.VisibleIndex = 0;
-            // 
-            // DoctorSurname
-            // 
-            this.DoctorSurname.Caption = "Surname";
-            this.DoctorSurname.FieldName = "Surname";
-            this.DoctorSurname.Name = "DoctorSurname";
-            this.DoctorSurname.OptionsColumn.AllowEdit = false;
-            this.DoctorSurname.Visible = true;
-            this.DoctorSurname.VisibleIndex = 1;
-            // 
-            // DoctorEmail
-            // 
-            this.DoctorEmail.Caption = "Email";
-            this.DoctorEmail.FieldName = "Email";
-            this.DoctorEmail.Name = "DoctorEmail";
-            this.DoctorEmail.OptionsColumn.AllowEdit = false;
-            this.DoctorEmail.Visible = true;
-            this.DoctorEmail.VisibleIndex = 2;
-            // 
-            // DoctorPassword
-            // 
-            this.DoctorPassword.Caption = "Password";
-            this.DoctorPassword.FieldName = "Password";
-            this.DoctorPassword.Name = "DoctorPassword";
-            this.DoctorPassword.OptionsColumn.AllowEdit = false;
-            this.DoctorPassword.Visible = true;
-            this.DoctorPassword.VisibleIndex = 3;
-            // 
-            // DoctorContact
-            // 
-            this.DoctorContact.Caption = "Contact";
-            this.DoctorContact.FieldName = "Contact";
-            this.DoctorContact.Name = "DoctorContact";
-            this.DoctorContact.OptionsColumn.AllowEdit = false;
-            this.DoctorContact.Visible = true;
-            this.DoctorContact.VisibleIndex = 4;
-            // 
-            // DoctorWorkingTime
-            // 
-            this.DoctorWorkingTime.Caption = "Working time";
-            this.DoctorWorkingTime.FieldName = "Working_time";
-            this.DoctorWorkingTime.Name = "DoctorWorkingTime";
-            this.DoctorWorkingTime.OptionsColumn.AllowEdit = false;
-            this.DoctorWorkingTime.Visible = true;
-            this.DoctorWorkingTime.VisibleIndex = 5;
             // 
             // DoctorForm
             // 

@@ -647,5 +647,74 @@ namespace DBCommunication
 
             }
         }
+
+        public List<AgreedTerm> GetAgreedTerm()
+        {
+            try
+            {
+                GetAgreedTerm getAgreedTerm = new GetAgreedTerm();
+                return getAgreedTerm.Execute();
+            }
+            catch (Exception ex)
+            {
+                return null;
+                throw ex;
+            }
+            finally
+            {
+
+            }
+        }
+        public bool InsertAgreedTerm(AgreedTerm agreedTerm)
+        {
+            try
+            {
+                InsertAgreedTerm insertAgreedTerm = new InsertAgreedTerm();
+                insertAgreedTerm.Execute(agreedTerm);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+
+            }
+        }
+        public bool UpdateAgreedTerm(AgreedTerm agreedTerm)
+        {
+            try
+            {
+                UpdateAgreedTerm updateAgreedTerm = new UpdateAgreedTerm();
+                updateAgreedTerm.Execute(agreedTerm);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+
+            }
+        }
+        public bool DeleteAgreedTerm(AgreedTerm agreedTerm)
+        {
+            try
+            {
+                DeleteAgreedTerm deleteAgreedTerm = new DeleteAgreedTerm();
+                deleteAgreedTerm.Execute(agreedTerm);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+
+            }
+        }
     }
 }

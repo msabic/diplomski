@@ -7,9 +7,9 @@ const base64 = require('base-64');
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : '',
+  password : '12345',
   database :'ordinacija',
-  port : '3309'
+  port : '3306'
 });
 
 
@@ -522,10 +522,10 @@ let InsertZakazaniTermini = function (date_time,time,patient,doctor) {
            })
        });
    };
-   let UpdateZakazaniTermini = function (id,date,time,patient,doctor) {
-    console.log("UPDATE `ordinacija`.`zakazani_termin`SET `Datum` ="+mysql.escape(date)+",`Vrijeme` = "+mysql.escape(time)+",`Pacijent_ID_Pacijent` = "+mysql.escape(patient)+",`Pacijent_Doktor_ID_Doktor` = "+mysql.escape(doctor)+" WHERE `ID_Zakazani_termin` ="+mysql.escape(id)+";");
+   let UpdateZakazaniTermini = function (id,date_time,time,patient,doctor) {
+    console.log("UPDATE `ordinacija`.`zakazani_termin`SET `Datum` ="+mysql.escape(date_time)+",`Vrijeme` = "+mysql.escape(time)+",`Pacijent_ID_Pacijent` = "+mysql.escape(patient)+",`Pacijent_Doktor_ID_Doktor` = "+mysql.escape(doctor)+" WHERE `ID_Zakazani_termin` ="+mysql.escape(id)+";");
        return new Promise((resolve, reject) => {
-           connection.query("UPDATE `ordinacija`.`zakazani_termin`SET `Datum` ="+mysql.escape(date)+",`Vrijeme` = "+mysql.escape(time)+",`Pacijent_ID_Pacijent` = "+mysql.escape(patient)+",`Pacijent_Doktor_ID_Doktor` = "+mysql.escape(doctor)+" WHERE `ID_Zakazani_termin` ="+mysql.escape(id)+";", function (err, result, fiels) {
+           connection.query("UPDATE `ordinacija`.`zakazani_termin`SET `Datum` ="+mysql.escape(date_time)+",`Vrijeme` = "+mysql.escape(time)+",`Pacijent_ID_Pacijent` = "+mysql.escape(patient)+",`Pacijent_Doktor_ID_Doktor` = "+mysql.escape(doctor)+" WHERE `ID_Zakazani_termin` ="+mysql.escape(id)+";", function (err, result, fiels) {
             resolve(result);
            })
        });

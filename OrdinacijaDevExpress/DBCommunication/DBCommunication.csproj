@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="DBCommunication.cs" />
     <Compile Include="DBCommunicationAdmin.cs" />
+    <Compile Include="DBCommunicationDELETE\DeleteAgreedTerm.cs" />
     <Compile Include="DBCommunicationDELETE\DeleteDiagnosis.cs" />
     <Compile Include="DBCommunicationDELETE\DeleteDoctor.cs" />
     <Compile Include="DBCommunicationDELETE\DeleteNonWorkingDays.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="DBCommunicationDELETE\DeleteReferral.cs" />
     <Compile Include="DBCommunicationDELETE\DeleteVisitDoctor.cs" />
     <Compile Include="DBCommunicationDELETE\DeleteWorkingDay.cs" />
+    <Compile Include="DBCommunicationEDIT\UpdateAgreedTerm.cs" />
     <Compile Include="DBCommunicationEDIT\UpdateDiagnosis.cs" />
     <Compile Include="DBCommunicationEDIT\UpdateDoctor.cs" />
     <Compile Include="DBCommunicationEDIT\UpdateNonWorkingDays.cs" />
@@ -61,6 +63,7 @@
     <Compile Include="DBCommunicationEDIT\UpdateReferral.cs" />
     <Compile Include="DBCommunicationEDIT\UpdateVisitDoctor.cs" />
     <Compile Include="DBCommunicationEDIT\UpdateWorkingDays.cs" />
+    <Compile Include="DBCommunicationGET\GetAgreedTerm.cs" />
     <Compile Include="DBCommunicationGET\GetDiagnosis.cs" />
     <Compile Include="DBCommunicationGET\GetDoctor.cs" />
     <Compile Include="DBCommunicationGET\GetNonWorkingDays.cs" />
@@ -70,6 +73,7 @@
     <Compile Include="DBCommunicationGET\GetReferral.cs" />
     <Compile Include="DBCommunicationGET\GetVisitDoctor.cs" />
     <Compile Include="DBCommunicationGET\GetWorkingTime.cs" />
+    <Compile Include="DBCommunicationNEW\InsertAgreedTerm.cs" />
     <Compile Include="DBCommunicationNEW\InsertDiagnosis.cs" />
     <Compile Include="DBCommunicationNEW\InsertDoctor.cs" />
     <Compile Include="DBCommunicationNEW\InsertNonWorkingDays.cs" />

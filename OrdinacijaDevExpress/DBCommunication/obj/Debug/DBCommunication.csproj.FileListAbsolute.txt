@@ -5,3 +5,10 @@ C:\Users\Mijo Šabić\Documents\DIPLOMSKI\OrdinacijaDevExpress\DBCommunication\b
 C:\Users\Mijo Šabić\Documents\DIPLOMSKI\OrdinacijaDevExpress\DBCommunication\obj\Debug\DBCommunication.csprojResolveAssemblyReference.cache
 C:\Users\Mijo Šabić\Documents\DIPLOMSKI\OrdinacijaDevExpress\DBCommunication\obj\Debug\DBCommunication.dll
 C:\Users\Mijo Šabić\Documents\DIPLOMSKI\OrdinacijaDevExpress\DBCommunication\obj\Debug\DBCommunication.pdb
+C:\Users\CorNet Mijo\Desktop\diplomski\OrdinacijaDevExpress\DBCommunication\bin\Debug\DBCommunication.dll
+C:\Users\CorNet Mijo\Desktop\diplomski\OrdinacijaDevExpress\DBCommunication\bin\Debug\DBCommunication.pdb
+C:\Users\CorNet Mijo\Desktop\diplomski\OrdinacijaDevExpress\DBCommunication\bin\Debug\Models.dll
+C:\Users\CorNet Mijo\Desktop\diplomski\OrdinacijaDevExpress\DBCommunication\bin\Debug\Models.pdb
+C:\Users\CorNet Mijo\Desktop\diplomski\OrdinacijaDevExpress\DBCommunication\obj\Debug\DBCommunication.csprojResolveAssemblyReference.cache
+C:\Users\CorNet Mijo\Desktop\diplomski\OrdinacijaDevExpress\DBCommunication\obj\Debug\DBCommunication.dll
+C:\Users\CorNet Mijo\Desktop\diplomski\OrdinacijaDevExpress\DBCommunication\obj\Debug\DBCommunication.pdb
