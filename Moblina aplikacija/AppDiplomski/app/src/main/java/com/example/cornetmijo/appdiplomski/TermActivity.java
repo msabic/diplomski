@@ -63,7 +63,7 @@ public class TermActivity extends AppCompatActivity {
                 Date dNew=new Date();
 
                     Date date = new Date(pYear, pMonth, pDay);
-                    if(date>dNew)
+                    if(true){
                     Intent i = new Intent(TermActivity.this, ConfirmTermActivity.class);
                     i.putExtra("date", "" + pYear + "," + pMonth + "," + pDay);
                     i.putExtra("userID", "" + userID + "");

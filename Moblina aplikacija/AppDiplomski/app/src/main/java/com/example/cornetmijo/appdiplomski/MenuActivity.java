@@ -3,6 +3,7 @@ package com.example.cornetmijo.appdiplomski;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,12 +14,16 @@ import android.widget.ImageButton;
 public class MenuActivity extends AppCompatActivity {
     public int userID;
     public String IPAddress;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        userID= Integer.parseInt(getIntent().getStringExtra("userID"));
-        IPAddress=getIntent().getStringExtra("IPAddress");
         setContentView(R.layout.activity_menu);
+        SharedPreferences prefs = getSharedPreferences("MyPrefsFile", MODE_PRIVATE);
+
+       userID=Integer.parseInt(prefs.getString("userID", "0"));
+       IPAddress=prefs.getString("IPAddress", null);
 
         ImageButton btnDiagnoses = (ImageButton) findViewById(R.id.btnDiagnose);
 
@@ -29,6 +34,7 @@ public class MenuActivity extends AppCompatActivity {
                 i.putExtra("userID",""+userID+"");
                 i.putExtra("IPAddress",IPAddress);
                 startActivity(i);
+
             }
         });
         ImageButton btnDoctor = (ImageButton) findViewById(R.id.btnDoctor);
@@ -40,6 +46,7 @@ public class MenuActivity extends AppCompatActivity {
                 i.putExtra("userID",""+userID+"");
                 i.putExtra("IPAddress",IPAddress);
                 startActivity(i);
+
             }
         });
         ImageButton btnPrescription= (ImageButton) findViewById(R.id.btnPrescription);
@@ -51,6 +58,7 @@ public class MenuActivity extends AppCompatActivity {
                 i.putExtra("userID",""+userID+"");
                 i.putExtra("IPAddress",IPAddress);
                 startActivity(i);
+
             }
         });
         ImageButton btnReferral= (ImageButton) findViewById(R.id.btnReferral);
@@ -62,6 +70,7 @@ public class MenuActivity extends AppCompatActivity {
                 i.putExtra("userID",""+userID+"");
                 i.putExtra("IPAddress",IPAddress);
                 startActivity(i);
+
             }
         });
         ImageButton btnVisitDoctor= (ImageButton) findViewById(R.id.btnVisitDoctor);
@@ -73,6 +82,7 @@ public class MenuActivity extends AppCompatActivity {
                 i.putExtra("userID",""+userID+"");
                 i.putExtra("IPAddress",IPAddress);
                 startActivity(i);
+
             }
         });
         ImageButton btnTerm= (ImageButton) findViewById(R.id.btnTerm);
@@ -84,6 +94,7 @@ public class MenuActivity extends AppCompatActivity {
                i.putExtra("userID",""+userID+"");
                i.putExtra("IPAddress",IPAddress);
                 startActivity(i);
+
             }
         });
     }

@@ -2,6 +2,7 @@ package com.example.cornetmijo.appdiplomski;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
@@ -26,7 +27,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
-    public String IPAddress ="192.168.0.11";
+    public String IPAddress ="192.168.31.146";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         Button btn =(Button)findViewById(R.id.btnLogin);
         final EditText email =(EditText)findViewById(R.id.EmailTE);
         final EditText password = (EditText)findViewById(R.id.PasswordTE);
+
         btn.setOnClickListener(new View.OnClickListener()
         {
 
@@ -83,16 +85,26 @@ public class MainActivity extends AppCompatActivity {
                         if(hashResponse.equalsIgnoreCase(hashResult) )
                         {
                             if(active==0){
+                                SharedPreferences.Editor editor = getSharedPreferences("MyPrefsFile", MODE_PRIVATE).edit();
+                                editor.putString("userID", ""+id_user+"");
+                                editor.putString("IPAddress", IPAddress);
+                                editor.apply();
                                 Intent i = new Intent( MainActivity.this, PatientInfoActivity.class);
-                                i.putExtra("userID",""+id_user+"");
-                                i.putExtra("IPAddress",IPAddress);
-                                startActivity(i);}
+                               // i.putExtra("userID",""+id_user+"");
+                               // i.putExtra("IPAddress",IPAddress);
+                                startActivity(i);
+                            finish();}
                             else
                             {
+                                SharedPreferences.Editor editor = getSharedPreferences("MyPrefsFile", MODE_PRIVATE).edit();
+                                editor.putString("userID", ""+id_user+"");
+                                editor.putString("IPAddress", IPAddress);
+                                editor.apply();
                                 Intent i = new Intent( MainActivity.this, MenuActivity.class);
-                                i.putExtra("userID",""+id_user+"");
-                                i.putExtra("IPAddress",IPAddress);
+                                //i.putExtra("userID",""+id_user+"");
+                                //i.putExtra("IPAddress",IPAddress);
                                 startActivity(i);
+                                finish();
                             }
                         }
                         else

@@ -1,8 +1,11 @@
 package com.example.cornetmijo.appdiplomski;
 
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ExpandableListView;
+import android.widget.Toolbar;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -33,14 +36,20 @@ public class VisitDoctorActivity extends AppCompatActivity {
     public int userID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visit_doctor);
+
+
         userID= Integer.parseInt(getIntent().getStringExtra("userID"));
         IPAddress=getIntent().getStringExtra("IPAddress");
         visitDoctor=new VisitDoctor();
         _visitDoctor_list=new ArrayList<VisitDoctor>();
         SelectVisitDoctor();
+        //getActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
+
     public void SelectVisitDoctor()
     {
 
