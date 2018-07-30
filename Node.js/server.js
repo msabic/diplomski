@@ -104,6 +104,16 @@ app.get('/SelectPacijentID', function(req,res) {
 });} else {
 res.status(400).send('Bad Request');
 }})
+app.get('/SelectPacijentForDoctor', function(req,res) {
+  if(req.headers.doctor){
+  db.SelectPacijentForDoctor(req.headers.doctor).then((resoult) => {
+    res.send(resoult);
+  }).catch((err) => {
+    console.log('Error: ', err);
+    res.status(400).send('Bad Request');
+});} else {
+res.status(400).send('Bad Request');
+}})
 app.get('/SelectPacijentAll', function(req,res) {
   db.SelectPacijentAll().then((resoult) => {
     res.send(resoult);
@@ -254,8 +264,8 @@ app.get('/InsertNeradniDan', function(req,res){
 
 //////////////////PACIJENT_DODATNO/////////////////////////////////////
 app.get('/SelectPacijentDodatno', function(req,res) {
-  if(req.headers.id ){
-  db.SelectPacijentDodatno(req.headers.id).then((resoult) => {
+  if(req.headers.patient ){
+  db.SelectPacijentDodatno(req.headers.patient).then((resoult) => {
     res.send(resoult);
   }).catch((err) => {
     console.log('Error: ', err);
@@ -639,6 +649,27 @@ app.get('/Login', function(req,res) {
      {
        console.log(base64.encode(md5('1950th'+resoult[0].Email+';'+req.headers.password)));
        res.send(base64.encode(md5('1950th'+resoult[0].Email+';'+req.headers.password))+";"+resoult[0].ID_Pacijent+";"+resoult[0].Aktivan);
+     }
+     else{
+       console.log('Error: ', error);
+       res.status(404).send('No user');
+     }
+  }).catch((err) => {
+    console.log('Error: ', err);
+    res.status(400).send('Bad Request');
+});} else {
+res.status(400).send('Bad Request');
+}})
+
+app.get('/LoginDoctor', function(req,res) {
+ 
+  if(req.headers.email && req.headers.password){
+  db.LoginDoctor(req.headers.email,req.headers.password).then((resoult,error) => {
+    console.log(resoult)
+     if(resoult[0].Email)
+     {
+       console.log(base64.encode(md5('1950th'+resoult[0].Email+';'+req.headers.password)));
+       res.send(base64.encode(md5('1950th'+resoult[0].Email+';'+req.headers.password)));
      }
      else{
        console.log('Error: ', error);

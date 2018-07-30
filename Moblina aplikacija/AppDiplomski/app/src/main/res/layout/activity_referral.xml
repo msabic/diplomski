@@ -13,9 +13,10 @@
         android:layout_height="148dp"
         android:maxHeight="100dp"
         android:minHeight="100dp"
-        app:srcCompat="@drawable/patientinfo"/>
+        app:srcCompat="@drawable/referrals"/>
     <ExpandableListView
         android:id="@+id/lvExpReferral"
         android:layout_height="match_parent"
-        android:layout_width="match_parent"/>
+        android:layout_width="match_parent"
+        android:background="@drawable/back"/>
 </LinearLayout>

@@ -524,6 +524,23 @@ namespace DBCommunication
 
             }
         }
+        public List<PatientInfo> GetPatientInfoID(int patientID)
+        {
+            try
+            {
+                GetPatientInfoID getPatientInfoID = new GetPatientInfoID();
+                return getPatientInfoID.Execute(patientID);
+            }
+            catch (Exception ex)
+            {
+                return null;
+                throw ex;
+            }
+            finally
+            {
+
+            }
+        }
         public bool InsertPatientInfo(PatientInfo patientInfo)
         {
             try
@@ -710,6 +727,40 @@ namespace DBCommunication
             catch
             {
                 return false;
+            }
+            finally
+            {
+
+            }
+        }
+        public List<Patient> GetPatientForDoctor(int doctorID)
+        {
+            try
+            {
+                GetPatientForDoctor getPatientForDoctor = new GetPatientForDoctor();
+                return getPatientForDoctor.Execute(doctorID);
+            }
+            catch (Exception ex)
+            {
+                return null;
+                throw ex;
+            }
+            finally
+            {
+
+            }
+        }
+        public string Login(string email, string password)
+        {
+            try
+            {
+                Login login = new Login();
+                return login.Execute( email, password);
+                
+            }
+            catch
+            {
+                return string.Empty;
             }
             finally
             {

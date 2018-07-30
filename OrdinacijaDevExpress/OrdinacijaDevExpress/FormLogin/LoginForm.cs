@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
+using System.Security.Cryptography;
 
 namespace OrdinacijaDevExpress
 {
     public partial class LoginForm : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        DBCommunication.DBCommunicationAdmin _DB = new DBCommunication.DBCommunicationAdmin();
         public LoginForm()
         {
             InitializeComponent();
@@ -23,23 +25,31 @@ namespace OrdinacijaDevExpress
         {
             
         }
-
-        private bool Login()
+        public static string Base64Encode(string plainText)
+        {
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+            return System.Convert.ToBase64String(plainTextBytes);
+        }
+        private void Login()
         {
             if (EmailTE.Text == "admin" && PasswordTE.Text == "admin")
             {
-                return true;
+              MainForm mf=new MainForm();
+                mf.Show();
+                //this.Close();
             }
             else
             {
-
-                if(true)
+                string pass = CalculateMD5Hash(PasswordTE.Text);
+                if (_DB.Login(EmailTE.Text, PasswordTE.Text) ==Base64Encode(CalculateMD5Hash("1950th"+ EmailTE.Text + ";"+ PasswordTE.Text)))
                 {
-                    return true;
+                    FormDoctor.MainFormDoctor mfd = new FormDoctor.MainFormDoctor();
+                    mfd.Show();
+                    //this.Close();
                 }
                 else
                 {
-                    return false;
+                    XtraMessageBox.Show("username and password are invalid");
                 }
             }
         }
@@ -48,19 +58,41 @@ namespace OrdinacijaDevExpress
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if(Login())
-                {
-                    MainForm mform = new MainForm();
-                    mform.Show();
-                    this.Close();
-                }
-                else
-                {
-                    PasswordTE.Text = string.Empty;
-                    XtraMessageBox.Show("Invalid user!");
-                }
+                Login();
             }
 
+        }
+        public string CalculateMD5Hash(string input)
+
+        {
+
+            
+
+            MD5 md5 = System.Security.Cryptography.MD5.Create();
+
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
+
+            byte[] hash = md5.ComputeHash(inputBytes);
+
+          
+
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < hash.Length; i++)
+
+            {
+
+                sb.Append(hash[i].ToString("x2"));
+
+            }
+
+            return sb.ToString();
+
+        }
+
+        private void LoginBTN_Click(object sender, EventArgs e)
+        {
+            Login();
         }
     }
 }

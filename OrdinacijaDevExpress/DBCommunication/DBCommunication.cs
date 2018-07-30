@@ -39,6 +39,7 @@ namespace DBCommunication
         bool DeleteReferral(Referral referral);
 
         List<PatientInfo> GetPatientInfo();
+        List<PatientInfo> GetPatientInfoID(int patientID);
         bool InsertPatientInfo(PatientInfo patientInfo);
         bool UpdatePatientInfo(PatientInfo patientInfo);
         bool DeletePatientInfo(PatientInfo patientInfo);
@@ -53,5 +54,8 @@ namespace DBCommunication
         bool UpdateAgreedTerm(AgreedTerm agreedTerm);
         bool DeleteAgreedTerm(AgreedTerm agreedTerm);
 
+        List<Patient> GetPatientForDoctor(int doctorID);
+
+        string Login(string email, string password);
     }
 }

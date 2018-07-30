@@ -84,6 +84,14 @@ let SelectPacijentID = function (id) {
         })
     });
 };
+let SelectPacijentForDoctor = function (doctor) {
+    return new Promise((resolve, reject) => {
+        connection.query("SELECT * FROM pacijent where Doktor_ID_Doktor="+mysql.escape(doctor)+";", function (err, result, fiels) {
+
+            resolve(result);
+        })
+    });
+};
 let SelectPacijentAll = function () {
     return new Promise((resolve, reject) => {
         connection.query("SELECT * FROM pacijent;", function (err, result, fiels) {
@@ -219,9 +227,9 @@ let SelectPacijentDodatnoAll = function () {
         })
     });
 };
-let SelectPacijentDodatno = function (id) {
+let SelectPacijentDodatno = function (patient) {
     return new Promise((resolve, reject) => {
-        connection.query("SELECT * FROM ordinacija.pacijent_dodatno where ID_Pacijent_dodatno="+mysql.escape(id)+";", function (err, result, fiels) {
+        connection.query("SELECT * FROM ordinacija.pacijent_dodatno where Pacijent_ID_Pacijent="+mysql.escape(patient)+";", function (err, result, fiels) {
             resolve(result);
         })
     });
@@ -542,6 +550,16 @@ let Login = function (email, password) {
         })
     });
 };
+
+let LoginDoctor = function (email, password) {
+    console.log("SELECT * FROM `ordinacija`.`doktor` where `Email`="+mysql.escape(email)+" and `Lozinka`="+mysql.escape(md5(password))+";");
+    return new Promise((resolve, reject) => {
+        connection.query("SELECT * FROM `ordinacija`.`doktor` where `Email`="+mysql.escape(email)+" and `Lozinka`="+mysql.escape(md5(password))+";", function (err, result, fiels) {
+            resolve(result);
+            
+        })
+    });
+};
 /////PRIJAVA/////
 
 
@@ -566,6 +584,7 @@ module.exports = {
     SelectPacijent:SelectPacijent,
     SelectPacijentID:SelectPacijentID,
     SelectPacijentAll:SelectPacijentAll,
+    SelectPacijentForDoctor:SelectPacijentForDoctor,
     DeletePacijent:DeletePacijent,
     InsertPacijent:InsertPacijent,
     UpdatePacijent:UpdatePacijent,
@@ -629,7 +648,7 @@ module.exports = {
     UpdateZakazaniTermini,UpdateZakazaniTermini,
 
     Login: Login,
-
+    LoginDoctor:LoginDoctor,
     ChangePasswordPacijent:ChangePasswordPacijent
 }
 
