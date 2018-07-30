@@ -12,3 +12,10 @@ C:\Users\CorNet Mijo\Desktop\diplomski\OrdinacijaDevExpress\DBCommunication\bin\
 C:\Users\CorNet Mijo\Desktop\diplomski\OrdinacijaDevExpress\DBCommunication\obj\Debug\DBCommunication.csprojResolveAssemblyReference.cache
 C:\Users\CorNet Mijo\Desktop\diplomski\OrdinacijaDevExpress\DBCommunication\obj\Debug\DBCommunication.dll
 C:\Users\CorNet Mijo\Desktop\diplomski\OrdinacijaDevExpress\DBCommunication\obj\Debug\DBCommunication.pdb
+C:\Users\Public\diplomski\OrdinacijaDevExpress\DBCommunication\bin\Debug\DBCommunication.dll
+C:\Users\Public\diplomski\OrdinacijaDevExpress\DBCommunication\bin\Debug\DBCommunication.pdb
+C:\Users\Public\diplomski\OrdinacijaDevExpress\DBCommunication\bin\Debug\Models.dll
+C:\Users\Public\diplomski\OrdinacijaDevExpress\DBCommunication\bin\Debug\Models.pdb
+C:\Users\Public\diplomski\OrdinacijaDevExpress\DBCommunication\obj\Debug\DBCommunication.csprojResolveAssemblyReference.cache
+C:\Users\Public\diplomski\OrdinacijaDevExpress\DBCommunication\obj\Debug\DBCommunication.dll
+C:\Users\Public\diplomski\OrdinacijaDevExpress\DBCommunication\obj\Debug\DBCommunication.pdb

@@ -28,6 +28,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -60,15 +62,17 @@ public class TermActivity extends AppCompatActivity {
                 pMonth=datePicker.getMonth();
                 pYear=datePicker.getYear();
 
-                Date dNew=new Date();
+              Date dNew=new Date();
 
                     Date date = new Date(pYear, pMonth, pDay);
-                    if(true){
+                //SimpleDateFormat fmt = new SimpleDateFormat("yyyyMMdd");
+                int b= dNew.compareTo(date);
+                    if(new Date().before(date)){
                     Intent i = new Intent(TermActivity.this, ConfirmTermActivity.class);
                     i.putExtra("date", "" + pYear + "," + pMonth + "," + pDay);
                     i.putExtra("userID", "" + userID + "");
                     i.putExtra("IPAddress", IPAddress);
-                    i.putExtra("doctorID", patient.getDoktor_ID_Doktor());
+                    i.putExtra("doctorID", ""+patient.getDoktor_ID_Doktor()+"");
                     startActivity(i);
                 }
                 else

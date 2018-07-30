@@ -5,7 +5,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:background="#ffffff">
+    android:background="@drawable/back">
 
     <ImageView
         android:id="@+id/slika"
@@ -13,7 +13,7 @@
         android:layout_height="148dp"
         android:maxHeight="100dp"
         android:minHeight="100dp"
-        app:srcCompat="@drawable/patientinfo"/>
+        app:srcCompat="@drawable/visit"/>
     <ExpandableListView
         android:id="@+id/lvExpVisitDoctor"
         android:layout_height="match_parent"

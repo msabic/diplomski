@@ -40,11 +40,11 @@
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.StyleContainerItem = new DevExpress.XtraBars.BarLinkContainerItem();
             this.VisitDoctorPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.non_working_days_page = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.PrescriptionPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ReferralPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.PatientInfoPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.DiagnosisPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.non_working_days_page = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.PatientInfoPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bar1 = new DevExpress.XtraBars.Bar();
@@ -146,7 +146,7 @@
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Show;
             this.ribbonControl1.ShowQatLocationSelector = false;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(537, 98);
+            this.ribbonControl1.Size = new System.Drawing.Size(800, 98);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             this.ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             this.ribbonControl1.SelectedPageChanging += new DevExpress.XtraBars.Ribbon.RibbonPageChangingEventHandler(this.ribbonControl1_SelectedPageChanging);
@@ -164,12 +164,6 @@
             this.VisitDoctorPage.Name = "VisitDoctorPage";
             this.VisitDoctorPage.Text = "Visit doctor";
             // 
-            // non_working_days_page
-            // 
-            this.non_working_days_page.Image = ((System.Drawing.Image)(resources.GetObject("non_working_days_page.Image")));
-            this.non_working_days_page.Name = "non_working_days_page";
-            this.non_working_days_page.Text = "Non-working days";
-            // 
             // PrescriptionPage
             // 
             this.PrescriptionPage.Image = ((System.Drawing.Image)(resources.GetObject("PrescriptionPage.Image")));
@@ -182,17 +176,23 @@
             this.ReferralPage.Name = "ReferralPage";
             this.ReferralPage.Text = "Referral";
             // 
-            // PatientInfoPage
-            // 
-            this.PatientInfoPage.Image = ((System.Drawing.Image)(resources.GetObject("PatientInfoPage.Image")));
-            this.PatientInfoPage.Name = "PatientInfoPage";
-            this.PatientInfoPage.Text = "Patient Info";
-            // 
             // DiagnosisPage
             // 
             this.DiagnosisPage.Image = ((System.Drawing.Image)(resources.GetObject("DiagnosisPage.Image")));
             this.DiagnosisPage.Name = "DiagnosisPage";
             this.DiagnosisPage.Text = "Diagnosis";
+            // 
+            // non_working_days_page
+            // 
+            this.non_working_days_page.Image = ((System.Drawing.Image)(resources.GetObject("non_working_days_page.Image")));
+            this.non_working_days_page.Name = "non_working_days_page";
+            this.non_working_days_page.Text = "Non-working days";
+            // 
+            // PatientInfoPage
+            // 
+            this.PatientInfoPage.Image = ((System.Drawing.Image)(resources.GetObject("PatientInfoPage.Image")));
+            this.PatientInfoPage.Name = "PatientInfoPage";
+            this.PatientInfoPage.Text = "Patient Info";
             // 
             // ribbonPage1
             // 
@@ -234,7 +234,7 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(537, 393);
+            this.ClientSize = new System.Drawing.Size(800, 393);
             this.Controls.Add(this.ribbonControl1);
             this.IsMdiContainer = true;
             this.Name = "MainForm";

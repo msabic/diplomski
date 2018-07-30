@@ -7,9 +7,9 @@ const base64 = require('base-64');
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : '12345',
+  password : '',
   database :'ordinacija',
-  port : '3306'
+  port : '3309'
 });
 
 
