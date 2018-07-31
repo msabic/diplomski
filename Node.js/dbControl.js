@@ -107,17 +107,17 @@ let DeletePacijent = function (id) {
         })
     });
 };
-let InsertPacijent = function (name,surname,email,password,contact,doctor) {
+let InsertPacijent = function (name,surname,email,password,contact,doktor) {
  console.log("INSERT INTO `ordinacija`.`pacijent`(`Ime`,`Prezime`,`Email`,`Lozinka`,`Kontakt`,`Aktivan`,`Doktor_ID_Doktor`) VALUES ("+mysql.escape(name)+", "+mysql.escape(surname)+", "+mysql.escape(email)+", "+mysql.escape(password)+", "+mysql.escape(contact)+", '0',"+mysql.escape(doktor)+");")
     return new Promise((resolve, reject) => {
-        connection.query("INSERT INTO `ordinacija`.`pacijent`(`Ime`,`Prezime`,`Email`,`Lozinka`,`Kontakt`,`Aktivan`,`Doktor_ID_Doktor`) VALUES ("+mysql.escape(name)+", "+mysql.escape(surname)+", "+mysql.escape(email)+", "+mysql.escape(password)+", "+mysql.escape(contact)+", '0',"+mysql.escape(doctor)+");", function (err, result, fiels) {
+        connection.query("INSERT INTO `ordinacija`.`pacijent`(`Ime`,`Prezime`,`Email`,`Lozinka`,`Kontakt`,`Aktivan`,`Doktor_ID_Doktor`) VALUES ("+mysql.escape(name)+", "+mysql.escape(surname)+", "+mysql.escape(email)+", "+mysql.escape(password)+", "+mysql.escape(contact)+", '0',"+mysql.escape(doktor)+");", function (err, result, fiels) {
          resolve(result);
         })
     });
 };
 
 let UpdatePacijent = function (id,name,surname,email,contact,doctor,active) {
-  console.log("INSERT INTO `ordinacija`.`pacijent`(`Ime`,`Prezime`,`Email`,`Lozinka`,`Kontakt`,`Aktivan`,`Doktor_ID_Doktor`) VALUES ("+mysql.escape(name)+", "+mysql.escape(surname)+", "+mysql.escape(email)+", "+mysql.escape(contact)+", '0',"+mysql.escape(doktor)+");")
+  console.log("INSERT INTO `ordinacija`.`pacijent`(`Ime`,`Prezime`,`Email`,`Lozinka`,`Kontakt`,`Aktivan`,`Doktor_ID_Doktor`) VALUES ("+mysql.escape(name)+", "+mysql.escape(surname)+", "+mysql.escape(email)+", "+mysql.escape(contact)+", '0',"+mysql.escape(doctor)+");")
        return new Promise((resolve, reject) => {
            connection.query("UPDATE  `ordinacija`.`pacijent` SET `Ime` = "+mysql.escape(name)+",`Prezime` = "+mysql.escape(surname)+",`Email` = "+mysql.escape(email)+", `Kontakt` = "+mysql.escape(contact)+",`Aktivan` = "+mysql.escape(active)+",`Doktor_ID_Doktor` = "+mysql.escape(doctor)+" WHERE `ID_Pacijent` = "+mysql.escape(id)+";", function (err, result, fiels) {
             resolve(result);
@@ -279,6 +279,7 @@ let SelectPosjet = function (id) {
     });
 };
 let SelectPosjetForPatient = function (patient) {
+    console.log("SELECT * FROM ordinacija.posjet where Pacijent_ID_Pacijent="+mysql.escape(patient)+";");
     return new Promise((resolve, reject) => {
         connection.query("SELECT * FROM ordinacija.posjet where Pacijent_ID_Pacijent="+mysql.escape(patient)+";", function (err, result, fiels) {
             resolve(result);
@@ -458,6 +459,7 @@ let SelectUputnica = function (id) {
     });
 };
 let SelectUputnicaForPatient = function (patient) {
+    console.log("SELECT * FROM ordinacija.uputnica where Pacijent_ID_Pacijent="+mysql.escape(patient)+";");
     return new Promise((resolve, reject) => {
         connection.query("SELECT * FROM ordinacija.uputnica where Pacijent_ID_Pacijent="+mysql.escape(patient)+";", function (err, result, fiels) {
             resolve(result);
@@ -503,6 +505,22 @@ let SelectZakazaniTerminAll = function () {
 let SelectZakazaniTermin = function (id) {
     return new Promise((resolve, reject) => {
         connection.query("SELECT * FROM ordinacija.zakazani_termin where ID_Zakazani_termin="+mysql.escape(id)+";", function (err, result, fiels) {
+            resolve(result);
+        })
+    });
+};
+let SelectZakazaniTerminForPatient = function (patient) {
+    console.log("SELECT * FROM ordinacija.zakazani_termin where Pacijent_ID_Pacijent="+mysql.escape(patient)+";");
+    return new Promise((resolve, reject) => {
+        connection.query("SELECT * FROM ordinacija.zakazani_termin where Pacijent_ID_Pacijent="+mysql.escape(patient)+";", function (err, result, fiels) {
+            resolve(result);
+        })
+    });
+};
+let SelectZakazaniTerminForDoctor = function (doctor) {
+    console.log("SELECT * FROM ordinacija.zakazani_termin where Pacijent_Doktor_ID_Doktor="+mysql.escape(doctor)+";");
+    return new Promise((resolve, reject) => {
+        connection.query("SELECT * FROM ordinacija.zakazani_termin where Pacijent_Doktor_ID_Doktor="+mysql.escape(doctor)+";", function (err, result, fiels) {
             resolve(result);
         })
     });
@@ -564,14 +582,19 @@ let LoginDoctor = function (email, password) {
 
 
 let ChangePasswordPacijent = function (id,password) {
-    console.log("INSERT INTO `ordinacija`.`pacijent`(`Ime`,`Prezime`,`Email`,`Lozinka`,`Kontakt`,`Aktivan`,`Doktor_ID_Doktor`) VALUES ("+mysql.escape(name)+", "+mysql.escape(surname)+", "+mysql.escape(email)+", "+mysql.escape(contact)+", '0',"+mysql.escape(doktor)+");")
          return new Promise((resolve, reject) => {
              connection.query("UPDATE  `ordinacija`.`pacijent` SET `Lozinka` = "+mysql.escape(md5(password))+",`Aktivan` = '1' WHERE `ID_Pacijent` = "+mysql.escape(id)+";", function (err, result, fiels) {
               resolve(result);
              })
          });
      };
-
+     let ChangePasswordDoctor = function (id,password) {
+             return new Promise((resolve, reject) => {
+                 connection.query("UPDATE  `ordinacija`.`doktor` SET `Lozinka` = "+mysql.escape(md5(password))+" WHERE `ID_Pacijent` = "+mysql.escape(id)+";", function (err, result, fiels) {
+                  resolve(result);
+                 })
+             });
+         };
 
 module.exports = {
     SelectDoktor: SelectDoktor,
@@ -645,10 +668,13 @@ module.exports = {
     SelectZakazaniTerminForDate:SelectZakazaniTerminForDate,
     DeleteZakazaniTermin: DeleteZakazaniTermin,
     InsertZakazaniTermini:InsertZakazaniTermini,
-    UpdateZakazaniTermini,UpdateZakazaniTermini,
-
+    UpdateZakazaniTermini:UpdateZakazaniTermini,
+    SelectZakazaniTerminForPatient:SelectZakazaniTerminForPatient,
+    SelectZakazaniTerminForDoctor:SelectZakazaniTerminForDoctor,
+    
     Login: Login,
     LoginDoctor:LoginDoctor,
-    ChangePasswordPacijent:ChangePasswordPacijent
+    ChangePasswordPacijent:ChangePasswordPacijent,
+    ChangePasswordDoctor:ChangePasswordDoctor
 }
 

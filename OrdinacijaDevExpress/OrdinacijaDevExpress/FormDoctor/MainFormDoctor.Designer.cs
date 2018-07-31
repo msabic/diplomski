@@ -36,8 +36,14 @@
             this.VisitDoctorBarItem = new DevExpress.XtraBars.BarButtonItem();
             this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             this.PatientInfoBarItem = new DevExpress.XtraBars.BarButtonItem();
+            this.NewPatientBarItem = new DevExpress.XtraBars.BarButtonItem();
+            this.EditPatientBarItem = new DevExpress.XtraBars.BarButtonItem();
+            this.DeletePatientBarItem = new DevExpress.XtraBars.BarButtonItem();
+            this.ChangePasswordBarITem = new DevExpress.XtraBars.BarButtonItem();
             this.PatientPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.Patient = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
@@ -70,12 +76,17 @@
             this.DiagnoseBarItme,
             this.VisitDoctorBarItem,
             this.skinRibbonGalleryBarItem1,
-            this.PatientInfoBarItem});
+            this.PatientInfoBarItem,
+            this.NewPatientBarItem,
+            this.EditPatientBarItem,
+            this.DeletePatientBarItem,
+            this.ChangePasswordBarITem});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 16;
+            this.ribbon.MaxItemId = 20;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.PatientPage,
+            this.ribbonPage2,
             this.ribbonPage1});
             this.ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit1});
@@ -85,7 +96,7 @@
             // 
             // AgreedTermBarItem
             // 
-            this.AgreedTermBarItem.Caption = "Agreed term";
+            this.AgreedTermBarItem.Caption = "Agreed term for patient";
             this.AgreedTermBarItem.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
             this.AgreedTermBarItem.Glyph = ((System.Drawing.Image)(resources.GetObject("AgreedTermBarItem.Glyph")));
             this.AgreedTermBarItem.Id = 5;
@@ -140,6 +151,46 @@
             this.PatientInfoBarItem.Name = "PatientInfoBarItem";
             this.PatientInfoBarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.PatientInfoBarItem_ItemClick);
             // 
+            // NewPatientBarItem
+            // 
+            this.NewPatientBarItem.Caption = "New patient";
+            this.NewPatientBarItem.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+            this.NewPatientBarItem.Glyph = ((System.Drawing.Image)(resources.GetObject("NewPatientBarItem.Glyph")));
+            this.NewPatientBarItem.Id = 16;
+            this.NewPatientBarItem.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("NewPatientBarItem.LargeGlyph")));
+            this.NewPatientBarItem.Name = "NewPatientBarItem";
+            this.NewPatientBarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.NewPatientBarItem_ItemClick);
+            // 
+            // EditPatientBarItem
+            // 
+            this.EditPatientBarItem.Caption = "Edit patient";
+            this.EditPatientBarItem.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+            this.EditPatientBarItem.Glyph = ((System.Drawing.Image)(resources.GetObject("EditPatientBarItem.Glyph")));
+            this.EditPatientBarItem.Id = 17;
+            this.EditPatientBarItem.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("EditPatientBarItem.LargeGlyph")));
+            this.EditPatientBarItem.Name = "EditPatientBarItem";
+            this.EditPatientBarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.EditPatientBarItem_ItemClick);
+            // 
+            // DeletePatientBarItem
+            // 
+            this.DeletePatientBarItem.Caption = "Delete patient";
+            this.DeletePatientBarItem.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+            this.DeletePatientBarItem.Glyph = ((System.Drawing.Image)(resources.GetObject("DeletePatientBarItem.Glyph")));
+            this.DeletePatientBarItem.Id = 18;
+            this.DeletePatientBarItem.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("DeletePatientBarItem.LargeGlyph")));
+            this.DeletePatientBarItem.Name = "DeletePatientBarItem";
+            this.DeletePatientBarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.DeletePatientBarItem_ItemClick);
+            // 
+            // ChangePasswordBarITem
+            // 
+            this.ChangePasswordBarITem.Caption = "Change password";
+            this.ChangePasswordBarITem.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+            this.ChangePasswordBarITem.Glyph = ((System.Drawing.Image)(resources.GetObject("ChangePasswordBarITem.Glyph")));
+            this.ChangePasswordBarITem.Id = 19;
+            this.ChangePasswordBarITem.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("ChangePasswordBarITem.LargeGlyph")));
+            this.ChangePasswordBarITem.Name = "ChangePasswordBarITem";
+            this.ChangePasswordBarITem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ChangePasswordBarITem_ItemClick);
+            // 
             // PatientPage
             // 
             this.PatientPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -149,6 +200,9 @@
             // 
             // Patient
             // 
+            this.Patient.ItemLinks.Add(this.NewPatientBarItem);
+            this.Patient.ItemLinks.Add(this.EditPatientBarItem);
+            this.Patient.ItemLinks.Add(this.DeletePatientBarItem);
             this.Patient.ItemLinks.Add(this.PatientInfoBarItem);
             this.Patient.ItemLinks.Add(this.VisitDoctorBarItem);
             this.Patient.ItemLinks.Add(this.DiagnoseBarItme);
@@ -156,6 +210,19 @@
             this.Patient.ItemLinks.Add(this.AgreedTermBarItem);
             this.Patient.Name = "Patient";
             this.Patient.Text = "Patient";
+            // 
+            // ribbonPage2
+            // 
+            this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup2});
+            this.ribbonPage2.Name = "ribbonPage2";
+            this.ribbonPage2.Text = "Options";
+            // 
+            // ribbonPageGroup2
+            // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.ChangePasswordBarITem);
+            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            this.ribbonPageGroup2.Text = "Options";
             // 
             // ribbonPage1
             // 
@@ -312,6 +379,7 @@
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "MainFormDoctor";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Activated += new System.EventHandler(this.MainFormDoctor_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PatientGridControl)).EndInit();
@@ -348,5 +416,11 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraBars.BarButtonItem PatientInfoBarItem;
+        private DevExpress.XtraBars.BarButtonItem NewPatientBarItem;
+        private DevExpress.XtraBars.BarButtonItem EditPatientBarItem;
+        private DevExpress.XtraBars.BarButtonItem DeletePatientBarItem;
+        private DevExpress.XtraBars.BarButtonItem ChangePasswordBarITem;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
     }
 }

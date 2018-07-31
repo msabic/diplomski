@@ -40,16 +40,17 @@ namespace OrdinacijaDevExpress
             }
             else
             {
-                string pass = CalculateMD5Hash(PasswordTE.Text);
-                if (_DB.Login(EmailTE.Text, PasswordTE.Text) ==Base64Encode(CalculateMD5Hash("1950th"+ EmailTE.Text + ";"+ PasswordTE.Text)))
+
+                string pass = _DB.Login(EmailTE.Text, PasswordTE.Text);
+                if (pass.Split(';')[0]== Base64Encode(CalculateMD5Hash("1950th"+ EmailTE.Text + ";"+ PasswordTE.Text)))
                 {
-                    FormDoctor.MainFormDoctor mfd = new FormDoctor.MainFormDoctor();
+                    FormDoctor.MainFormDoctor mfd = new FormDoctor.MainFormDoctor(pass.Split(';')[1]);
                     mfd.Show();
                     //this.Close();
                 }
                 else
                 {
-                    XtraMessageBox.Show("username and password are invalid");
+                    XtraMessageBox.Show("Username and password are invalid! Please try again!");
                 }
             }
         }

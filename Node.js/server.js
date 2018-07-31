@@ -591,6 +591,26 @@ app.get('/SelectZakazaniTermin', function(req,res) {
 });} else {
 res.status(400).send('Bad Request');
 }})
+app.get('/SelectZakazaniTerminForPatient', function(req,res) {
+  if(req.headers.patient ){
+  db.SelectZakazaniTerminForPatient(req.headers.patient).then((resoult) => {
+    res.send(resoult);
+  }).catch((err) => {
+    console.log('Error: ', err);
+    res.status(400).send('Bad Request');
+});} else {
+res.status(400).send('Bad Request');
+}})
+app.get('/SelectZakazaniTerminForDoctor', function(req,res) {
+  if(req.headers.doctor ){
+  db.SelectZakazaniTerminForDoctor(req.headers.doctor).then((resoult) => {
+    res.send(resoult);
+  }).catch((err) => {
+    console.log('Error: ', err);
+    res.status(400).send('Bad Request');
+});} else {
+res.status(400).send('Bad Request');
+}})
 app.get('/SelectZakazaniTerminForDate', function(req,res) {
   if(req.headers.datum && req.headers.doctor ){
   db.SelectZakazaniTerminForDate(req.headers.datum, req.headers.doctor).then((resoult) => {
@@ -669,7 +689,7 @@ app.get('/LoginDoctor', function(req,res) {
      if(resoult[0].Email)
      {
        console.log(base64.encode(md5('1950th'+resoult[0].Email+';'+req.headers.password)));
-       res.send(base64.encode(md5('1950th'+resoult[0].Email+';'+req.headers.password)));
+       res.send(base64.encode(md5('1950th'+resoult[0].Email+';'+req.headers.password))+";"+resoult[0].ID_Doktor);
      }
      else{
        console.log('Error: ', error);
@@ -697,7 +717,17 @@ app.get('/ChangePasswordPacijent', function(req,res) {
 });} else {
 res.status(400).send('Bad Request');
 }})
-
+app.get('/ChangePasswordDoctor', function(req,res) {
+  console.log(req.headers.id, req.headers.password)
+  if(req.headers.id && req.headers.password){
+  db.ChangePasswordDoctor(req.headers.id, req.headers.password).then((resoult) => {
+    res.send("true");
+  }).catch((err) => {
+    console.log('Error: ', err);
+    res.status(400).send('Bad Request');
+});} else {
+res.status(400).send('Bad Request');
+}})
 //////////////////Izmjena_lozinke/////////////////////////////////////
 
 

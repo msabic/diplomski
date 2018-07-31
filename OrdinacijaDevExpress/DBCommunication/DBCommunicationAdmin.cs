@@ -42,6 +42,23 @@ namespace DBCommunication
 
             }
         }
+        public List<Doctor> GetDoctorID(int doctorID)
+        {
+            try
+            {
+                GetDoctorID getDoctor = new GetDoctorID();
+                return getDoctor.Execute(doctorID);
+            }
+            catch (Exception ex)
+            {
+                return null;
+                throw ex;
+            }
+            finally
+            {
+
+            }
+        }
         public bool InsertDoctor(Doctor dr)
         {
             try
@@ -76,6 +93,23 @@ namespace DBCommunication
 
             }
         }
+        public bool ChangePassword(int id, string password)
+        {
+            try
+            {
+                ChangePassword changePassword = new ChangePassword();
+                changePassword.Execute(id, password);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+
+            }
+        }
         public bool DeleteDoctor(Doctor dr)
         {
             try
@@ -100,6 +134,23 @@ namespace DBCommunication
             {
                 GetPatient getPatient = new GetPatient();
                 return getPatient.Execute();
+            }
+            catch (Exception ex)
+            {
+                return null;
+                throw ex;
+            }
+            finally
+            {
+
+            }
+        }
+        public List<Patient> GetPatientID(int patientID)
+        {
+            try
+            {
+                GetPatientID getPatient = new GetPatientID();
+                return getPatient.Execute(patientID);
             }
             catch (Exception ex)
             {
@@ -307,7 +358,23 @@ namespace DBCommunication
 
             }
         }
+        public List<VisitDoctor> GetVistiDoctorForPatient(int patientID)
+        {
+            try
+            {
+                GetVistiDoctorForPatient getVisitDoctorForPatient = new GetVistiDoctorForPatient();
+                return getVisitDoctorForPatient.Execute(patientID);
+            }
+            catch (Exception ex)
+            {
+                return null;
+                throw ex;
+            }
+            finally
+            {
 
+            }
+        }
         public bool InsertVisitDoctor(VisitDoctor visitDoctor)
         {
             try
@@ -452,7 +519,23 @@ namespace DBCommunication
 
             }
         }
+        public List<Referral> GetReferralForPatient(int patientID)
+        {
+            try
+            {
+                GetReferralForPatient getReferral = new GetReferralForPatient();
+                return getReferral.Execute(patientID);
+            }
+            catch (Exception ex)
+            {
+                return null;
+                throw ex;
+            }
+            finally
+            {
 
+            }
+        }
         public bool InsertReferral(Referral referral)
         {
             try
@@ -611,6 +694,23 @@ namespace DBCommunication
 
             }
         }
+        public List<Diagnosis> GetDiagnosisForPatient(int patient)
+        {
+            try
+            {
+                GetDiagnosisForPatient getDiagnosis = new GetDiagnosisForPatient();
+                return getDiagnosis.Execute(patient);
+            }
+            catch (Exception ex)
+            {
+                return null;
+                throw ex;
+            }
+            finally
+            {
+
+            }
+        }
         public bool InsertDiagnosis(Diagnosis diagnosis)
         {
             try
@@ -671,6 +771,40 @@ namespace DBCommunication
             {
                 GetAgreedTerm getAgreedTerm = new GetAgreedTerm();
                 return getAgreedTerm.Execute();
+            }
+            catch (Exception ex)
+            {
+                return null;
+                throw ex;
+            }
+            finally
+            {
+
+            }
+        }
+        public List<AgreedTerm> GetAgreedTermForPatient(int patient)
+        {
+            try
+            {
+                GetAgreedTermForPatient getAgreedTerm = new GetAgreedTermForPatient();
+                return getAgreedTerm.Execute(patient);
+            }
+            catch (Exception ex)
+            {
+                return null;
+                throw ex;
+            }
+            finally
+            {
+
+            }
+        }
+        public List<AgreedTerm> AgreedTemForDoctor(int doctor)
+        {
+            try
+            {
+                AgreedTemForDoctor getAgreedTerm = new AgreedTemForDoctor();
+                return getAgreedTerm.Execute(doctor);
             }
             catch (Exception ex)
             {
