@@ -62,9 +62,13 @@ public class TermActivity extends AppCompatActivity {
                 pMonth=datePicker.getMonth();
                 pYear=datePicker.getYear();
 
-              Date dNew=new Date();
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(pYear, pMonth, pDay);
 
-                    Date date = new Date(pYear, pMonth, pDay);
+                Date dNew=new Date();
+
+                Date date = calendar.getTime();
+                System.out.println("DATUM " + date);
                 //SimpleDateFormat fmt = new SimpleDateFormat("yyyyMMdd");
                 int b= dNew.compareTo(date);
                     if(new Date().before(date)){

@@ -27,7 +27,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
-    public String IPAddress ="192.168.0.104";
+    public String IPAddress ="192.168.31.146";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
                                // i.putExtra("userID",""+id_user+"");
                                // i.putExtra("IPAddress",IPAddress);
                                 startActivity(i);
+                                finish();
                             finish();}
                             else
                             {

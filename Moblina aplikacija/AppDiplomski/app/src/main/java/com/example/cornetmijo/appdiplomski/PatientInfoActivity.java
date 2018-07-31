@@ -2,6 +2,7 @@ package com.example.cornetmijo.appdiplomski;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -46,8 +47,10 @@ public class PatientInfoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_info);
-        userID= Integer.parseInt(getIntent().getStringExtra("userID"));
-        IPAddress=getIntent().getStringExtra("IPAddress");
+        SharedPreferences prefs = getSharedPreferences("MyPrefsFile", MODE_PRIVATE);
+
+        userID=Integer.parseInt(prefs.getString("userID", "0"));
+        IPAddress=prefs.getString("IPAddress", null);
         fatherName=(EditText)findViewById(R.id.FatherNameTE);
         motherName=(EditText)findViewById(R.id.MotherNameTE);
         address=(EditText)findViewById(R.id.AddressTE);
