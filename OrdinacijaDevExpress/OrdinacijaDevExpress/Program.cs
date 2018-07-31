@@ -25,7 +25,7 @@ namespace OrdinacijaDevExpress
 
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
-            Application.Run(new FormDoctor.MainFormDoctor("31"));
+            Application.Run(new LoginForm());
         }
     }
 }

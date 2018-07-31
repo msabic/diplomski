@@ -191,6 +191,14 @@ let SelectNeradniDani = function (id) {
         })
     });
 };
+let SelectNeradniDaniDate = function (datum) {
+    console.log("SELECT count(*)  AS namesCount  FROM ordinacija.neradni_dan where Datum="+mysql.escape(datum)+";");
+    return new Promise((resolve, reject) => {
+        connection.query("SELECT count(*) AS namesCount FROM ordinacija.neradni_dan where Datum="+mysql.escape(datum)+";", function (err, result, fiels) {
+            resolve(result);
+        })
+    });
+};
 let DeleteNeradniDani = function (id) {
     console.log("delete_neradni_Dan")
     return new Promise((resolve, reject) => {
@@ -621,6 +629,7 @@ module.exports = {
 
     SelectNeradniDaniAll: SelectNeradniDaniAll,
     SelectNeradniDani: SelectNeradniDani,
+    SelectNeradniDaniDate:SelectNeradniDaniDate,
     DeleteNeradniDani:DeleteNeradniDani,
     InsertNeradniDan:InsertNeradniDan,
     UpdateNeradniDan:UpdateNeradniDan,

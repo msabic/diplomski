@@ -229,6 +229,22 @@ app.get('/SelectNeradniDaniAll', function(req,res) {
     db.SelectNeradniDaniAll().then((resoult) => {
       res.send(resoult);
     });})
+    app.get('/SelectNeradniDaniDate', function(req,res) {
+      if(req.headers.datum){
+      db.SelectNeradniDaniDate(req.headers.datum).then((resoult) => {
+        const ret=resoult[0]['namesCount'];
+        console.log(ret);
+        if(ret==0){
+        res.send(false);}
+        else{
+          res.send(true);
+        }
+      }).catch((err) => {
+        console.log('Error: ', err);
+        res.status(400).send('Bad Request');
+    });} else {
+    res.status(400).send('Bad Request');
+    }})
 app.get('/DeleteNeradniDani', function(req,res) {
         if(req.headers.id){
         db.DeleteNeradniDani(req.headers.id).then((resoult) => {
