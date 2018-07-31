@@ -27,7 +27,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
-    public String IPAddress ="192.168.31.146";
+    public String IPAddress ="192.168.0.11";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
     private void Login(final String email, final String password)
     {
         RequestQueue queue = Volley.newRequestQueue(this);
-        //String url = "http://192.168.31.146:3000/Login";
+        //String url = "http://192.168.0.11:3000/Login";
 
         String url = "http://"+IPAddress+":3000/Login";
 

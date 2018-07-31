@@ -48,7 +48,7 @@ public class ConfirmTermActivity extends AppCompatActivity {
     public static WorkingTime workingTime;
     ListView list;
     Doctor doctor;
-    public static DoctorList adapter;
+    public static TermList adapter;
     public static ConfirmTermActivity confirmTermActivity;
     public static String[] itemname = new String[1] ;
     private boolean temp=false;
@@ -71,7 +71,7 @@ public class ConfirmTermActivity extends AppCompatActivity {
         pYear=Integer.parseInt(d.split(",")[0]);
         date=new Date(Integer.parseInt(d.split(",")[0]),Integer.parseInt(d.split(",")[1])+1,Integer.parseInt(d.split(",")[1]));
         itemname[0]="a";
-        imgid[0]=R.drawable.ic_menu_camera;
+        imgid[0]=R.drawable.clock;
         IPAddress=getIntent().getStringExtra("IPAddress");
         userID= Integer.parseInt(getIntent().getStringExtra("userID"));
         confirmTermActivity=this;
@@ -163,7 +163,7 @@ public class ConfirmTermActivity extends AppCompatActivity {
             for(int j =0; j<timesPM.size(); j++)
             {
                 itemname[j]=timesPM.get(j).toString();
-                imgid[j]=R.drawable.ic_person;
+                imgid[j]=R.drawable.clock;
             }
         }
         else {
@@ -182,10 +182,10 @@ public class ConfirmTermActivity extends AppCompatActivity {
             for(int j =0; j<timesAM.size(); j++)
             {
                 itemname[j]=timesAM.get(j).toString();
-                imgid[j]=R.drawable.ic_person;
+                imgid[j]=R.drawable.clock;
             }
         }
-        adapter=new DoctorList(confirmTermActivity, itemname, imgid);
+        adapter=new TermList(confirmTermActivity, itemname, imgid);
         AddListeners();
     }
     public void SelectDoctor()
@@ -301,7 +301,7 @@ public class ConfirmTermActivity extends AppCompatActivity {
                                 for(int j =0; j<timesAM.size(); j++)
                                 {
                                     itemname[j]=timesAM.get(j).toString();
-                                    imgid[j]=R.drawable.ic_person;
+                                    imgid[j]=R.drawable.clock;
                                 }
                             }
                             else
@@ -311,10 +311,10 @@ public class ConfirmTermActivity extends AppCompatActivity {
                                 for(int j =0; j<timesPM.size(); j++)
                                 {
                                     itemname[j]=timesPM.get(j).toString();
-                                    imgid[j]=R.drawable.ic_person;
+                                    imgid[j]=R.drawable.clock;
                                 }
                             }
-                                    adapter=new DoctorList(confirmTermActivity, itemname, imgid);
+                                    adapter=new TermList(confirmTermActivity, itemname, imgid);
                                     AddListeners();
                         }
 

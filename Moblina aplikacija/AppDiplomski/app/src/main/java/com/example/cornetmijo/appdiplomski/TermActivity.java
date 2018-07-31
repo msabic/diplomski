@@ -6,6 +6,7 @@ import android.graphics.PathEffect;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -20,6 +21,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 
@@ -27,6 +29,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.security.cert.Extension;
 import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -45,6 +48,7 @@ public class TermActivity extends AppCompatActivity {
     public int userID;
     public   DatePicker datePicker;
     public static Patient patient;
+    public static boolean f=true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,37 +65,87 @@ public class TermActivity extends AppCompatActivity {
                 pDay=datePicker.getDayOfMonth();
                 pMonth=datePicker.getMonth();
                 pYear=datePicker.getYear();
-
-                Calendar calendar = Calendar.getInstance();
-                calendar.set(pYear, pMonth, pDay);
-
-                Date dNew=new Date();
-
-                Date date = calendar.getTime();
-                System.out.println("DATUM " + date);
-                //SimpleDateFormat fmt = new SimpleDateFormat("yyyyMMdd");
-                int b= dNew.compareTo(date);
-                    if(new Date().before(date)){
-                    Intent i = new Intent(TermActivity.this, ConfirmTermActivity.class);
-                    i.putExtra("date", "" + pYear + "," + pMonth + "," + pDay);
-                    i.putExtra("userID", "" + userID + "");
-                    i.putExtra("IPAddress", IPAddress);
-                    i.putExtra("doctorID", ""+patient.getDoktor_ID_Doktor()+"");
-                    startActivity(i);
-                }
-                else
-                {
-                    Context context = getApplicationContext();
-                    CharSequence text = "Date is invalid!";
-                    int duration = Toast.LENGTH_SHORT;
-
-                    Toast toast = Toast.makeText(context, text, duration);
-                    toast.show();
-                }
-
-
+                NoWorkingDay(""+pYear+"-"+(pMonth+1)+"-"+pDay);
             }
         });
+
+    }
+    public void NoWorkingDay(final String Datum)
+    {
+
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        //String url = "http://192.168.31.146:3000/InsertPacijentDodatno";
+        String url = "http://"+IPAddress+":3000/SelectNeradniDaniDate";
+        StringRequest postRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>()
+                {
+                    @Override
+                    public void onResponse(String response) {
+                        // response
+                        try {
+                            if (response.equalsIgnoreCase("true")) {
+
+
+                                f = true;
+
+                            } else {
+                                f = false;
+                            }
+                            Log.d("Response", response);
+                        }
+                        catch (Exception e)
+                        {
+                            Log.d("Error", e.getMessage());
+                        }
+                        finally {
+                            pDay=datePicker.getDayOfMonth();
+                            pMonth=datePicker.getMonth();
+                            pYear=datePicker.getYear();
+
+                            Calendar calendar = Calendar.getInstance();
+                            calendar.set(pYear, pMonth, pDay);
+                            Date date = calendar.getTime();
+                            if(new Date().before(date) && !f){
+                                Intent i = new Intent(TermActivity.this, ConfirmTermActivity.class);
+                                i.putExtra("date", "" + pYear + "," + pMonth + "," + pDay);
+                                i.putExtra("userID", "" + userID + "");
+                                i.putExtra("IPAddress", IPAddress);
+                                i.putExtra("doctorID", ""+patient.getDoktor_ID_Doktor()+"");
+                                startActivity(i);
+                            }
+                            else
+                            {
+                                Context context = getApplicationContext();
+                                CharSequence text = "Date is invalid!";
+                                int duration = Toast.LENGTH_SHORT;
+
+                                Toast toast = Toast.makeText(context, text, duration);
+                                toast.show();
+                            }
+                        }
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                        Log.d("ERROR","error => "+error.toString());
+                    }
+                }
+        ) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String>  params = new HashMap<String, String>();
+                params.put("datum", Datum);
+
+
+                return params;
+            }
+        };
+        queue.add(postRequest);
+
 
     }
     public void SelectVisitDoctor()

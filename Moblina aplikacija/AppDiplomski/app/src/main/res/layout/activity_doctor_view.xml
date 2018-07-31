@@ -20,7 +20,7 @@
                 android:id="@+id/imageView4"
                 android:layout_width="match_parent"
                 android:layout_height="203dp"
-                app:srcCompat="@drawable/common_google_signin_btn_icon_light_normal" />
+                app:srcCompat="@drawable/doctorimage" />
 
             <EditText
                 android:id="@+id/NameTE"

@@ -8,12 +8,12 @@
 
 
     <TextView
-        android:id="@+id/lblListHeader"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
+        android:id="@+id/lblListHeaderTerm"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
         android:textSize="20dp"
-        android:drawableLeft="@drawable/clock"
+        android:drawableLeft="@drawable/ic_person"
         android:textColor="#0066ff" />
 
 </LinearLayout>

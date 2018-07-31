@@ -7,12 +7,15 @@
     android:orientation="vertical"
     tools:context=".ConfirmTermActivity">
 
-    <ImageView
-        android:id="@+id/imageView5"
+    <!--<ImageView-->
+        <!--android:id="@+id/imageView5"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="124dp"-->
+        <!--app:srcCompat="@drawable/calendar" />-->
+    <AnalogClock
+        android:id="@+id/simpleAnalogClock"
         android:layout_width="match_parent"
-        android:layout_height="124dp"
-        app:srcCompat="@drawable/calendar" />
-
+        android:layout_height="184dp" />
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
