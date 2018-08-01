@@ -29,7 +29,7 @@ CREATE TABLE `dijagnoza` (
   `Pacijent_ID_Pacijent` int(11) NOT NULL,
   `Pacijent_Doktor_ID_Doktor` int(11) NOT NULL,
   PRIMARY KEY (`ID_Dijagnoza`,`Pacijent_ID_Pacijent`,`Pacijent_Doktor_ID_Doktor`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -57,7 +57,7 @@ CREATE TABLE `doktor` (
   `Kontakt` varchar(45) NOT NULL,
   `Radno_vrijeme_ID_Radno_vrijeme` int(11) NOT NULL,
   PRIMARY KEY (`ID_Doktor`,`Radno_vrijeme_ID_Radno_vrijeme`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -81,7 +81,7 @@ CREATE TABLE `neradni_dan` (
   `Naziv` varchar(45) NOT NULL,
   `Datum` date NOT NULL,
   PRIMARY KEY (`ID_Neradni_dan`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -110,7 +110,7 @@ CREATE TABLE `pacijent` (
   `Aktivan` tinyint(4) NOT NULL,
   `Doktor_ID_Doktor` int(11) NOT NULL,
   PRIMARY KEY (`ID_Pacijent`,`Doktor_ID_Doktor`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -141,7 +141,7 @@ CREATE TABLE `pacijent_dodatno` (
   `Pusac` tinyint(4) NOT NULL,
   `Pacijent_ID_Pacijent` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`ID_Pacijent_dodatno`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -168,7 +168,7 @@ CREATE TABLE `posjet` (
   `Pacijent_ID_Pacijent` int(11) NOT NULL,
   `Pacijent_Doktor_ID_Doktor` int(11) NOT NULL,
   PRIMARY KEY (`ID_Posjet`,`Pacijent_ID_Pacijent`,`Pacijent_Doktor_ID_Doktor`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -192,7 +192,7 @@ CREATE TABLE `radno_vrijeme` (
   `Parni_Neparni` varchar(20) NOT NULL,
   `Jutro_Posljepodne` varchar(20) NOT NULL,
   PRIMARY KEY (`ID_Radno_vrijeme`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -219,7 +219,7 @@ CREATE TABLE `recept` (
   `Pacijent_ID_Pacijent` int(11) NOT NULL,
   `Pacijent_Doktor_ID_Doktor` int(11) NOT NULL,
   PRIMARY KEY (`ID_Recept`,`Pacijent_ID_Pacijent`,`Pacijent_Doktor_ID_Doktor`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -245,7 +245,7 @@ CREATE TABLE `uputnica` (
   `Pacijent_ID_Pacijent` int(11) NOT NULL,
   `Pacijent_Doktor_ID_Doktor` int(11) NOT NULL,
   PRIMARY KEY (`ID_Uputnica`,`Pacijent_ID_Pacijent`,`Pacijent_Doktor_ID_Doktor`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -271,7 +271,7 @@ CREATE TABLE `zakazani_termin` (
   `Pacijent_ID_Pacijent` int(11) NOT NULL,
   `Pacijent_Doktor_ID_Doktor` int(11) NOT NULL,
   PRIMARY KEY (`ID_Zakazani_termin`,`Pacijent_ID_Pacijent`,`Pacijent_Doktor_ID_Doktor`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
