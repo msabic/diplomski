@@ -380,6 +380,7 @@
             this.Text = "MainFormDoctor";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Activated += new System.EventHandler(this.MainFormDoctor_Activated);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainFormDoctor_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PatientGridControl)).EndInit();

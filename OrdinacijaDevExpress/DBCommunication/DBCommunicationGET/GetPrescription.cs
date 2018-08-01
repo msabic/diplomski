@@ -26,7 +26,7 @@ namespace DBCommunication
             dynamic item = serializer.Deserialize<object>(text);
             foreach (dynamic it in item)
             {
-                _prescription.Add(new Prescription { ID = it["ID_Recept"], Description = it["Opis"], Date = DateTime.Parse(it["Datum"]), Doctor = it["Pacijent_Doktor_ID_Doktor"], Patient = it["Pacijent_ID_Pacijent"] });
+                _prescription.Add(new Prescription { ID = it["ID_Recept"], Description = it["Opis"], Date = DateTime.Parse(it["Datum"]), Doctor = it["Pacijent_Doktor_ID_Doktor"], Patient = it["Pacijent_ID_Pacijent"] , Name=it["Naziv"]});
             }
             return _prescription;
         }

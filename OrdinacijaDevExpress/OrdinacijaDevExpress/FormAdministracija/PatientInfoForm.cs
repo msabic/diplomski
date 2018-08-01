@@ -19,19 +19,25 @@ namespace OrdinacijaDevExpress
         private DBCommunication.DBCommunication _DB;
         private List<PatientInfo> _patientInfo;
         private PatientInfo patientInfo;
+        private List<Patient> _patient;
         public PatientInfoForm(DBCommunication.DBCommunicationAdmin _db)
         {
             InitializeComponent();
             _DB = _db;
             _patientInfo = _DB.GetPatientInfo();
             PatientInfoGridControl.DataSource = _patientInfo;
+
+            _patient = _DB.GetPatient();
+            PatientLE.Properties.DataSource = _patient;
+            PatientLE.Properties.DisplayMember = "Surname";
+            PatientLE.Properties.ValueMember = "ID";
         }
 
         private void NewBarItem_Click(object sender, EventArgs e)
         {
             if(!string.IsNullOrWhiteSpace(FatherNameTE.Text) && !string.IsNullOrWhiteSpace(MotherNameTE.Text) &&
                 !string.IsNullOrWhiteSpace(AddressTE.Text) && !string.IsNullOrWhiteSpace(PhoneTE.Text) && 
-                !string.IsNullOrWhiteSpace(MobileTE.Text) && !string.IsNullOrWhiteSpace(UCIDTE.Text) )
+                !string.IsNullOrWhiteSpace(MobileTE.Text) && !string.IsNullOrWhiteSpace(UCIDTE.Text)  && PatientLE.EditValue.ToString()!=null)
             {
                 patientInfo = new PatientInfo();
                 patientInfo.Father_name = FatherNameTE.Text;
@@ -42,16 +48,17 @@ namespace OrdinacijaDevExpress
                 patientInfo.UCID = UCIDTE.Text;
                 patientInfo.Relationship_status = RelationshipStatusCB.Checked;
                 patientInfo.Smoker = SmokerCE.Checked;
+                patientInfo.Patient = int.Parse(PatientLE.EditValue.ToString());
                 if (!_DB.InsertPatientInfo(patientInfo)) 
                 {
-                    XtraMessageBox.Show("");
+                    XtraMessageBox.Show("Element is not added!");
                 }
                 _patientInfo = _DB.GetPatientInfo();
                 PatientInfoGridControl.DataSource = _patientInfo;
             }
             else
             {
-                XtraMessageBox.Show("");
+                XtraMessageBox.Show("All fields should be filled!");
             }
         }
 
@@ -59,7 +66,7 @@ namespace OrdinacijaDevExpress
         {
             if (patientInfo!=null && !string.IsNullOrWhiteSpace(FatherNameTE.Text) && !string.IsNullOrWhiteSpace(MotherNameTE.Text) &&
                !string.IsNullOrWhiteSpace(AddressTE.Text) && !string.IsNullOrWhiteSpace(PhoneTE.Text) &&
-               !string.IsNullOrWhiteSpace(MobileTE.Text) && !string.IsNullOrWhiteSpace(UCIDTE.Text))
+               !string.IsNullOrWhiteSpace(MobileTE.Text) && !string.IsNullOrWhiteSpace(UCIDTE.Text) && PatientLE.EditValue.ToString() != null)
             {
                 
                 patientInfo.Father_name = FatherNameTE.Text;
@@ -70,16 +77,17 @@ namespace OrdinacijaDevExpress
                 patientInfo.UCID = UCIDTE.Text;
                 patientInfo.Relationship_status = RelationshipStatusCB.Checked;
                 patientInfo.Smoker = SmokerCE.Checked;
+                patientInfo.Patient = int.Parse(PatientLE.EditValue.ToString());
                 if (!_DB.UpdatePatientInfo(patientInfo)) 
                 {
-                    XtraMessageBox.Show("");
+                    XtraMessageBox.Show("Element is not edited!");
                 }
                 _patientInfo = _DB.GetPatientInfo();
                 PatientInfoGridControl.DataSource = _patientInfo;
             }
             else
             {
-                XtraMessageBox.Show("");
+                XtraMessageBox.Show("All fields should be filled!");
             }
         }
 
@@ -87,12 +95,12 @@ namespace OrdinacijaDevExpress
         {
             if (patientInfo!=null)
             {
-                DialogResult dialogResult = XtraMessageBox.Show("Sure", "Some Title", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = XtraMessageBox.Show("Sure", "You really want to delete the selected element?", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     if (!_DB.DeletePatientInfo(patientInfo))
                     {
-                        XtraMessageBox.Show("");
+                        XtraMessageBox.Show("Element is not deleted!");
                     }
                     _patientInfo = _DB.GetPatientInfo();
                     PatientInfoGridControl.DataSource = _patientInfo;
@@ -100,7 +108,7 @@ namespace OrdinacijaDevExpress
             }
             else
             {
-                XtraMessageBox.Show("");
+                XtraMessageBox.Show("Element is not selected!");
             }
         }
 
@@ -125,6 +133,20 @@ namespace OrdinacijaDevExpress
             catch
             {
 
+            }
+        }
+
+        private void PatientInfoGridView_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
+        {
+            if (e.Column.Name == "PatientInfoPatient")
+            {
+                foreach (Patient p in _patient)
+                {
+                    if (e.Value.ToString() == p.ID.ToString())
+                    {
+                        e.DisplayText = p.Name + " " + p.Surname;
+                    }
+                }
             }
         }
     }

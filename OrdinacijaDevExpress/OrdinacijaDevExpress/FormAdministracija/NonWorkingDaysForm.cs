@@ -36,12 +36,16 @@ namespace OrdinacijaDevExpress
                 nonworkingdays.Name = NamteTE.Text;
                 if(!_DB.InsertNonWorkingDays(nonworkingdays))
                 {
-                    XtraMessageBox.Show("");
+                    XtraMessageBox.Show("Element is not added!");
                 }
                 _nonWorkingdays = _DB.GetNonWorkingDays();
                 NonWorkingDaysGridControl.DataSource = _nonWorkingdays;
                 NamteTE.Text = string.Empty;
                 DateMC.SelectionStart = DateTime.Now;
+            }
+            else
+            {
+                XtraMessageBox.Show("All fields should be filled!");
             }
         }
 
@@ -66,18 +70,22 @@ namespace OrdinacijaDevExpress
         {
             if(nonworkingdays!=null)
             {
-                DialogResult dialogResult = XtraMessageBox.Show("Sure", "Some Title", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = XtraMessageBox.Show("Sure", "You really want to delete the selected element?", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     if (!_DB.DeleteNonWorkingDays(nonworkingdays))
                     {
-                        XtraMessageBox.Show("");
+                        XtraMessageBox.Show("Element is not deleted!");
                     }
                     _nonWorkingdays = _DB.GetNonWorkingDays();
                     NonWorkingDaysGridControl.DataSource = _nonWorkingdays;
                     NamteTE.Text = string.Empty;
                     DateMC.SelectionStart = DateTime.Now;
                 }
+            }
+            else
+            {
+                XtraMessageBox.Show("Element is not selected!");
             }
         }
 
@@ -89,7 +97,7 @@ namespace OrdinacijaDevExpress
                 nonworkingdays.Date = DateMC.SelectionStart;
                 if(!_DB.UpdateNonWokringDays(nonworkingdays))
                 {
-                    XtraMessageBox.Show("");
+                    XtraMessageBox.Show("Element is not edited!");
                 }
                 _nonWorkingdays = _DB.GetNonWorkingDays();
                 NonWorkingDaysGridControl.DataSource = _nonWorkingdays;
@@ -98,7 +106,7 @@ namespace OrdinacijaDevExpress
             }
             else
             {
-                XtraMessageBox.Show("");
+                XtraMessageBox.Show("All fields should be filled!");
             }
         }
     }

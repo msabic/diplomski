@@ -498,8 +498,8 @@ app.get('/InsertRecept', function(req,res){
     res.status(400).send('Bad Request2');
   }})
   app.get('/UpdateRecept', function(req,res){
-    if(req.headers.id && req.headers.date_time && req.headers.description && req.headers.patient && req.headers.doctor){
-      db.UpdateRecept(req.headers.id, req.headers.date_time,req.headers.description, req.headers.patient, req.headers.doctor).then((resoult)=>{
+    if(req.headers.id && req.headers.date_time && req.headers.description && req.headers.patient && req.headers.doctor, req.headers.name){
+      db.UpdateRecept(req.headers.id, req.headers.date_time,req.headers.description, req.headers.patient, req.headers.doctor, req.headers.name).then((resoult)=>{
         res.send(true);
       }).catch((err)=>{
       console.log('Error; ', err);

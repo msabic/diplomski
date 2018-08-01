@@ -26,7 +26,7 @@ namespace OrdinacijaDevExpress.FormDoctor
             try
             {
                 doctorID = int.Parse(doctor);
-                _patien = _DB.GetPatientForDoctor(1);
+                _patien = _DB.GetPatientForDoctor(doctorID);
                 PatientGridControl.DataSource = _patien;
             }
             catch(Exception ex)
@@ -55,57 +55,87 @@ namespace OrdinacijaDevExpress.FormDoctor
 
         private void PatientInfoBarItem_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if(patient!=null)
-                using (FormDoctor.PatientInfoForm _patrient_info_form = new FormDoctor.PatientInfoForm(_DB,patient.ID))
+            if (patient != null)
+            {
+                using (FormDoctor.PatientInfoForm _patrient_info_form = new FormDoctor.PatientInfoForm(_DB, patient.ID))
                 {
                     _patrient_info_form.StartPosition = FormStartPosition.CenterScreen;
                     _patrient_info_form.ShowDialog();
-                    
+
                 }
+            }
+            else
+            {
+                XtraMessageBox.Show("Patient is not selected!");
+            }
         }
 
         private void VisitDoctorBarItem_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (patient != null)
+            {
                 using (FormDoctor.VisitDoctorFormD _visit_doctor_form = new FormDoctor.VisitDoctorFormD(_DB, doctorID, patient.ID))
                 {
                     _visit_doctor_form.StartPosition = FormStartPosition.CenterScreen;
                     _visit_doctor_form.ShowDialog();
 
                 }
+            }
+            else
+            {
+                XtraMessageBox.Show("Patient is not selected!");
+            }
         }
 
         private void DiagnoseBarItme_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (patient != null)
-                using (FormDoctor.DiagnoseFormD _diagnosis_form = new FormDoctor.DiagnoseFormD(_DB, doctorID,patient.ID))
+            {
+                using (FormDoctor.DiagnoseFormD _diagnosis_form = new FormDoctor.DiagnoseFormD(_DB, doctorID, patient.ID))
                 {
                     _diagnosis_form.StartPosition = FormStartPosition.CenterScreen;
                     _diagnosis_form.ShowDialog();
 
                 }
+            }
+            else
+            {
+                XtraMessageBox.Show("Patient is not selected!");
+            }
         }
 
         private void ReferalBarItem_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (patient != null)
-                using (FormDoctor.ReferralFormD _referral_form = new FormDoctor.ReferralFormD(_DB, doctorID,patient.ID))
+            {
+                using (FormDoctor.ReferralFormD _referral_form = new FormDoctor.ReferralFormD(_DB, doctorID, patient.ID))
                 {
                     _referral_form.StartPosition = FormStartPosition.CenterScreen;
                     _referral_form.ShowDialog();
 
                 }
+            }
+            else
+            {
+                XtraMessageBox.Show("Patient is not selected!");
+            }
         }
 
         private void AgreedTermBarItem_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (patient != null)
+            {
                 using (FormDoctor.AgreedTermForPatientFormD _agreed_term_for_patient_form = new FormDoctor.AgreedTermForPatientFormD(_DB, patient.ID))
                 {
                     _agreed_term_for_patient_form.StartPosition = FormStartPosition.CenterScreen;
                     _agreed_term_for_patient_form.ShowDialog();
 
                 }
+            }
+            else
+            {
+                XtraMessageBox.Show("Patient is not selected!");
+            }
         }
 
         private void ChangePasswordBarITem_ItemClick(object sender, ItemClickEventArgs e)
@@ -139,11 +169,15 @@ namespace OrdinacijaDevExpress.FormDoctor
 
                 }
             }
+            else
+            {
+                XtraMessageBox.Show("Patient is not selected!");
+            }
         }
 
         private void MainFormDoctor_Activated(object sender, EventArgs e)
         {
-            _patien = _DB.GetPatientForDoctor(1);
+            _patien = _DB.GetPatientForDoctor(doctorID);
             PatientGridControl.DataSource = _patien;
         }
 
@@ -160,11 +194,20 @@ namespace OrdinacijaDevExpress.FormDoctor
                     }
                    
                     patient = new Patient();
-                    _patien = _DB.GetPatientForDoctor(1);
+                    _patien = _DB.GetPatientForDoctor(doctorID);
                     PatientGridControl.DataSource = _patien;
 
                 }
             }
+            else
+            {
+                XtraMessageBox.Show("Patient is not selected!");
+            }
+        }
+
+        private void MainFormDoctor_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
 
         }
     }

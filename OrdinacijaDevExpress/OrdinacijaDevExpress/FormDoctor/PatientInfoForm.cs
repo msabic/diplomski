@@ -23,7 +23,7 @@ namespace OrdinacijaDevExpress.FormDoctor
             _DB = _db;
             _patientInfo = _DB.GetPatientInfoID(patientID);
             //PatientInfoGridControl.DataSource = _patientInfo;
-            if(_patientInfo!=null)
+            if(_patientInfo.Count>0)
             {
                 patientInfo = (PatientInfo)_patientInfo[0];
                 Father_nameLBL.Text = patientInfo.Father_name;
@@ -34,6 +34,10 @@ namespace OrdinacijaDevExpress.FormDoctor
                 UCIDLBL.Text = patientInfo.UCID;
                 RelationShipCB.Checked = patientInfo.Relationship_status;
                 SmokreCB.Checked = patientInfo.Smoker;
+            }
+            else
+            {
+                XtraMessageBox.Show("No information!");
             }
         }
     }

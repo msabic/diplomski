@@ -7,9 +7,9 @@ const base64 = require('base-64');
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : '',
+  password : '12345',
   database :'ordinacija',
-  port : '3309'
+  port : '3306'
 });
 
 
@@ -358,18 +358,18 @@ let DeleteRadnoVrijeme = function (id) {
     });
 };
 let InsertRadnoVrijeme = function (odd_even,morning_afternoon) {
-    console.log("INSERT INTO `ordinacija`.`radno_vrijeme`(`Parni/Neparni`,`Jutro/Posljepodne`) VALUES ("+mysql.escape(odd_even)+", "+mysql.escape(morning_afternoon)+");");
+    console.log("INSERT INTO `ordinacija`.`radno_vrijeme`(`Parni_Neparni`,`Jutro_Posljepodne`) VALUES ("+mysql.escape(odd_even)+", "+mysql.escape(morning_afternoon)+");");
        return new Promise((resolve, reject) => {
-           connection.query("INSERT INTO `ordinacija`.`radno_vrijeme`(`Parni/Neparni`,`Jutro/Posljepodne`) VALUES ("+mysql.escape(odd_even)+", "+mysql.escape(morning_afternoon)+");", function (err, result, fiels) {
+           connection.query("INSERT INTO `ordinacija`.`radno_vrijeme`(`Parni_Neparni`,`Jutro_Posljepodne`) VALUES ("+mysql.escape(odd_even)+", "+mysql.escape(morning_afternoon)+");", function (err, result, fiels) {
             resolve(result);
            })
        });
    };
 
    let UpdateRadnoVrijeme = function (id,odd_even,morning_afternoon) {
-    console.log("UPDATE `ordinacija`.`radno_vrijeme` SET `Parni/Neparni` = "+mysql.escape(odd_even)+",`Jutro/Posljepodne` = "+mysql.escape(morning_afternoon)+" WHERE `ID_Radno_vrijeme` ="+mysql.escape(id)+";");
+    console.log("UPDATE `ordinacija`.`radno_vrijeme` SET `Parni_Neparni` = "+mysql.escape(odd_even)+",`Jutro_Posljepodne` = "+mysql.escape(morning_afternoon)+" WHERE `ID_Radno_vrijeme` ="+mysql.escape(id)+";");
        return new Promise((resolve, reject) => {
-           connection.query("UPDATE `ordinacija`.`radno_vrijeme` SET `Parni/Neparni` = "+mysql.escape(odd_even)+",`Jutro/Posljepodne` = "+mysql.escape(morning_afternoon)+" WHERE `ID_Radno_vrijeme` ="+mysql.escape(id)+";", function (err, result, fiels) {
+           connection.query("UPDATE `ordinacija`.`radno_vrijeme` SET `Parni_Neparni` = "+mysql.escape(odd_even)+",`Jutro_Posljepodne` = "+mysql.escape(morning_afternoon)+" WHERE `ID_Radno_vrijeme` ="+mysql.escape(id)+";", function (err, result, fiels) {
             resolve(result);
            })
        });
@@ -407,7 +407,7 @@ let DeleteRecept = function (id) {
     });
 };
 let InsertRecept = function (name, date_time,description,patient,doctor) {
-    console.log("INSERT INTO `ordinacija`.`recept`(`Naziv`, Datum`,`Opis`,`Pacijent_ID_Pacijent`,`Pacijent_Doktor_ID_Doktor`) VALUES ("+mysql.escape(name)+", "+mysql.escape(date_time)+", "+mysql.escape(description)+","+mysql.escape(patient)+","+mysql.escape(doctor)+");");
+    console.log("INSERT INTO `ordinacija`.`recept`(`Naziv`, `Datum`,`Opis`,`Pacijent_ID_Pacijent`,`Pacijent_Doktor_ID_Doktor`) VALUES ("+mysql.escape(name)+", "+mysql.escape(date_time)+", "+mysql.escape(description)+","+mysql.escape(patient)+","+mysql.escape(doctor)+");");
        return new Promise((resolve, reject) => {
            connection.query("INSERT INTO `ordinacija`.`recept`(`Naziv`, `Datum`,`Opis`,`Pacijent_ID_Pacijent`,`Pacijent_Doktor_ID_Doktor`) VALUES ("+mysql.escape(name)+","+mysql.escape(date_time)+", "+mysql.escape(description)+","+mysql.escape(patient)+","+mysql.escape(doctor)+");", function (err, result, fiels) {
             resolve(result);
@@ -415,10 +415,10 @@ let InsertRecept = function (name, date_time,description,patient,doctor) {
        });
    };
 
-   let UpdateRecept = function (id,date_time,description,patient,doctor) {
-    console.log("UPDATE `ordinacija`.`recept`SET `Datum` = "+mysql.escape(date_time)+",`Opis` = "+mysql.escape(description)+",`Pacijent_ID_Pacijent` = "+mysql.escape(patient)+",`Pacijent_Doktor_ID_Doktor` = "+mysql.escape(doctor)+" WHERE `ID_Recept` = "+mysql.escape(id)+";");
+   let UpdateRecept = function (id,date_time,description,patient,doctor, name) {
+    console.log("UPDATE `ordinacija`.`recept`SET `Datum` = "+mysql.escape(date_time)+", `Naziv`="+mysql.escape(name)+",`Opis` = "+mysql.escape(description)+",`Pacijent_ID_Pacijent` = "+mysql.escape(patient)+",`Pacijent_Doktor_ID_Doktor` = "+mysql.escape(doctor)+" WHERE `ID_Recept` = "+mysql.escape(id)+";");
        return new Promise((resolve, reject) => {
-           connection.query("UPDATE `ordinacija`.`recept`SET `Datum` = "+mysql.escape(date_time)+",`Opis` = "+mysql.escape(description)+",`Pacijent_ID_Pacijent` = "+mysql.escape(patient)+",`Pacijent_Doktor_ID_Doktor` = "+mysql.escape(doctor)+" WHERE `ID_Recept` = "+mysql.escape(id)+";", function (err, result, fiels) {
+           connection.query("UPDATE `ordinacija`.`recept`SET `Datum` = "+mysql.escape(date_time)+",`Naziv`="+mysql.escape(name)+",`Opis` = "+mysql.escape(description)+",`Pacijent_ID_Pacijent` = "+mysql.escape(patient)+",`Pacijent_Doktor_ID_Doktor` = "+mysql.escape(doctor)+" WHERE `ID_Recept` = "+mysql.escape(id)+";", function (err, result, fiels) {
             resolve(result);
            })
        });
@@ -597,8 +597,9 @@ let ChangePasswordPacijent = function (id,password) {
          });
      };
      let ChangePasswordDoctor = function (id,password) {
+         console.log("UPDATE  `ordinacija`.`doktor` SET `Lozinka` = "+mysql.escape(md5(password))+" WHERE `ID_Doktor` = "+mysql.escape(id)+";");
              return new Promise((resolve, reject) => {
-                 connection.query("UPDATE  `ordinacija`.`doktor` SET `Lozinka` = "+mysql.escape(md5(password))+" WHERE `ID_Pacijent` = "+mysql.escape(id)+";", function (err, result, fiels) {
+                 connection.query("UPDATE  `ordinacija`.`doktor` SET `Lozinka` = "+mysql.escape(md5(password))+" WHERE `ID_Doktor` = "+mysql.escape(id)+";", function (err, result, fiels) {
                   resolve(result);
                  })
              });

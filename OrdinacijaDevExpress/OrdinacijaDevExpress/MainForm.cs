@@ -105,5 +105,11 @@ namespace OrdinacijaDevExpress
                 OpenForm(_agreedTermForm);
             }
         }
+        
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

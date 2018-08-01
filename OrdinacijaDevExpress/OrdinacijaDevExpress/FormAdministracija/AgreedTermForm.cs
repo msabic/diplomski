@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraBars;
 using Models.Model;
+using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace OrdinacijaDevExpress
 {
@@ -36,20 +38,20 @@ namespace OrdinacijaDevExpress
             InitializeComponent();
             HideShowElement(false);
             _termAM = new List<Term>();
-            _termAM.Add(new Term { Time = "08:00" }); _termAM.Add(new Term { Time = "08:15" }); _termAM.Add(new Term { Time = "08:30" }); _termAM.Add(new Term { Time = "08:45" });
-            _termAM.Add(new Term { Time = "09:00" }); _termAM.Add(new Term { Time = "09:15" }); _termAM.Add(new Term { Time = "09:30" }); _termAM.Add(new Term { Time = "09:45" });
-            _termAM.Add(new Term { Time = "10:00" }); _termAM.Add(new Term { Time = "10:15" }); _termAM.Add(new Term { Time = "10:30" }); _termAM.Add(new Term { Time = "10:45" });
-            _termAM.Add(new Term { Time = "11:00" }); _termAM.Add(new Term { Time = "11:15" }); _termAM.Add(new Term { Time = "11:30" }); _termAM.Add(new Term { Time = "11:45" });
-            _termAM.Add(new Term { Time = "12:00" }); _termAM.Add(new Term { Time = "12:15" }); _termAM.Add(new Term { Time = "12:30" }); _termAM.Add(new Term { Time = "12:45" });
-            _termAM.Add(new Term { Time = "13:00" }); _termAM.Add(new Term { Time = "13:15" }); _termAM.Add(new Term { Time = "13:30" }); _termAM.Add(new Term { Time = "13:45" });
+            _termAM.Add(new Term { Time = "08:00:00" }); _termAM.Add(new Term { Time = "08:15:00" }); _termAM.Add(new Term { Time = "08:30:00" }); _termAM.Add(new Term { Time = "08:45:00" });
+            _termAM.Add(new Term { Time = "09:00:00" }); _termAM.Add(new Term { Time = "09:15:00" }); _termAM.Add(new Term { Time = "09:30:00" }); _termAM.Add(new Term { Time = "09:45:00" });
+            _termAM.Add(new Term { Time = "10:00:00" }); _termAM.Add(new Term { Time = "10:15:00" }); _termAM.Add(new Term { Time = "10:30:00" }); _termAM.Add(new Term { Time = "10:45:00" });
+            _termAM.Add(new Term { Time = "11:00:00" }); _termAM.Add(new Term { Time = "11:15:00" }); _termAM.Add(new Term { Time = "11:30:00" }); _termAM.Add(new Term { Time = "11:45:00" });
+            _termAM.Add(new Term { Time = "12:00:00" }); _termAM.Add(new Term { Time = "12:15:00" }); _termAM.Add(new Term { Time = "12:30:00" }); _termAM.Add(new Term { Time = "12:45:00" });
+            _termAM.Add(new Term { Time = "13:00:00" }); _termAM.Add(new Term { Time = "13:15:00" }); _termAM.Add(new Term { Time = "13:30:00" }); _termAM.Add(new Term { Time = "13:45:00" });
 
             _termPM = new List<Term>();
-            _termPM.Add(new Term { Time = "14:00" }); _termPM.Add(new Term { Time = "14:15" }); _termPM.Add(new Term { Time = "14:30" }); _termPM.Add(new Term { Time = "14:45" });
-            _termPM.Add(new Term { Time = "15:00" }); _termPM.Add(new Term { Time = "15:15" }); _termPM.Add(new Term { Time = "15:30" }); _termPM.Add(new Term { Time = "15:45" });
-            _termPM.Add(new Term { Time = "16:00" }); _termPM.Add(new Term { Time = "16:15" }); _termPM.Add(new Term { Time = "16:30" }); _termPM.Add(new Term { Time = "16:45" });
-            _termPM.Add(new Term { Time = "17:00" }); _termPM.Add(new Term { Time = "17:15" }); _termPM.Add(new Term { Time = "17:30" }); _termPM.Add(new Term { Time = "17:45" });
-            _termPM.Add(new Term { Time = "18:00" }); _termPM.Add(new Term { Time = "18:15" }); _termPM.Add(new Term { Time = "18:30" }); _termPM.Add(new Term { Time = "18:45" });
-            _termPM.Add(new Term { Time = "19:00" }); _termPM.Add(new Term { Time = "19:15" }); _termPM.Add(new Term { Time = "19:30" }); _termPM.Add(new Term { Time = "19:45" });
+            _termPM.Add(new Term { Time = "14:00:00" }); _termPM.Add(new Term { Time = "14:15:00" }); _termPM.Add(new Term { Time = "14:30:00" }); _termPM.Add(new Term { Time = "14:45:00" });
+            _termPM.Add(new Term { Time = "15:00:00" }); _termPM.Add(new Term { Time = "15:15:00" }); _termPM.Add(new Term { Time = "15:30:00" }); _termPM.Add(new Term { Time = "15:45:00" });
+            _termPM.Add(new Term { Time = "16:00:00" }); _termPM.Add(new Term { Time = "16:15:00" }); _termPM.Add(new Term { Time = "16:30:00" }); _termPM.Add(new Term { Time = "16:45:00" });
+            _termPM.Add(new Term { Time = "17:00:00" }); _termPM.Add(new Term { Time = "17:15:00" }); _termPM.Add(new Term { Time = "17:30:00" }); _termPM.Add(new Term { Time = "17:45:00" });
+            _termPM.Add(new Term { Time = "18:00:00" }); _termPM.Add(new Term { Time = "18:15:00" }); _termPM.Add(new Term { Time = "18:30:00" }); _termPM.Add(new Term { Time = "18:45:00" });
+            _termPM.Add(new Term { Time = "19:00:00" }); _termPM.Add(new Term { Time = "19:15:00" }); _termPM.Add(new Term { Time = "19:30:00" }); _termPM.Add(new Term { Time = "19:45:00" });
 
 
             agreedTerm = new AgreedTerm();
@@ -89,12 +91,27 @@ namespace OrdinacijaDevExpress
 
         private void NewAgreedTermBarItem_Click(object sender, EventArgs e)
         {
+            agreedTerm = new AgreedTerm();
             DateTime date = DateCalendar.SelectionStart;
-            if (date != null && PatientLE.EditValue != null && DoctorLE.EditValue!=null)
+            if (date != null && PatientLE.EditValue != null && DoctorLE.EditValue != null)
             {
                 agreedTerm.Date = date;
                 agreedTerm.Doctor = int.Parse(DoctorLE.EditValue.ToString());
                 agreedTerm.Patient = int.Parse(PatientLE.EditValue.ToString());
+                agreedTerm.Time = FreeTermLE.EditValue.ToString();
+                if (!_DB.InsertAgreedTerm(agreedTerm))
+                {
+                    XtraMessageBox.Show("Element is not added!");
+                    HideShowElement(false);
+                }
+                
+                DoctorLE.EditValue = null;
+                _agreedTerm = _DB.GetAgreedTerm();
+                AgreedTermGridControl.DataSource = _agreedTerm;
+            }
+            else
+            {
+                XtraMessageBox.Show("All fields should be filled!");
             }
         }
 
@@ -126,6 +143,79 @@ namespace OrdinacijaDevExpress
                 HideShowElement(false);
             }
         }
+
+        private void EditAgreedTermBarItem_Click(object sender, EventArgs e)
+        {
+            if (agreedTerm != null)
+            {
+                DateTime date = DateCalendar.SelectionStart;
+                if (date != null && PatientLE.EditValue != null && DoctorLE.EditValue != null)
+                {
+                    
+                    agreedTerm.Date = date;
+                    agreedTerm.Doctor = int.Parse(DoctorLE.EditValue.ToString());
+                    agreedTerm.Patient = int.Parse(PatientLE.EditValue.ToString());
+                    agreedTerm.Time = FreeTermLE.EditValue.ToString();
+
+                    if (!_DB.UpdateAgreedTerm(agreedTerm))
+                    {
+                        XtraMessageBox.Show("Element is not edited!");
+                    }
+
+                    DoctorLE.EditValue = null;
+                    _agreedTerm = _DB.GetAgreedTerm();
+                    AgreedTermGridControl.DataSource = _agreedTerm;
+                }
+                else
+                {
+                    XtraMessageBox.Show("All fields should be filled!");
+                }
+            }
+        }
+
+        private void DeleteAgreedTermBarItem_Click(object sender, EventArgs e)
+        {
+            if (agreedTerm != null)
+            {
+                DialogResult dialogResult = XtraMessageBox.Show("Sure", "You really want to delete the selected element?", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    if (!_DB.DeleteAgreedTerm(agreedTerm))
+                    {
+
+                        XtraMessageBox.Show("Element is not deleted!");
+
+                    }
+                    _agreedTerm = _DB.GetAgreedTerm();
+                    AgreedTermGridControl.DataSource = _agreedTerm;
+                    agreedTerm = null;
+                    HideShowElement(false);
+                    DoctorLE.EditValue = null;
+                }
+            }
+            else
+            {
+                XtraMessageBox.Show("Element is not selected!");
+            }
+        }
+
+        private void AgreedTermGridView_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            agreedTerm = new AgreedTerm();
+            try
+            {
+                GridView view = sender as GridView;
+                object row = view.GetRow(e.RowHandle);
+                agreedTerm = (AgreedTerm)row;
+                DateCalendar.SetDate(agreedTerm.Date);
+                HideShowElement(true);
+            }
+            catch
+            {
+
+            }
+        }
+
         private void WortTimeAM_PM()
         {
             if (workingTime.Odd_Even == "Parni" && workingTime.Morning_Afternoon == "Jutro")
@@ -170,13 +260,46 @@ namespace OrdinacijaDevExpress
                     jutro = false;
                 }
             }
-
-            if(!jutro)
+            
+            if(jutro)
             {
+                List<Term> temp = new List<Term>();
+                foreach (Term t in _termAM)
+                {
+
+                    foreach (AgreedTerm a in _agreedTerm)
+                    {
+                        if (t.Time == a.Time)
+                        {
+                            temp.Add(t);
+                        }
+                    }
+                }
+                foreach (Term t in temp)
+                {
+                    _termAM.Remove(t);
+                }
                 FreeTermLE.Properties.DataSource = _termAM;
             }
             else
             {
+               
+                List<Term> temp = new List<Term>();
+                foreach (Term t in _termPM)
+                {
+
+                    foreach (AgreedTerm a in _agreedTerm)
+                    {
+                        if (t.Time == a.Time)
+                        {
+                            temp.Add(t);
+                        }
+                    }
+                }
+                foreach(Term t in temp)
+                {
+                    _termPM.Remove(t);
+                }
                 FreeTermLE.Properties.DataSource = _termPM;
             }
         }

@@ -79,6 +79,7 @@
             this.DeleteAgreedTermBarItem.Size = new System.Drawing.Size(51, 78);
             this.DeleteAgreedTermBarItem.TabIndex = 6;
             this.DeleteAgreedTermBarItem.Text = "Delete";
+            this.DeleteAgreedTermBarItem.Click += new System.EventHandler(this.DeleteAgreedTermBarItem_Click);
             // 
             // EditAgreedTermBarItem
             // 
@@ -90,6 +91,7 @@
             this.EditAgreedTermBarItem.Size = new System.Drawing.Size(51, 78);
             this.EditAgreedTermBarItem.TabIndex = 5;
             this.EditAgreedTermBarItem.Text = "Edit";
+            this.EditAgreedTermBarItem.Click += new System.EventHandler(this.EditAgreedTermBarItem_Click);
             // 
             // NewAgreedTermBarItem
             // 
@@ -116,6 +118,8 @@
             this.FreeTermLE.Name = "FreeTermLE";
             this.FreeTermLE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.FreeTermLE.Properties.DisplayMember = "Time";
+            this.FreeTermLE.Properties.ValueMember = "Time";
             this.FreeTermLE.Size = new System.Drawing.Size(199, 20);
             this.FreeTermLE.TabIndex = 2;
             // 
@@ -155,6 +159,7 @@
             this.AgreedTermDoctor});
             this.AgreedTermGridView.GridControl = this.AgreedTermGridControl;
             this.AgreedTermGridView.Name = "AgreedTermGridView";
+            this.AgreedTermGridView.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.AgreedTermGridView_RowClick);
             // 
             // AgreedTermID
             // 

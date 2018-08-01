@@ -20,6 +20,7 @@ namespace DBCommunication
                 request.Headers["patient"] = prescription.Patient.ToString();
                 request.Headers["doctor"] = prescription.Doctor.ToString();
                 request.Headers["id"] = prescription.ID.ToString();
+                request.Headers["name"] = prescription.Name;
                 request.GetResponse();
                 return true;
             }

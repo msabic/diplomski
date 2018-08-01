@@ -13,7 +13,7 @@ using System.Security.Cryptography;
 
 namespace OrdinacijaDevExpress
 {
-    public partial class LoginForm : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class LoginForm : DevExpress.XtraEditors.XtraForm
     {
         DBCommunication.DBCommunicationAdmin _DB = new DBCommunication.DBCommunicationAdmin();
         public LoginForm()
@@ -36,7 +36,7 @@ namespace OrdinacijaDevExpress
             {
               MainForm mf=new MainForm();
                 mf.Show();
-                //this.Close();
+                this.Hide();
             }
             else
             {
@@ -46,7 +46,7 @@ namespace OrdinacijaDevExpress
                 {
                     FormDoctor.MainFormDoctor mfd = new FormDoctor.MainFormDoctor(pass.Split(';')[1]);
                     mfd.Show();
-                    //this.Close();
+                    this.Hide();
                 }
                 else
                 {
@@ -94,6 +94,11 @@ namespace OrdinacijaDevExpress
         private void LoginBTN_Click(object sender, EventArgs e)
         {
             Login();
+        }
+
+        private void ribbon_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -60,7 +60,7 @@ namespace OrdinacijaDevExpress
                 doctor.Working_time = int.Parse(WorkingTimeLE.EditValue.ToString());
                 if (!_DB.InsertDoctor(doctor))
                 {
-                    XtraMessageBox.Show("");
+                    XtraMessageBox.Show("Element is not added!");
                 }
                 _doctor = _DB.GetDoctor();
                 DoctorGridControl.DataSource = _doctor;
@@ -68,7 +68,7 @@ namespace OrdinacijaDevExpress
             }
             else
             {
-                XtraMessageBox.Show("");
+                XtraMessageBox.Show("All fields should be filled!");
             }
         }
 
@@ -104,7 +104,7 @@ namespace OrdinacijaDevExpress
                 doctor.Working_time = int.Parse(WorkingTimeLE.EditValue.ToString());
                 if(!_DB.UpdateDoctor(doctor))
                 {
-                    XtraMessageBox.Show("Doctor is't edited!");
+                    XtraMessageBox.Show("Element is not edited!");
                 }
                 ClearData();
                 _doctor = _DB.GetDoctor();
@@ -112,7 +112,7 @@ namespace OrdinacijaDevExpress
             }
             else
             {
-                XtraMessageBox.Show("");
+                XtraMessageBox.Show("All fields should be filled!");
             }
         }
 
@@ -121,12 +121,12 @@ namespace OrdinacijaDevExpress
 
             if(doctor!=null)
             {
-                DialogResult dialogResult = XtraMessageBox.Show("Sure", "Some Title", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = XtraMessageBox.Show("Sure", "You really want to delete the selected element?", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     if (!_DB.DeleteDoctor(doctor))
                     {
-                        XtraMessageBox.Show("");
+                        XtraMessageBox.Show("Element is not deleted!");
                     }
                     _doctor = _DB.GetDoctor();
                     DoctorGridControl.DataSource = _doctor;
@@ -136,7 +136,7 @@ namespace OrdinacijaDevExpress
             }
             else
             {
-                XtraMessageBox.Show("");
+                XtraMessageBox.Show("Element is not selected!");
             }
 
         }

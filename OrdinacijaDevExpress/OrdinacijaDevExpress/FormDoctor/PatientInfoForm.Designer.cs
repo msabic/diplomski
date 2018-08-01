@@ -115,9 +115,8 @@
             this.UCIDLBL.ForeColor = System.Drawing.Color.White;
             this.UCIDLBL.Location = new System.Drawing.Point(287, 307);
             this.UCIDLBL.Name = "UCIDLBL";
-            this.UCIDLBL.Size = new System.Drawing.Size(80, 23);
+            this.UCIDLBL.Size = new System.Drawing.Size(0, 23);
             this.UCIDLBL.TabIndex = 13;
-            this.UCIDLBL.Text = "label11";
             // 
             // Mother_nameLBL
             // 
@@ -127,9 +126,8 @@
             this.Mother_nameLBL.ForeColor = System.Drawing.Color.White;
             this.Mother_nameLBL.Location = new System.Drawing.Point(287, 81);
             this.Mother_nameLBL.Name = "Mother_nameLBL";
-            this.Mother_nameLBL.Size = new System.Drawing.Size(80, 23);
+            this.Mother_nameLBL.Size = new System.Drawing.Size(0, 23);
             this.Mother_nameLBL.TabIndex = 9;
-            this.Mother_nameLBL.Text = "label15";
             // 
             // Father_nameLBL
             // 
@@ -139,9 +137,8 @@
             this.Father_nameLBL.ForeColor = System.Drawing.Color.White;
             this.Father_nameLBL.Location = new System.Drawing.Point(287, 26);
             this.Father_nameLBL.Name = "Father_nameLBL";
-            this.Father_nameLBL.Size = new System.Drawing.Size(80, 23);
+            this.Father_nameLBL.Size = new System.Drawing.Size(0, 23);
             this.Father_nameLBL.TabIndex = 8;
-            this.Father_nameLBL.Text = "label16";
             // 
             // RelationShipCB
             // 
@@ -212,9 +209,8 @@
             this.AddressLBL.ForeColor = System.Drawing.Color.White;
             this.AddressLBL.Location = new System.Drawing.Point(287, 132);
             this.AddressLBL.Name = "AddressLBL";
-            this.AddressLBL.Size = new System.Drawing.Size(80, 23);
+            this.AddressLBL.Size = new System.Drawing.Size(0, 23);
             this.AddressLBL.TabIndex = 10;
-            this.AddressLBL.Text = "label14";
             // 
             // PhoneLBL
             // 
@@ -224,9 +220,8 @@
             this.PhoneLBL.ForeColor = System.Drawing.Color.White;
             this.PhoneLBL.Location = new System.Drawing.Point(287, 191);
             this.PhoneLBL.Name = "PhoneLBL";
-            this.PhoneLBL.Size = new System.Drawing.Size(80, 23);
+            this.PhoneLBL.Size = new System.Drawing.Size(0, 23);
             this.PhoneLBL.TabIndex = 11;
-            this.PhoneLBL.Text = "label13";
             // 
             // MobileLBL
             // 
@@ -236,9 +231,8 @@
             this.MobileLBL.ForeColor = System.Drawing.Color.White;
             this.MobileLBL.Location = new System.Drawing.Point(287, 250);
             this.MobileLBL.Name = "MobileLBL";
-            this.MobileLBL.Size = new System.Drawing.Size(80, 23);
+            this.MobileLBL.Size = new System.Drawing.Size(0, 23);
             this.MobileLBL.TabIndex = 12;
-            this.MobileLBL.Text = "label12";
             // 
             // PatientInfoForm
             // 

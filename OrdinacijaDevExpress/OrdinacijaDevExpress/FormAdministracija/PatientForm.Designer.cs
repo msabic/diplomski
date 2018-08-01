@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientForm));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.DeletePatientBarItem = new DevExpress.XtraEditors.SimpleButton();
-            this.ChangePasswordPatientBarItem = new DevExpress.XtraEditors.SimpleButton();
             this.EditPatientBarItem = new DevExpress.XtraEditors.SimpleButton();
             this.NewPatientBarItem = new DevExpress.XtraEditors.SimpleButton();
             this.NameTE = new DevExpress.XtraEditors.TextEdit();
@@ -68,7 +67,6 @@
             this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl1.Controls.Add(this.DeletePatientBarItem);
-            this.groupControl1.Controls.Add(this.ChangePasswordPatientBarItem);
             this.groupControl1.Controls.Add(this.EditPatientBarItem);
             this.groupControl1.Controls.Add(this.NewPatientBarItem);
             this.groupControl1.Location = new System.Drawing.Point(1, 0);
@@ -82,23 +80,12 @@
             this.DeletePatientBarItem.Dock = System.Windows.Forms.DockStyle.Left;
             this.DeletePatientBarItem.Image = ((System.Drawing.Image)(resources.GetObject("DeletePatientBarItem.Image")));
             this.DeletePatientBarItem.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.DeletePatientBarItem.Location = new System.Drawing.Point(160, 20);
+            this.DeletePatientBarItem.Location = new System.Drawing.Point(104, 20);
             this.DeletePatientBarItem.Name = "DeletePatientBarItem";
             this.DeletePatientBarItem.Size = new System.Drawing.Size(51, 68);
             this.DeletePatientBarItem.TabIndex = 7;
             this.DeletePatientBarItem.Text = "Delete";
             this.DeletePatientBarItem.Click += new System.EventHandler(this.DeletePatientBarItem_Click);
-            // 
-            // ChangePasswordPatientBarItem
-            // 
-            this.ChangePasswordPatientBarItem.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ChangePasswordPatientBarItem.Image = ((System.Drawing.Image)(resources.GetObject("ChangePasswordPatientBarItem.Image")));
-            this.ChangePasswordPatientBarItem.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.ChangePasswordPatientBarItem.Location = new System.Drawing.Point(104, 20);
-            this.ChangePasswordPatientBarItem.Name = "ChangePasswordPatientBarItem";
-            this.ChangePasswordPatientBarItem.Size = new System.Drawing.Size(56, 68);
-            this.ChangePasswordPatientBarItem.TabIndex = 6;
-            this.ChangePasswordPatientBarItem.Text = "Change\r\npassword";
             // 
             // EditPatientBarItem
             // 
@@ -159,7 +146,7 @@
             this.DoctorLE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.DoctorLE.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Surname", "Surname"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Name")});
             this.DoctorLE.Size = new System.Drawing.Size(100, 20);
@@ -327,7 +314,6 @@
 
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.SimpleButton DeletePatientBarItem;
-        private DevExpress.XtraEditors.SimpleButton ChangePasswordPatientBarItem;
         private DevExpress.XtraEditors.SimpleButton EditPatientBarItem;
         private DevExpress.XtraEditors.SimpleButton NewPatientBarItem;
         private DevExpress.XtraEditors.TextEdit NameTE;

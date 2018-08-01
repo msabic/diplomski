@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.EmailTE = new DevExpress.XtraEditors.TextEdit();
@@ -36,28 +35,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.PasswordTE = new System.Windows.Forms.TextBox();
             this.LoginBTN = new DevExpress.XtraEditors.SimpleButton();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EmailTE.Properties)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ribbon
-            // 
-            this.ribbon.ExpandCollapseItem.Id = 0;
-            this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.ribbon.ExpandCollapseItem});
-            this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 1;
-            this.ribbon.Name = "ribbon";
-            this.ribbon.Size = new System.Drawing.Size(442, 49);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DodgerBlue;
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(0, 55);
+            this.panel1.Location = new System.Drawing.Point(0, -1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(442, 100);
+            this.panel1.Size = new System.Drawing.Size(442, 156);
             this.panel1.TabIndex = 3;
             // 
             // label1
@@ -65,7 +53,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(70, 10);
+            this.label1.Location = new System.Drawing.Point(62, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(329, 77);
             this.label1.TabIndex = 0;
@@ -74,7 +62,6 @@
             // EmailTE
             // 
             this.EmailTE.Location = new System.Drawing.Point(102, 218);
-            this.EmailTE.MenuManager = this.ribbon;
             this.EmailTE.Name = "EmailTE";
             this.EmailTE.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.EmailTE.Properties.Appearance.Options.UseFont = true;
@@ -108,6 +95,7 @@
             this.PasswordTE.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.PasswordTE.Location = new System.Drawing.Point(102, 297);
             this.PasswordTE.Name = "PasswordTE";
+            this.PasswordTE.PasswordChar = '*';
             this.PasswordTE.Size = new System.Drawing.Size(206, 27);
             this.PasswordTE.TabIndex = 7;
             this.PasswordTE.KeyUp += new System.Windows.Forms.KeyEventHandler(this.PasswordTE_KeyUp);
@@ -136,12 +124,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.EmailTE);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.ribbon);
             this.Name = "LoginForm";
-            this.Ribbon = this.ribbon;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
-            ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EmailTE.Properties)).EndInit();
@@ -151,8 +136,6 @@
         }
 
         #endregion
-
-        private DevExpress.XtraBars.Ribbon.RibbonControl ribbon;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.TextEdit EmailTE;

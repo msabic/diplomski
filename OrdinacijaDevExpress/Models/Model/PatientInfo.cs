@@ -17,5 +17,6 @@ namespace Models.Model
         public string UCID { get; set; }
         public bool Relationship_status { get; set; }
         public bool Smoker { get; set; }
+        public int Patient { get; set; }
     }
 }

@@ -55,7 +55,7 @@ namespace OrdinacijaDevExpress
                 visitDoctor.Date = DateTE.DateTime;
                 if(!_DB.InsertVisitDoctor(visitDoctor))
                 {
-                    XtraMessageBox.Show("");
+                    XtraMessageBox.Show("Element is not added!");
                 }
                 _visitDoctor = _DB.GetVisitDoctor();
                 VisitDoctorGridControl.DataSource = _visitDoctor;
@@ -63,7 +63,7 @@ namespace OrdinacijaDevExpress
             }
             else
             {
-                XtraMessageBox.Show("");
+                XtraMessageBox.Show("All fields should be filled!");
             }
         }
         private void ClearData()
@@ -78,19 +78,23 @@ namespace OrdinacijaDevExpress
         {
             if(visitDoctor!=null)
             {
-                DialogResult dialogResult = XtraMessageBox.Show("Sure", "Some Title", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = XtraMessageBox.Show("Sure", "You really want to delete the selected element?", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     if (!_DB.DeleteVisitDoctor(visitDoctor))
                     {
 
-                        XtraMessageBox.Show("");
+                        XtraMessageBox.Show("Element is not deleted!");
 
                     }
                     _visitDoctor = _DB.GetVisitDoctor();
                     VisitDoctorGridControl.DataSource = _visitDoctor;
                     ClearData();
                 }
+            }
+            else
+            {
+                XtraMessageBox.Show("Element is not selected!");
             }
         }
 
@@ -126,7 +130,7 @@ namespace OrdinacijaDevExpress
                 visitDoctor.Date = DateTE.DateTime;
                 if (!_DB.UpdateVisitDoctor(visitDoctor))
                 {
-                    XtraMessageBox.Show("");
+                    XtraMessageBox.Show("Element is not edited!");
                 }
                 _visitDoctor = _DB.GetVisitDoctor();
                 VisitDoctorGridControl.DataSource = _visitDoctor;
@@ -134,7 +138,7 @@ namespace OrdinacijaDevExpress
             }
             else
             {
-                XtraMessageBox.Show("");
+                XtraMessageBox.Show("All fields should be filled!");
             }
         }
 

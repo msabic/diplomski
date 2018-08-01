@@ -37,6 +37,12 @@
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.PresciptionGridControl = new DevExpress.XtraGrid.GridControl();
             this.PresciptionGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.PresciptionID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.PresciptionName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.PresciptionDescription = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.PresciptionDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.PresciptionPatient = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.PresciptionDoctor = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DateTE = new DevExpress.XtraEditors.DateEdit();
             this.PatientLE = new DevExpress.XtraEditors.LookUpEdit();
             this.DoctorLE = new DevExpress.XtraEditors.LookUpEdit();
@@ -45,11 +51,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.PresciptionDescription = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.PresciptionDate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.PresciptionPatient = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.PresciptionDoctor = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.PresciptionID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.label5 = new System.Windows.Forms.Label();
+            this.NameTE = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PresciptionGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PresciptionGridView)).BeginInit();
@@ -58,6 +61,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PatientLE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DoctorLE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DescriptionME.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NameTE.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -73,6 +77,7 @@
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
+            this.ribbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbon.Size = new System.Drawing.Size(703, 143);
             // 
             // NewBarItem
@@ -138,6 +143,7 @@
             // 
             this.PresciptionGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.PresciptionID,
+            this.PresciptionName,
             this.PresciptionDescription,
             this.PresciptionDate,
             this.PresciptionPatient,
@@ -147,10 +153,59 @@
             this.PresciptionGridView.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.PresciptionGridView_RowClick);
             this.PresciptionGridView.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.PresciptionGridView_CustomColumnDisplayText);
             // 
+            // PresciptionID
+            // 
+            this.PresciptionID.Caption = "ID";
+            this.PresciptionID.FieldName = "ID";
+            this.PresciptionID.Name = "PresciptionID";
+            this.PresciptionID.Visible = true;
+            this.PresciptionID.VisibleIndex = 0;
+            // 
+            // PresciptionName
+            // 
+            this.PresciptionName.Caption = "Name";
+            this.PresciptionName.FieldName = "Name";
+            this.PresciptionName.Name = "PresciptionName";
+            this.PresciptionName.OptionsColumn.AllowEdit = false;
+            this.PresciptionName.Visible = true;
+            this.PresciptionName.VisibleIndex = 1;
+            // 
+            // PresciptionDescription
+            // 
+            this.PresciptionDescription.Caption = "Description";
+            this.PresciptionDescription.FieldName = "Description";
+            this.PresciptionDescription.Name = "PresciptionDescription";
+            this.PresciptionDescription.Visible = true;
+            this.PresciptionDescription.VisibleIndex = 2;
+            // 
+            // PresciptionDate
+            // 
+            this.PresciptionDate.Caption = "Date";
+            this.PresciptionDate.FieldName = "Date";
+            this.PresciptionDate.Name = "PresciptionDate";
+            this.PresciptionDate.Visible = true;
+            this.PresciptionDate.VisibleIndex = 3;
+            // 
+            // PresciptionPatient
+            // 
+            this.PresciptionPatient.Caption = "Patient";
+            this.PresciptionPatient.FieldName = "Patient";
+            this.PresciptionPatient.Name = "PresciptionPatient";
+            this.PresciptionPatient.Visible = true;
+            this.PresciptionPatient.VisibleIndex = 4;
+            // 
+            // PresciptionDoctor
+            // 
+            this.PresciptionDoctor.Caption = "Doctor";
+            this.PresciptionDoctor.FieldName = "Doctor";
+            this.PresciptionDoctor.Name = "PresciptionDoctor";
+            this.PresciptionDoctor.Visible = true;
+            this.PresciptionDoctor.VisibleIndex = 5;
+            // 
             // DateTE
             // 
             this.DateTE.EditValue = null;
-            this.DateTE.Location = new System.Drawing.Point(527, 187);
+            this.DateTE.Location = new System.Drawing.Point(569, 209);
             this.DateTE.MenuManager = this.ribbon;
             this.DateTE.Name = "DateTE";
             this.DateTE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -162,13 +217,13 @@
             // 
             // PatientLE
             // 
-            this.PatientLE.Location = new System.Drawing.Point(527, 226);
+            this.PatientLE.Location = new System.Drawing.Point(569, 235);
             this.PatientLE.MenuManager = this.ribbon;
             this.PatientLE.Name = "PatientLE";
             this.PatientLE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.PatientLE.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Surname", "Surname"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Name")});
             this.PatientLE.Size = new System.Drawing.Size(100, 20);
@@ -176,13 +231,13 @@
             // 
             // DoctorLE
             // 
-            this.DoctorLE.Location = new System.Drawing.Point(527, 271);
+            this.DoctorLE.Location = new System.Drawing.Point(569, 259);
             this.DoctorLE.MenuManager = this.ribbon;
             this.DoctorLE.Name = "DoctorLE";
             this.DoctorLE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.DoctorLE.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Surname", "Surname"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Name")});
             this.DoctorLE.Size = new System.Drawing.Size(100, 20);
@@ -199,7 +254,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(526, 171);
+            this.label1.Location = new System.Drawing.Point(511, 216);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(30, 13);
             this.label1.TabIndex = 7;
@@ -208,7 +263,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(526, 210);
+            this.label2.Location = new System.Drawing.Point(511, 242);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 8;
@@ -217,7 +272,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(528, 255);
+            this.label3.Location = new System.Drawing.Point(511, 266);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(39, 13);
             this.label3.TabIndex = 9;
@@ -232,51 +287,30 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Description";
             // 
-            // PresciptionDescription
+            // label5
             // 
-            this.PresciptionDescription.Caption = "Description";
-            this.PresciptionDescription.FieldName = "Description";
-            this.PresciptionDescription.Name = "PresciptionDescription";
-            this.PresciptionDescription.Visible = true;
-            this.PresciptionDescription.VisibleIndex = 1;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(511, 190);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(34, 13);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Name";
             // 
-            // PresciptionDate
+            // NameTE
             // 
-            this.PresciptionDate.Caption = "Date";
-            this.PresciptionDate.FieldName = "Date";
-            this.PresciptionDate.Name = "PresciptionDate";
-            this.PresciptionDate.Visible = true;
-            this.PresciptionDate.VisibleIndex = 2;
-            // 
-            // PresciptionPatient
-            // 
-            this.PresciptionPatient.Caption = "Patient";
-            this.PresciptionPatient.FieldName = "Patient";
-            this.PresciptionPatient.Name = "PresciptionPatient";
-            this.PresciptionPatient.Visible = true;
-            this.PresciptionPatient.VisibleIndex = 3;
-            // 
-            // PresciptionDoctor
-            // 
-            this.PresciptionDoctor.Caption = "Doctor";
-            this.PresciptionDoctor.FieldName = "Doctor";
-            this.PresciptionDoctor.Name = "PresciptionDoctor";
-            this.PresciptionDoctor.Visible = true;
-            this.PresciptionDoctor.VisibleIndex = 4;
-            // 
-            // PresciptionID
-            // 
-            this.PresciptionID.Caption = "ID";
-            this.PresciptionID.FieldName = "ID";
-            this.PresciptionID.Name = "PresciptionID";
-            this.PresciptionID.Visible = true;
-            this.PresciptionID.VisibleIndex = 0;
+            this.NameTE.Location = new System.Drawing.Point(569, 183);
+            this.NameTE.MenuManager = this.ribbon;
+            this.NameTE.Name = "NameTE";
+            this.NameTE.Size = new System.Drawing.Size(100, 20);
+            this.NameTE.TabIndex = 13;
             // 
             // PrescriptionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(703, 597);
+            this.Controls.Add(this.NameTE);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -298,6 +332,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PatientLE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DoctorLE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DescriptionME.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NameTE.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -326,5 +361,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn PresciptionDate;
         private DevExpress.XtraGrid.Columns.GridColumn PresciptionPatient;
         private DevExpress.XtraGrid.Columns.GridColumn PresciptionDoctor;
+        private System.Windows.Forms.Label label5;
+        private DevExpress.XtraEditors.TextEdit NameTE;
+        private DevExpress.XtraGrid.Columns.GridColumn PresciptionName;
     }
 }

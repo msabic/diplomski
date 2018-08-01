@@ -15,7 +15,7 @@ namespace DBCommunication
             try
             {
                 var request = WebRequest.Create("http://localhost:3000/InsertZakazaniTermin");
-                request.Headers["date_time"] = agreedTerm.Date.ToString();
+                request.Headers["date_time"] = agreedTerm.Date.ToString("yyyy-MM-dd");
                 request.Headers["time"] = agreedTerm.Time;
                 request.Headers["patient"] = agreedTerm.Patient.ToString();
                 request.Headers["doctor"] = agreedTerm.Doctor.ToString();

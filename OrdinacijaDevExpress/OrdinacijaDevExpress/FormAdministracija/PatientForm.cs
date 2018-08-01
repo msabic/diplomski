@@ -56,7 +56,7 @@ namespace OrdinacijaDevExpress
                 patient.Doctor = int.Parse(DoctorLE.EditValue.ToString());
                 if(!_DB.InsertPatient(patient))
                 {
-                    XtraMessageBox.Show("");
+                    XtraMessageBox.Show("Element is not added!");
                 }
                 _patient = _DB.GetPatient();
                 PatientGridControl.DataSource = _patient;
@@ -64,9 +64,9 @@ namespace OrdinacijaDevExpress
             }
             else
             {
-                XtraMessageBox.Show("");
+                XtraMessageBox.Show("All fields should be filled!");
             }
-            
+
         }
 
         private void EditPatientBarItem_Click(object sender, EventArgs e)
@@ -80,7 +80,7 @@ namespace OrdinacijaDevExpress
                 patient.Doctor = int.Parse(DoctorLE.EditValue.ToString());
                 if (!_DB.UpdatePatient(patient))
                 {
-                    XtraMessageBox.Show("");
+                    XtraMessageBox.Show("Element is not edited!");
                 }
                 _patient = _DB.GetPatient();
                 PatientGridControl.DataSource = _patient;
@@ -89,7 +89,7 @@ namespace OrdinacijaDevExpress
             }
             else
             {
-                XtraMessageBox.Show("");
+                XtraMessageBox.Show("All fields should be filled!");
             }
         }
 
@@ -117,12 +117,12 @@ namespace OrdinacijaDevExpress
         {
             if (patient != null)
             {
-                DialogResult dialogResult = XtraMessageBox.Show("Sure", "Some Title", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = XtraMessageBox.Show("Sure", "You really want to delete the selected element?", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     if (!_DB.DeletePatient(patient))
                     {
-                        XtraMessageBox.Show("");
+                        XtraMessageBox.Show("Element is not deleted!");
                     }
                     ClearData();
                     patient = new Patient();
@@ -131,7 +131,10 @@ namespace OrdinacijaDevExpress
 
                 }
             }
-
+            else
+            {
+                XtraMessageBox.Show("Element is not selected!");
+            }
         }
 
         private void PatientGridView_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)

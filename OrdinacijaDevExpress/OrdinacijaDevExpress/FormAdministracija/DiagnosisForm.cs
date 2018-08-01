@@ -53,15 +53,16 @@ namespace OrdinacijaDevExpress
                 diagnosis.Patient = int.Parse(PatientLE.EditValue.ToString());
                 if (!_DB.InsertDiagnosis(diagnosis))
                 {
-                    XtraMessageBox.Show("");
+                    XtraMessageBox.Show("Element is not added!");
                 }
+               
                 ClearData();
                 _diagnosis = _DB.GetDiagnosis();
                 DiagnosisGridControl.DataSource = _diagnosis;
             }
             else
             {
-                XtraMessageBox.Show("");
+                XtraMessageBox.Show("All fields should be filled!");
             }
         }
 
@@ -76,15 +77,16 @@ namespace OrdinacijaDevExpress
                 diagnosis.Patient = int.Parse(PatientLE.EditValue.ToString());
                 if (!_DB.UpdateDiagnosis(diagnosis))
                 {
-                    XtraMessageBox.Show("");
+                    XtraMessageBox.Show("Element is not edited!");
                 }
+                
                 ClearData();
                 _diagnosis = _DB.GetDiagnosis();
                 DiagnosisGridControl.DataSource = _diagnosis;
             }
             else
             {
-                XtraMessageBox.Show("");
+                XtraMessageBox.Show("All fields should be filled!");
             }
         }
 
@@ -92,13 +94,13 @@ namespace OrdinacijaDevExpress
         {
             if (diagnosis != null)
             {
-                DialogResult dialogResult = XtraMessageBox.Show("Sure", "Some Title", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = XtraMessageBox.Show("Sure", "You really want to delete the selected element?", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
 
                     if (!_DB.DeleteDiagnosis(diagnosis))
                     {
-                        XtraMessageBox.Show("");
+                        XtraMessageBox.Show("Element is not deleted!");
                     }
                     ClearData();
                     _diagnosis = _DB.GetDiagnosis();
@@ -107,7 +109,7 @@ namespace OrdinacijaDevExpress
             }
             else
             {
-                XtraMessageBox.Show("");
+                XtraMessageBox.Show("Element is not selected!");
             }
         }
         private void ClearData()

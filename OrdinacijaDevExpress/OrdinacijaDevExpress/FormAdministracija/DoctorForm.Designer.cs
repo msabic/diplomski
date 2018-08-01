@@ -49,7 +49,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.DeleteDoctorBarItem = new DevExpress.XtraEditors.SimpleButton();
-            this.ChangePasswordDoctorBarItem = new DevExpress.XtraEditors.SimpleButton();
             this.EditDoctorBarItem = new DevExpress.XtraEditors.SimpleButton();
             this.NewDoctorBarItem = new DevExpress.XtraEditors.SimpleButton();
             this.WorkingTimeLE = new DevExpress.XtraEditors.LookUpEdit();
@@ -132,8 +131,6 @@
             this.DoctorPassword.FieldName = "Password";
             this.DoctorPassword.Name = "DoctorPassword";
             this.DoctorPassword.OptionsColumn.AllowEdit = false;
-            this.DoctorPassword.Visible = true;
-            this.DoctorPassword.VisibleIndex = 3;
             // 
             // DoctorContact
             // 
@@ -236,7 +233,6 @@
             this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl1.Controls.Add(this.DeleteDoctorBarItem);
-            this.groupControl1.Controls.Add(this.ChangePasswordDoctorBarItem);
             this.groupControl1.Controls.Add(this.EditDoctorBarItem);
             this.groupControl1.Controls.Add(this.NewDoctorBarItem);
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
@@ -250,23 +246,12 @@
             this.DeleteDoctorBarItem.Dock = System.Windows.Forms.DockStyle.Left;
             this.DeleteDoctorBarItem.Image = ((System.Drawing.Image)(resources.GetObject("DeleteDoctorBarItem.Image")));
             this.DeleteDoctorBarItem.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.DeleteDoctorBarItem.Location = new System.Drawing.Point(160, 20);
+            this.DeleteDoctorBarItem.Location = new System.Drawing.Point(104, 20);
             this.DeleteDoctorBarItem.Name = "DeleteDoctorBarItem";
             this.DeleteDoctorBarItem.Size = new System.Drawing.Size(51, 66);
             this.DeleteDoctorBarItem.TabIndex = 3;
             this.DeleteDoctorBarItem.Text = "Delete";
             this.DeleteDoctorBarItem.Click += new System.EventHandler(this.DeleteDoctorBarItem_Click);
-            // 
-            // ChangePasswordDoctorBarItem
-            // 
-            this.ChangePasswordDoctorBarItem.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ChangePasswordDoctorBarItem.Image = ((System.Drawing.Image)(resources.GetObject("ChangePasswordDoctorBarItem.Image")));
-            this.ChangePasswordDoctorBarItem.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.ChangePasswordDoctorBarItem.Location = new System.Drawing.Point(104, 20);
-            this.ChangePasswordDoctorBarItem.Name = "ChangePasswordDoctorBarItem";
-            this.ChangePasswordDoctorBarItem.Size = new System.Drawing.Size(56, 66);
-            this.ChangePasswordDoctorBarItem.TabIndex = 2;
-            this.ChangePasswordDoctorBarItem.Text = "Change\r\npassword";
             // 
             // EditDoctorBarItem
             // 
@@ -298,6 +283,12 @@
             this.WorkingTimeLE.Name = "WorkingTimeLE";
             this.WorkingTimeLE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.WorkingTimeLE.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Odd_Even", "Odd_Even"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Morning_Afternoon", "Morning_Afternoon")});
+            this.WorkingTimeLE.Properties.DisplayMember = "Odd_Even";
+            this.WorkingTimeLE.Properties.ValueMember = "ID";
             this.WorkingTimeLE.Size = new System.Drawing.Size(100, 20);
             this.WorkingTimeLE.TabIndex = 12;
             // 
@@ -353,7 +344,6 @@
         private System.Windows.Forms.Label label5;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.SimpleButton DeleteDoctorBarItem;
-        private DevExpress.XtraEditors.SimpleButton ChangePasswordDoctorBarItem;
         private DevExpress.XtraEditors.SimpleButton EditDoctorBarItem;
         private DevExpress.XtraEditors.SimpleButton NewDoctorBarItem;
         private DevExpress.XtraEditors.LookUpEdit WorkingTimeLE;

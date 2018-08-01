@@ -43,12 +43,16 @@ namespace OrdinacijaDevExpress
                 working_time.Morning_Afternoon = morningafternoon;
                 if(!_DB.InsertWorkingDay(working_time))
                 {
-                    XtraMessageBox.Show("");
+                    XtraMessageBox.Show("Element is not added!");
                 }
                 _working_time = _DB.GetWorkingTime();
                 WorkingTimeGridControl.DataSource = _working_time;
                 Odd_EvenCB.SelectedIndex = 0;
                 Morning_AfternoonCB.SelectedIndex = 0;
+            }
+            else
+            {
+                XtraMessageBox.Show("All fields should be filled!");
             }
         }
 
@@ -82,7 +86,7 @@ namespace OrdinacijaDevExpress
                 working_time.Morning_Afternoon = morningafternoon;
                 if (!_DB.UpdateWorkingDays(working_time))
                 {
-                    XtraMessageBox.Show("");
+                    XtraMessageBox.Show("Element is not edited!");
                 }
                 _working_time = _DB.GetWorkingTime();
                 WorkingTimeGridControl.DataSource = _working_time;
@@ -91,7 +95,7 @@ namespace OrdinacijaDevExpress
             }
             else
             {
-                XtraMessageBox.Show("");
+                XtraMessageBox.Show("All fields should be filled!");
             }
         }
 
@@ -99,12 +103,12 @@ namespace OrdinacijaDevExpress
         {
             if(working_time!=null)
             {
-                DialogResult dialogResult = XtraMessageBox.Show("Sure", "Some Title", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = XtraMessageBox.Show("Sure", "You really want to delete the selected element?", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                     {
                         if (!_DB.DeleteWorkingDay(working_time))
                         {
-                            XtraMessageBox.Show("");
+                            XtraMessageBox.Show("Element is not deleted!");
                         }
                         _working_time = _DB.GetWorkingTime();
                         WorkingTimeGridControl.DataSource = _working_time;
@@ -114,7 +118,7 @@ namespace OrdinacijaDevExpress
             }
             else
             {
-                XtraMessageBox.Show("");
+                XtraMessageBox.Show("Element is not selected!");
             }
         }
     }

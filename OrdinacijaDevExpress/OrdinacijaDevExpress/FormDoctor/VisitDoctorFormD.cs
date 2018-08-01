@@ -51,7 +51,7 @@ namespace OrdinacijaDevExpress.FormDoctor
             }
             else
             {
-                XtraMessageBox.Show("Data is not valid!");
+                XtraMessageBox.Show("All fields should be filled!");
             }
         }
         private void CleatData()
@@ -65,19 +65,23 @@ namespace OrdinacijaDevExpress.FormDoctor
         {
             if (vistitDoctor != null)
             {
-                DialogResult dialogResult = XtraMessageBox.Show("Sure", "Some Title", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = XtraMessageBox.Show("Sure", "You really want to delete the selected element?", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     if (!_DB.DeleteVisitDoctor(vistitDoctor))
                     {
 
-                        XtraMessageBox.Show("");
+                        XtraMessageBox.Show("Element is not deleted!");
 
                     }
                     _vistiDoctor = _DB.GetVistiDoctorForPatient(patient);
                     VisitDoctorGridControl.DataSource = _vistiDoctor;
                     CleatData();
                 }
+            }
+            else
+            {
+                XtraMessageBox.Show("Element is not selected!");
             }
         }
 
@@ -93,7 +97,7 @@ namespace OrdinacijaDevExpress.FormDoctor
                 vistitDoctor.Date = DateTE.DateTime;
                 if (!_DB.UpdateVisitDoctor(vistitDoctor))
                 {
-                    XtraMessageBox.Show("");
+                    XtraMessageBox.Show("Element is not edited!");
                 }
                 _vistiDoctor = _DB.GetVistiDoctorForPatient(patient);
                 VisitDoctorGridControl.DataSource = _vistiDoctor;
@@ -101,7 +105,7 @@ namespace OrdinacijaDevExpress.FormDoctor
             }
             else
             {
-                XtraMessageBox.Show("");
+                XtraMessageBox.Show("All fields should be filled!");
             }
         }
 

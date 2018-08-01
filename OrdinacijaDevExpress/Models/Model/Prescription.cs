@@ -13,5 +13,6 @@ namespace Models.Model
         public string Description { get; set; }
         public int Patient { get; set; }
         public int Doctor { get; set; }
+        public string Name { get; set; }
     }
 }

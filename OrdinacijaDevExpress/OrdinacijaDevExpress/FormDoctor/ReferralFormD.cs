@@ -42,7 +42,7 @@ namespace OrdinacijaDevExpress.FormDoctor
                  referral.Patient = patient;
                 if (!_DB.InsertReferral(referral))
                 {
-                    XtraMessageBox.Show("");
+                    XtraMessageBox.Show("Element is not added!");
                 }
                 ClearData();
                 _referral = _DB.GetReferralForPatient(patient);
@@ -50,7 +50,8 @@ namespace OrdinacijaDevExpress.FormDoctor
             }
             else
             {
-                XtraMessageBox.Show("");
+                XtraMessageBox.Show("All fields should be filled!");
+
             }
         }
 
@@ -65,7 +66,8 @@ namespace OrdinacijaDevExpress.FormDoctor
                 referral.Patient = patient;
                 if (!_DB.UpdateReferral(referral))
                 {
-                    XtraMessageBox.Show("");
+                    XtraMessageBox.Show("Element is not edited!");
+
                 }
                 ClearData();
                 _referral = _DB.GetReferral();
@@ -73,7 +75,7 @@ namespace OrdinacijaDevExpress.FormDoctor
             }
             else
             {
-                XtraMessageBox.Show("");
+                XtraMessageBox.Show("All fields should be filled!");
             }
         }
 
@@ -81,13 +83,13 @@ namespace OrdinacijaDevExpress.FormDoctor
         {
             if (referral != null)
             {
-                DialogResult dialogResult = XtraMessageBox.Show("Sure", "Some Title", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = XtraMessageBox.Show("Sure", "You really want to delete the selected element?", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
 
                     if (!_DB.DeleteReferral(referral))
                     {
-                        XtraMessageBox.Show("");
+                        XtraMessageBox.Show("Element is not deleted!");
                     }
                     ClearData();
                     _referral = _DB.GetReferralForPatient(patient);
@@ -96,7 +98,7 @@ namespace OrdinacijaDevExpress.FormDoctor
             }
             else
             {
-                XtraMessageBox.Show("");
+                XtraMessageBox.Show("Element is not selected!");
             }
         }
 

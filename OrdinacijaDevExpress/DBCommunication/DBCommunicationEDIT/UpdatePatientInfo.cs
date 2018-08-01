@@ -16,7 +16,7 @@ namespace DBCommunication
             {
                 var request = WebRequest.Create("http://localhost:3000/UpdatePacijentDodatno");
                 request.Headers["father_name"] = patient.Father_name;
-                request.Headers["mother_name"] = patient.Mobile;
+                request.Headers["mother_name"] = patient.Mother_name;
                 request.Headers["address"] = patient.Address;
                 request.Headers["phone"] = patient.Phone;
                 request.Headers["mob"] = patient.Mobile;
@@ -24,6 +24,7 @@ namespace DBCommunication
                 request.Headers["relationship_status"] = (patient.Relationship_status == true) ? "Ozenjen" : "Neozenjen";
                 request.Headers["smoker"] = (patient.Smoker == true) ? "1" : "0";
                 request.Headers["id"] = patient.ID.ToString();
+                request.Headers["patientid"] = patient.Patient.ToString();
                 request.GetResponse();
                 return true;
             }

@@ -49,6 +49,17 @@
             this.SmokerCE = new System.Windows.Forms.CheckBox();
             this.PatientInfoGridControl = new DevExpress.XtraGrid.GridControl();
             this.PatientInfoGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.PatientLE = new DevExpress.XtraEditors.LookUpEdit();
+            this.PatientInfoID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.PatientInfoFatherName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.PatientInfoMotherName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.PatientInfoAddress = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.PatientInfoPhone = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.PatientInfoMobile = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.PatientInfoUCID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.PatientInfoRS = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.PatientInfoSmoker = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.PatientInfoPatient = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FatherNameTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MotherNameTE.Properties)).BeginInit();
@@ -58,6 +69,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.UCIDTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PatientInfoGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PatientInfoGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PatientLE.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -209,7 +221,7 @@
             // RelationshipStatusCB
             // 
             this.RelationshipStatusCB.AutoSize = true;
-            this.RelationshipStatusCB.Location = new System.Drawing.Point(11, 144);
+            this.RelationshipStatusCB.Location = new System.Drawing.Point(161, 144);
             this.RelationshipStatusCB.Name = "RelationshipStatusCB";
             this.RelationshipStatusCB.Size = new System.Drawing.Size(81, 17);
             this.RelationshipStatusCB.TabIndex = 15;
@@ -219,7 +231,7 @@
             // SmokerCE
             // 
             this.SmokerCE.AutoSize = true;
-            this.SmokerCE.Location = new System.Drawing.Point(161, 144);
+            this.SmokerCE.Location = new System.Drawing.Point(311, 144);
             this.SmokerCE.Name = "SmokerCE";
             this.SmokerCE.Size = new System.Drawing.Size(61, 17);
             this.SmokerCE.TabIndex = 16;
@@ -241,15 +253,129 @@
             // 
             // PatientInfoGridView
             // 
+            this.PatientInfoGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.PatientInfoID,
+            this.PatientInfoFatherName,
+            this.PatientInfoMotherName,
+            this.PatientInfoAddress,
+            this.PatientInfoPhone,
+            this.PatientInfoMobile,
+            this.PatientInfoUCID,
+            this.PatientInfoRS,
+            this.PatientInfoSmoker,
+            this.PatientInfoPatient});
             this.PatientInfoGridView.GridControl = this.PatientInfoGridControl;
             this.PatientInfoGridView.Name = "PatientInfoGridView";
             this.PatientInfoGridView.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.PatientInfoGridView_RowClick);
+            this.PatientInfoGridView.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.PatientInfoGridView_CustomColumnDisplayText);
+            // 
+            // PatientLE
+            // 
+            this.PatientLE.Location = new System.Drawing.Point(11, 142);
+            this.PatientLE.Name = "PatientLE";
+            this.PatientLE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.PatientLE.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name1", "ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Name"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Surname", "Surname")});
+            this.PatientLE.Size = new System.Drawing.Size(144, 20);
+            this.PatientLE.TabIndex = 18;
+            // 
+            // PatientInfoID
+            // 
+            this.PatientInfoID.Caption = "ID";
+            this.PatientInfoID.FieldName = "ID";
+            this.PatientInfoID.Name = "PatientInfoID";
+            this.PatientInfoID.OptionsColumn.AllowEdit = false;
+            // 
+            // PatientInfoFatherName
+            // 
+            this.PatientInfoFatherName.Caption = "Father name";
+            this.PatientInfoFatherName.FieldName = "Father_name";
+            this.PatientInfoFatherName.Name = "PatientInfoFatherName";
+            this.PatientInfoFatherName.OptionsColumn.AllowEdit = false;
+            this.PatientInfoFatherName.Visible = true;
+            this.PatientInfoFatherName.VisibleIndex = 0;
+            // 
+            // PatientInfoMotherName
+            // 
+            this.PatientInfoMotherName.Caption = "Mother name";
+            this.PatientInfoMotherName.FieldName = "Mother_name";
+            this.PatientInfoMotherName.Name = "PatientInfoMotherName";
+            this.PatientInfoMotherName.OptionsColumn.AllowEdit = false;
+            this.PatientInfoMotherName.Visible = true;
+            this.PatientInfoMotherName.VisibleIndex = 1;
+            // 
+            // PatientInfoAddress
+            // 
+            this.PatientInfoAddress.Caption = "Address";
+            this.PatientInfoAddress.FieldName = "Address";
+            this.PatientInfoAddress.Name = "PatientInfoAddress";
+            this.PatientInfoAddress.OptionsColumn.AllowEdit = false;
+            this.PatientInfoAddress.Visible = true;
+            this.PatientInfoAddress.VisibleIndex = 2;
+            // 
+            // PatientInfoPhone
+            // 
+            this.PatientInfoPhone.Caption = "Phone";
+            this.PatientInfoPhone.FieldName = "Phone";
+            this.PatientInfoPhone.Name = "PatientInfoPhone";
+            this.PatientInfoPhone.OptionsColumn.AllowEdit = false;
+            this.PatientInfoPhone.Visible = true;
+            this.PatientInfoPhone.VisibleIndex = 3;
+            // 
+            // PatientInfoMobile
+            // 
+            this.PatientInfoMobile.Caption = "Mobile";
+            this.PatientInfoMobile.FieldName = "Mobile";
+            this.PatientInfoMobile.Name = "PatientInfoMobile";
+            this.PatientInfoMobile.OptionsColumn.AllowEdit = false;
+            this.PatientInfoMobile.Visible = true;
+            this.PatientInfoMobile.VisibleIndex = 4;
+            // 
+            // PatientInfoUCID
+            // 
+            this.PatientInfoUCID.Caption = "UCID";
+            this.PatientInfoUCID.FieldName = "UCID";
+            this.PatientInfoUCID.Name = "PatientInfoUCID";
+            this.PatientInfoUCID.OptionsColumn.AllowEdit = false;
+            this.PatientInfoUCID.Visible = true;
+            this.PatientInfoUCID.VisibleIndex = 5;
+            // 
+            // PatientInfoRS
+            // 
+            this.PatientInfoRS.Caption = "Relationship status";
+            this.PatientInfoRS.FieldName = "Relationship_status";
+            this.PatientInfoRS.Name = "PatientInfoRS";
+            this.PatientInfoRS.OptionsColumn.AllowEdit = false;
+            this.PatientInfoRS.Visible = true;
+            this.PatientInfoRS.VisibleIndex = 6;
+            // 
+            // PatientInfoSmoker
+            // 
+            this.PatientInfoSmoker.Caption = "Smoker";
+            this.PatientInfoSmoker.FieldName = "Smoker";
+            this.PatientInfoSmoker.Name = "PatientInfoSmoker";
+            this.PatientInfoSmoker.OptionsColumn.AllowEdit = false;
+            this.PatientInfoSmoker.Visible = true;
+            this.PatientInfoSmoker.VisibleIndex = 7;
+            // 
+            // PatientInfoPatient
+            // 
+            this.PatientInfoPatient.Caption = "Patient";
+            this.PatientInfoPatient.FieldName = "Patient";
+            this.PatientInfoPatient.Name = "PatientInfoPatient";
+            this.PatientInfoPatient.OptionsColumn.AllowEdit = false;
+            this.PatientInfoPatient.Visible = true;
+            this.PatientInfoPatient.VisibleIndex = 8;
             // 
             // PatientInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(918, 445);
+            this.Controls.Add(this.PatientLE);
             this.Controls.Add(this.PatientInfoGridControl);
             this.Controls.Add(this.SmokerCE);
             this.Controls.Add(this.RelationshipStatusCB);
@@ -277,6 +403,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.UCIDTE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PatientInfoGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PatientInfoGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PatientLE.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,5 +430,16 @@
         private System.Windows.Forms.CheckBox SmokerCE;
         private DevExpress.XtraGrid.GridControl PatientInfoGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView PatientInfoGridView;
+        private DevExpress.XtraEditors.LookUpEdit PatientLE;
+        private DevExpress.XtraGrid.Columns.GridColumn PatientInfoID;
+        private DevExpress.XtraGrid.Columns.GridColumn PatientInfoFatherName;
+        private DevExpress.XtraGrid.Columns.GridColumn PatientInfoMotherName;
+        private DevExpress.XtraGrid.Columns.GridColumn PatientInfoAddress;
+        private DevExpress.XtraGrid.Columns.GridColumn PatientInfoPhone;
+        private DevExpress.XtraGrid.Columns.GridColumn PatientInfoMobile;
+        private DevExpress.XtraGrid.Columns.GridColumn PatientInfoUCID;
+        private DevExpress.XtraGrid.Columns.GridColumn PatientInfoRS;
+        private DevExpress.XtraGrid.Columns.GridColumn PatientInfoSmoker;
+        private DevExpress.XtraGrid.Columns.GridColumn PatientInfoPatient;
     }
 }

@@ -45,16 +45,17 @@ namespace OrdinacijaDevExpress
 
         private void NewBarItem_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if(!string.IsNullOrWhiteSpace(DescriptionME.Text) && DateTE.DateTime!=null && DateTE.DateTime>DateTime.Now && PatientLE.EditValue!=null && DoctorLE.EditValue!=null)
+            if(!string.IsNullOrWhiteSpace(DescriptionME.Text) && DateTE.DateTime!=null && DateTE.DateTime>DateTime.Now && PatientLE.EditValue!=null && DoctorLE.EditValue!=null && !string.IsNullOrWhiteSpace(NameTE.Text))
             {
                 prescription = new Prescription();
                 prescription.Date = DateTE.DateTime;
                 prescription.Description = DescriptionME.Text;
                 prescription.Doctor = int.Parse(DoctorLE.EditValue.ToString());
                 prescription.Patient = int.Parse(PatientLE.EditValue.ToString());
-                if(!_DB.InsertPrescription(prescription))
+                prescription.Name = NameTE.Text;
+                if (!_DB.InsertPrescription(prescription))
                 {
-                    XtraMessageBox.Show("");
+                    XtraMessageBox.Show("Element is not added!");
                 }
                 ClearData();
                 _prescription = _DB.GetPrescription();
@@ -62,22 +63,23 @@ namespace OrdinacijaDevExpress
             }
             else
             {
-                XtraMessageBox.Show("");
+                XtraMessageBox.Show("All fields should be filled!");
             }
         }
 
         private void EditBarItem_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (prescription!=null && !string.IsNullOrWhiteSpace(DescriptionME.Text) && DateTE.DateTime != null && DateTE.DateTime > DateTime.Now && PatientLE.EditValue != null && DoctorLE.EditValue != null)
+            if (prescription!=null && !string.IsNullOrWhiteSpace(DescriptionME.Text) && DateTE.DateTime != null && DateTE.DateTime > DateTime.Now && PatientLE.EditValue != null && DoctorLE.EditValue != null && !string.IsNullOrWhiteSpace(NameTE.Text))
             {
                 
                 prescription.Date = DateTE.DateTime;
                 prescription.Description = DescriptionME.Text;
                 prescription.Doctor = int.Parse(DoctorLE.EditValue.ToString());
                 prescription.Patient = int.Parse(PatientLE.EditValue.ToString());
+                prescription.Name = NameTE.Text;
                 if (!_DB.UpdatePrescription(prescription))
                 {
-                    XtraMessageBox.Show("");
+                    XtraMessageBox.Show("Element is not edited!");
                 }
                 _prescription = _DB.GetPrescription();
                 PresciptionGridControl.DataSource = _prescription;
@@ -85,7 +87,7 @@ namespace OrdinacijaDevExpress
             }
             else
             {
-                XtraMessageBox.Show("");
+                XtraMessageBox.Show("All fields should be filled!");
             }
         }
 
@@ -93,13 +95,13 @@ namespace OrdinacijaDevExpress
         {
             if (prescription != null)
             {
-                DialogResult dialogResult = XtraMessageBox.Show("Sure", "Some Title", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = XtraMessageBox.Show("Sure", "You really want to delete the selected element?", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
 
                     if (!_DB.DeletePrescription(prescription))
                     {
-                        XtraMessageBox.Show("");
+                        XtraMessageBox.Show("Element is not deleted!");
                     }
                     _prescription = _DB.GetPrescription();
                     PresciptionGridControl.DataSource = _prescription;
@@ -108,7 +110,7 @@ namespace OrdinacijaDevExpress
             }
             else
             {
-                XtraMessageBox.Show("");
+                XtraMessageBox.Show("Element is not selected!");
             }
         }
         private void ClearData()
@@ -118,6 +120,7 @@ namespace OrdinacijaDevExpress
             DateTE.DateTime = DateTime.Now;
             PatientLE.EditValue = null;
             DoctorLE.EditValue = null;
+            NameTE.Text=string.Empty;
         }
 
         private void PresciptionGridView_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
@@ -131,7 +134,7 @@ namespace OrdinacijaDevExpress
                 
                 DescriptionME.Text = prescription.Description;
                 DateTE.DateTime = prescription.Date;
-
+                NameTE.Text = prescription.Name;
 
             }
             catch

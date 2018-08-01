@@ -45,11 +45,11 @@
             this.DescriptionME = new DevExpress.XtraEditors.MemoEdit();
             this.DiagnosisGridControl = new DevExpress.XtraGrid.GridControl();
             this.DiagnosisGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.DiagnosisID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.DiagnosisName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.DiagnosisDescription = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DiagnosisPatient = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DiagnosisDoctor = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.DiagnosisDescription = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.DiagnosisName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.DiagnosisID = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DoctorLE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PatientLE.Properties)).BeginInit();
@@ -72,6 +72,7 @@
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
+            this.ribbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbon.Size = new System.Drawing.Size(758, 143);
             // 
             // NewBarItem
@@ -163,7 +164,7 @@
             this.DoctorLE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.DoctorLE.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Surname", "Surname"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Name")});
             this.DoctorLE.Size = new System.Drawing.Size(158, 20);
@@ -177,7 +178,7 @@
             this.PatientLE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.PatientLE.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Surname", "Surname"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Name")});
             this.PatientLE.Size = new System.Drawing.Size(158, 20);
@@ -226,6 +227,31 @@
             this.DiagnosisGridView.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.DiagnosisGridView_RowClick);
             this.DiagnosisGridView.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.DiagnosisGridView_CustomColumnDisplayText_1);
             // 
+            // DiagnosisID
+            // 
+            this.DiagnosisID.Caption = "ID";
+            this.DiagnosisID.FieldName = "ID";
+            this.DiagnosisID.Name = "DiagnosisID";
+            this.DiagnosisID.OptionsColumn.AllowEdit = false;
+            // 
+            // DiagnosisName
+            // 
+            this.DiagnosisName.Caption = "Name";
+            this.DiagnosisName.FieldName = "Name";
+            this.DiagnosisName.Name = "DiagnosisName";
+            this.DiagnosisName.OptionsColumn.AllowEdit = false;
+            this.DiagnosisName.Visible = true;
+            this.DiagnosisName.VisibleIndex = 0;
+            // 
+            // DiagnosisDescription
+            // 
+            this.DiagnosisDescription.Caption = "Description";
+            this.DiagnosisDescription.FieldName = "Description";
+            this.DiagnosisDescription.Name = "DiagnosisDescription";
+            this.DiagnosisDescription.OptionsColumn.AllowEdit = false;
+            this.DiagnosisDescription.Visible = true;
+            this.DiagnosisDescription.VisibleIndex = 1;
+            // 
             // DiagnosisPatient
             // 
             this.DiagnosisPatient.Caption = "Patient";
@@ -243,31 +269,6 @@
             this.DiagnosisDoctor.OptionsColumn.AllowEdit = false;
             this.DiagnosisDoctor.Visible = true;
             this.DiagnosisDoctor.VisibleIndex = 3;
-            // 
-            // DiagnosisDescription
-            // 
-            this.DiagnosisDescription.Caption = "Description";
-            this.DiagnosisDescription.FieldName = "Description";
-            this.DiagnosisDescription.Name = "DiagnosisDescription";
-            this.DiagnosisDescription.OptionsColumn.AllowEdit = false;
-            this.DiagnosisDescription.Visible = true;
-            this.DiagnosisDescription.VisibleIndex = 1;
-            // 
-            // DiagnosisName
-            // 
-            this.DiagnosisName.Caption = "Name";
-            this.DiagnosisName.FieldName = "Name";
-            this.DiagnosisName.Name = "DiagnosisName";
-            this.DiagnosisName.OptionsColumn.AllowEdit = false;
-            this.DiagnosisName.Visible = true;
-            this.DiagnosisName.VisibleIndex = 0;
-            // 
-            // DiagnosisID
-            // 
-            this.DiagnosisID.Caption = "ID";
-            this.DiagnosisID.FieldName = "ID";
-            this.DiagnosisID.Name = "DiagnosisID";
-            this.DiagnosisID.OptionsColumn.AllowEdit = false;
             // 
             // DiagnosisForm
             // 
