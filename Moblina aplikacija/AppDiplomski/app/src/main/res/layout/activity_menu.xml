@@ -11,13 +11,17 @@
         android:layout_height="wrap_content"
         android:fillViewport="true"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
+        tools:layout_editor_absoluteY="8dp"
+        android:layout_gravity="center"
+        >
 
         <FrameLayout
             android:layout_width="368dp"
             android:layout_height="495dp"
             tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="8dp">
+            tools:layout_editor_absoluteY="8dp"
+            android:layout_gravity="center"
+            >
 
             <ImageButton
                 android:id="@+id/btnDiagnose"
@@ -28,7 +32,8 @@
                 android:layout_marginTop="175dp"
                 android:background="@color/colorWhite"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/diagnose" />
+                app:srcCompat="@drawable/diagnose"
+                />
 
             <ImageButton
                 android:id="@+id/btnDoctor"

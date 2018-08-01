@@ -3,6 +3,7 @@ package com.example.cornetmijo.appdiplomski;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ExpandableListView;
 import android.widget.Toolbar;
@@ -72,7 +73,7 @@ public class VisitDoctorActivity extends AppCompatActivity {
                             }
                             catch (JSONException ex)
                             {
-
+                                Log.d("Error: ",ex.toString());
                             }
                             finally {
                                 prepareListData();
@@ -113,12 +114,8 @@ public class VisitDoctorActivity extends AppCompatActivity {
         }
         expListView = (ExpandableListView)findViewById(R.id.lvExpVisitDoctor);
 
-        // preparing list data
-
-
         listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
 
-        // setting list adapter
         expListView.setAdapter(listAdapter);
     }
 }

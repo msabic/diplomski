@@ -40,7 +40,7 @@ public class ConfirmTermActivity extends AppCompatActivity {
     public static int DRID=0;
     public int userID;
     public Date date;
-    public Date date_new;
+
     public static boolean jutro=false;
     public static int pYear;
     public static int pDay;
@@ -51,7 +51,7 @@ public class ConfirmTermActivity extends AppCompatActivity {
     public static TermList adapter;
     public static ConfirmTermActivity confirmTermActivity;
     public static String[] itemname = new String[1] ;
-    private boolean temp=false;
+
     public static ArrayList<Doctor> _doctor_list=new ArrayList<>();
     public static Integer[] imgid = new Integer[1];
     public static List<Time> timesAM ;
@@ -143,6 +143,15 @@ public class ConfirmTermActivity extends AppCompatActivity {
 
 
     }
+    private void MessageText(String message)
+    {
+        Context context = getApplicationContext();
+        CharSequence text = message;
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+    }
     public void PrintListForReervation()
     {
         if(!jutro)
@@ -208,6 +217,7 @@ public class ConfirmTermActivity extends AppCompatActivity {
                             }
                             catch (JSONException ex)
                             {
+                                Log.d("Error",ex.toString());
                             }
                             finally {
                                // prepareListData();
@@ -286,7 +296,7 @@ public class ConfirmTermActivity extends AppCompatActivity {
                             }
                             catch (JSONException ex)
                             {
-
+                                Log.d("Error: ",ex.toString());
                             }
                             finally {
                                 PrintListForReervation();
@@ -324,8 +334,7 @@ public class ConfirmTermActivity extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
-                        //Failure Callback
-                        System.out.println("FAILLL BABAC: " + error);
+                        System.out.println("FAILLL: " + error);
                     }
                 })
 
@@ -357,7 +366,6 @@ public class ConfirmTermActivity extends AppCompatActivity {
                 builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int which) {
-                        // Do nothing but close the dialog
                         InsertTerm(itemname[+position]);
                         dialog.dismiss();
                     }
@@ -368,20 +376,12 @@ public class ConfirmTermActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-                        // Do nothing
                         dialog.dismiss();
                     }
                 });
 
                 AlertDialog alert = builder.create();
                 alert.show();
-                //Doctor dr=(Doctor)_doctor_list.get(+position);
-                //String Slecteditem= itemname[+position];
-                //Toast.makeText(getApplicationContext(), Slecteditem, Toast.LENGTH_SHORT).show();
-                //Intent i = new Intent( DoctorListActivity.this, DoctorViewActivity.class);
-                //i.putExtra("Doctor", dr.getID_Doktor());
-                //i.putExtra("IPAddress",IPAddress);
-                //startActivity(i);
             }
         });
     }
@@ -397,12 +397,8 @@ public class ConfirmTermActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         // response
                         if(response.equalsIgnoreCase("true")){
-                            Context context = getApplicationContext();
-                            CharSequence text = "Term is added!";
-                            int duration = Toast.LENGTH_SHORT;
 
-                            Toast toast = Toast.makeText(context, text, duration);
-                            toast.show();
+                            MessageText("Term is added");
                             SelectTermForDoctor();
                         }
                         Log.d("Response", response);

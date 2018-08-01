@@ -27,7 +27,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
-    public String IPAddress ="192.168.31.87";
+    public String IPAddress ="192.168.0.11";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,17 +50,20 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    Context context = getApplicationContext();
-                    CharSequence text = "Hello toast!";
-                    int duration = Toast.LENGTH_SHORT;
-
-                    Toast toast = Toast.makeText(context, text, duration);
-                    toast.show();
+                    MessageText("Email or password is empty!");
                 }
             }
         });
     }
+    private void MessageText(String message)
+    {
+        Context context = getApplicationContext();
+        CharSequence text = message;
+        int duration = Toast.LENGTH_SHORT;
 
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+    }
     private void Login(final String email, final String password)
     {
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -90,8 +93,7 @@ public class MainActivity extends AppCompatActivity {
                                 editor.putString("IPAddress", IPAddress);
                                 editor.apply();
                                 Intent i = new Intent( MainActivity.this, PatientInfoActivity.class);
-                               // i.putExtra("userID",""+id_user+"");
-                               // i.putExtra("IPAddress",IPAddress);
+
                                 startActivity(i);
                                 finish();
                             finish();}
@@ -102,31 +104,22 @@ public class MainActivity extends AppCompatActivity {
                                 editor.putString("IPAddress", IPAddress);
                                 editor.apply();
                                 Intent i = new Intent( MainActivity.this, MenuActivity.class);
-                                //i.putExtra("userID",""+id_user+"");
-                                //i.putExtra("IPAddress",IPAddress);
+
                                 startActivity(i);
                                 finish();
                             }
                         }
                         else
                         {
-                            Context context = getApplicationContext();
-                            CharSequence text = "Hello toast!";
-                            int duration = Toast.LENGTH_SHORT;
-
-                            Toast toast = Toast.makeText(context, text, duration);
-                            toast.show();
+                            MessageText("Please try again!");
                         }
-
-// Receiving side
-
                     }
                 },
                 new Response.ErrorListener()
                 {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
+                        MessageText("Please try again!");
                         Log.d("ERROR","error => "+error.toString());
                     }
                 }

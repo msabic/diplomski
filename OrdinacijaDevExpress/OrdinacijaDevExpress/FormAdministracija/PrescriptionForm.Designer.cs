@@ -160,8 +160,7 @@
             this.PresciptionID.Caption = "ID";
             this.PresciptionID.FieldName = "ID";
             this.PresciptionID.Name = "PresciptionID";
-            this.PresciptionID.Visible = true;
-            this.PresciptionID.VisibleIndex = 0;
+            this.PresciptionID.OptionsColumn.AllowEdit = false;
             // 
             // PresciptionName
             // 
@@ -170,39 +169,43 @@
             this.PresciptionName.Name = "PresciptionName";
             this.PresciptionName.OptionsColumn.AllowEdit = false;
             this.PresciptionName.Visible = true;
-            this.PresciptionName.VisibleIndex = 1;
+            this.PresciptionName.VisibleIndex = 0;
             // 
             // PresciptionDescription
             // 
             this.PresciptionDescription.Caption = "Description";
             this.PresciptionDescription.FieldName = "Description";
             this.PresciptionDescription.Name = "PresciptionDescription";
+            this.PresciptionDescription.OptionsColumn.AllowEdit = false;
             this.PresciptionDescription.Visible = true;
-            this.PresciptionDescription.VisibleIndex = 2;
+            this.PresciptionDescription.VisibleIndex = 1;
             // 
             // PresciptionDate
             // 
             this.PresciptionDate.Caption = "Date";
             this.PresciptionDate.FieldName = "Date";
             this.PresciptionDate.Name = "PresciptionDate";
+            this.PresciptionDate.OptionsColumn.AllowEdit = false;
             this.PresciptionDate.Visible = true;
-            this.PresciptionDate.VisibleIndex = 3;
+            this.PresciptionDate.VisibleIndex = 2;
             // 
             // PresciptionPatient
             // 
             this.PresciptionPatient.Caption = "Patient";
             this.PresciptionPatient.FieldName = "Patient";
             this.PresciptionPatient.Name = "PresciptionPatient";
+            this.PresciptionPatient.OptionsColumn.AllowEdit = false;
             this.PresciptionPatient.Visible = true;
-            this.PresciptionPatient.VisibleIndex = 4;
+            this.PresciptionPatient.VisibleIndex = 3;
             // 
             // PresciptionDoctor
             // 
             this.PresciptionDoctor.Caption = "Doctor";
             this.PresciptionDoctor.FieldName = "Doctor";
             this.PresciptionDoctor.Name = "PresciptionDoctor";
+            this.PresciptionDoctor.OptionsColumn.AllowEdit = false;
             this.PresciptionDoctor.Visible = true;
-            this.PresciptionDoctor.VisibleIndex = 5;
+            this.PresciptionDoctor.VisibleIndex = 4;
             // 
             // DateTE
             // 

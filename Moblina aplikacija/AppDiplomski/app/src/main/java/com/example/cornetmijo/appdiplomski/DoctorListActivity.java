@@ -1,5 +1,6 @@
 package com.example.cornetmijo.appdiplomski;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
@@ -50,11 +51,8 @@ public class DoctorListActivity extends AppCompatActivity {
         userID= Integer.parseInt(getIntent().getStringExtra("userID"));
         activity_doctor=this;
         Select_Doctor();
-
-
-
-
     }
+
     private void Select_Doctor()
     {
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -122,7 +120,7 @@ public class DoctorListActivity extends AppCompatActivity {
 
                 Doctor dr=(Doctor)_doctor_list.get(+position);
                 String Slecteditem= itemname[+position];
-                Toast.makeText(getApplicationContext(), Slecteditem, Toast.LENGTH_SHORT).show();
+               // Toast.makeText(getApplicationContext(), Slecteditem, Toast.LENGTH_SHORT).show();
                 Intent i = new Intent( DoctorListActivity.this, DoctorViewActivity.class);
                 i.putExtra("Doctor", dr.getID_Doktor());
                 i.putExtra("IPAddress",IPAddress);

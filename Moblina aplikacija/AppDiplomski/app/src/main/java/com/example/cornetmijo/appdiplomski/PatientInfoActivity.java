@@ -75,71 +75,22 @@ public class PatientInfoActivity extends AppCompatActivity {
         }
         else
         {
-            Context context = getApplicationContext();
-            CharSequence text = "Hello toast!";
-            int duration = Toast.LENGTH_SHORT;
-
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
+            MessageText("All input fields should be filled!");
         } }
         });
 
     }
+    private void MessageText(String message)
+    {
+        Context context = getApplicationContext();
+        CharSequence text = message;
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+    }
     private void Insert()
     {
-
-       /* RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://192.168.31.146:3000/InsertPacijentDodatno";
-        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
-                url, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-
-                        //Success Callback
-                        System.out.println("RESPONESEEEE: " + response.toString());
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                        //Failure Callback
-                        System.out.println("FAILLL BABAC: " + error);
-                    }
-                })
-
-        {
-
-            *//** Passing some request headers* *//*
-            @Override
-            public Map<String,String> getHeaders() throws AuthFailureError {
-                HashMap<String,String> headers = new HashMap();
-                headers.put("father_name", fatherName.getText().toString());
-                headers.put("mother_name", motherName.getText().toString());
-                headers.put("address", address.getText().toString());
-                headers.put("phone", phone.getText().toString());
-                headers.put("mob", mobile.getText().toString());
-                headers.put("jmbg", UCID.getText().toString());
-                if(inmarriage.isChecked()) {
-                    headers.put("relationship_status", "ozenjen");
-                }else
-                {
-                    headers.put("relationship_status", "ne ozenjen");
-                }
-                if(smoker.isChecked()){
-                headers.put("smoker", "1");}
-                else
-                {
-                    headers.put("smoker", "0");
-                }
-                return headers;
-            }
-        };
-
-// Adding the request to the queue along with a unique string tag
-        queue.add(jsonObjReq);
-        */
         RequestQueue queue = Volley.newRequestQueue(this);
         //String url = "http://192.168.31.146:3000/InsertPacijentDodatno";
         String url = "http://"+IPAddress+":3000/InsertPacijentDodatno";

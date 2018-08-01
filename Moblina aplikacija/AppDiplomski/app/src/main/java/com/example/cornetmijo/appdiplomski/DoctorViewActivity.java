@@ -64,15 +64,20 @@ public class DoctorViewActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    Context context = getApplicationContext();
-                    CharSequence text = "Subject or message is empty!";
-                    int duration = Toast.LENGTH_SHORT;
+                    MessageText("Subject or message is empty!");
 
-                    Toast toast = Toast.makeText(context, text, duration);
-                    toast.show();
                 }
             }
         });
+    }
+    private void MessageText(String message)
+    {
+        Context context = getApplicationContext();
+        CharSequence text = message;
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
     }
     private void Send_Email()
     {
@@ -91,16 +96,8 @@ public class DoctorViewActivity extends AppCompatActivity {
                                 {
                                     subject.setText("");
                                     message.setText("");
-                                    Context context = getApplicationContext();
-                                    CharSequence text = "Email is send!";
-                                    int duration = Toast.LENGTH_SHORT;
-
-                                    Toast toast = Toast.makeText(context, text, duration);
-                                    toast.show();
+                                    MessageText("Email is send!");
                                 }
-
-// Receiving side
-
                     }
                 },
                 new Response.ErrorListener()
@@ -151,8 +148,6 @@ public class DoctorViewActivity extends AppCompatActivity {
 
                                 String ime=dr.getIme();
                             }
-
-
                         }
 
                     }
@@ -162,7 +157,7 @@ public class DoctorViewActivity extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
 
                         //Failure Callback
-                        System.out.println("FAILLL BABAC: " + error);
+                        System.out.println("FAILLL: " + error);
                     }
                 })
 

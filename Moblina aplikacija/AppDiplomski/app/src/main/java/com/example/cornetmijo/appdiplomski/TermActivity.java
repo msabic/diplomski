@@ -56,7 +56,7 @@ public class TermActivity extends AppCompatActivity {
         IPAddress=getIntent().getStringExtra("IPAddress");
         userID= Integer.parseInt(getIntent().getStringExtra("userID"));
         patient = new Patient();
-
+        SelectPatient();
         Button btnChooseTime= (Button) findViewById(R.id.btnChooseTime);
         datePicker=(DatePicker)findViewById(R.id.simpleDatePicker);
         btnChooseTime.setOnClickListener(new View.OnClickListener() {
@@ -69,6 +69,15 @@ public class TermActivity extends AppCompatActivity {
             }
         });
 
+    }
+    private void MessageText(String message)
+    {
+        Context context = getApplicationContext();
+        CharSequence text = message;
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
     }
     public void NoWorkingDay(final String Datum)
     {
@@ -107,22 +116,18 @@ public class TermActivity extends AppCompatActivity {
                             calendar.set(pYear, pMonth, pDay);
                             Date date = calendar.getTime();
                             int a=calendar.get(Calendar.DAY_OF_WEEK);
+                            int iddoctor=patient.getDoktor_ID_Doktor();
                             if(new Date().before(date) && !f && calendar.get(Calendar.DAY_OF_WEEK)!=7 && calendar.get(Calendar.DAY_OF_WEEK)!=1){
                                 Intent i = new Intent(TermActivity.this, ConfirmTermActivity.class);
                                 i.putExtra("date", "" + pYear + "," + pMonth + "," + pDay);
                                 i.putExtra("userID", "" + userID + "");
                                 i.putExtra("IPAddress", IPAddress);
-                                i.putExtra("doctorID", ""+patient.getDoktor_ID_Doktor()+"");
+                                i.putExtra("doctorID", ""+iddoctor+"");
                                 startActivity(i);
                             }
                             else
                             {
-                                Context context = getApplicationContext();
-                                CharSequence text = "Date is invalid!";
-                                int duration = Toast.LENGTH_SHORT;
-
-                                Toast toast = Toast.makeText(context, text, duration);
-                                toast.show();
+                                MessageText("The selected date is not available!");
                             }
                         }
                     }
@@ -149,7 +154,7 @@ public class TermActivity extends AppCompatActivity {
 
 
     }
-    public void SelectVisitDoctor()
+    public void SelectPatient()
     {
 
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -171,7 +176,7 @@ public class TermActivity extends AppCompatActivity {
                             }
                             catch (JSONException ex)
                             {
-
+                                Log.d("Error:", ex.toString());
                             }
 
                         }

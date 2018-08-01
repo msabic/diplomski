@@ -2,6 +2,7 @@ package com.example.cornetmijo.appdiplomski;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ExpandableListView;
 
 import com.android.volley.AuthFailureError;
@@ -41,10 +42,6 @@ public class ListActivity extends AppCompatActivity {
         diagnoses=new Diagnose();
         _diagnose_list=new ArrayList<Diagnose>();
         Select_diagnose();
-        // get the listview
-
-
-
     }
     private void Select_diagnose()
     {
@@ -68,7 +65,7 @@ public class ListActivity extends AppCompatActivity {
                         }
                         catch (JSONException ex)
                         {
-
+                            Log.d("Error", ex.toString());
                         }
                         }
                         prepareListData();
@@ -79,7 +76,7 @@ public class ListActivity extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
 
                         //Failure Callback
-                        System.out.println("FAILLL BABAC: " + error);
+                        System.out.println("FAILLL: " + error);
                     }
                 })
 
@@ -106,12 +103,8 @@ public class ListActivity extends AppCompatActivity {
         }
         expListView = (ExpandableListView) findViewById(R.id.lvExp);
 
-        // preparing list data
-
-
         listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
 
-        // setting list adapter
         expListView.setAdapter(listAdapter);
 
     }

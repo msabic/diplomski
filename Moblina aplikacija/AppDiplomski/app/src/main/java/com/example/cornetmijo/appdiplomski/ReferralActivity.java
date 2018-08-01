@@ -2,6 +2,7 @@ package com.example.cornetmijo.appdiplomski;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ExpandableListView;
 
 import com.android.volley.AuthFailureError;
@@ -64,7 +65,7 @@ public class ReferralActivity extends AppCompatActivity {
                             }
                             catch (JSONException ex)
                             {
-
+                                Log.d("Error: ",ex.toString());
                             }
                             finally {
                                 prepareListData();
@@ -105,12 +106,8 @@ public class ReferralActivity extends AppCompatActivity {
         }
         expListView = (ExpandableListView)findViewById(R.id.lvExpReferral);
 
-        // preparing list data
-
-
         listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
 
-        // setting list adapter
         expListView.setAdapter(listAdapter);
     }
 

@@ -70,12 +70,12 @@ public class ChangePassword extends AppCompatActivity {
                         }
                         else
                         {
-                            MessageText("Lozinke trebaju biti iste!");
+                            MessageText("New password and reenter password should be the same!");
                         }
                     }
                     else
                     {
-                        MessageText("stara lozinka nije ispravna!");
+                        MessageText("Old password is invalid!");
                     }
                 }
                 else
@@ -109,16 +109,11 @@ public class ChangePassword extends AppCompatActivity {
                         JSONObject objectjson=response.getJSONObject(0);
                         Patient pat = new Gson().fromJson(objectjson.toString(), Patient.class);
                         patient_class=pat;
-                        //Patient[] pat= gson.fromJson(objectjson.toString(),Patient[].class);
 
-                        //patient=new Patient();
-                        //patient = gson.fromJson(objectjson.toString(), Patient.class);
-                        //Success Callback
-                        // System.out.println("RESPONESEEEE: " + response.toString());
                         }
                     catch (JSONException ex)
                         {
-
+                            Log.d("Error", ex.getMessage());
                         }
                     }
                 },
@@ -127,7 +122,7 @@ public class ChangePassword extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
 
                         //Failure Callback
-                        System.out.println("FAILLL BABAC: " + error);
+                        System.out.println("FAILLL: " + error);
                     }
                 })
 
