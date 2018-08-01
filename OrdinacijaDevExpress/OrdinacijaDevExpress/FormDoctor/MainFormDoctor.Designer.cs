@@ -91,8 +91,10 @@
             this.ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit1});
             this.ribbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbon.ShowToolbarCustomizeItem = false;
             this.ribbon.Size = new System.Drawing.Size(815, 143);
             this.ribbon.StatusBar = this.ribbonStatusBar;
+            this.ribbon.Toolbar.ShowCustomizeItem = false;
             // 
             // AgreedTermBarItem
             // 

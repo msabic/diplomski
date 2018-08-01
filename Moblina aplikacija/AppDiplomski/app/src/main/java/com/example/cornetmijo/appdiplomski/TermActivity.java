@@ -106,7 +106,8 @@ public class TermActivity extends AppCompatActivity {
                             Calendar calendar = Calendar.getInstance();
                             calendar.set(pYear, pMonth, pDay);
                             Date date = calendar.getTime();
-                            if(new Date().before(date) && !f){
+                            int a=calendar.get(Calendar.DAY_OF_WEEK);
+                            if(new Date().before(date) && !f && calendar.get(Calendar.DAY_OF_WEEK)!=7 && calendar.get(Calendar.DAY_OF_WEEK)!=1){
                                 Intent i = new Intent(TermActivity.this, ConfirmTermActivity.class);
                                 i.putExtra("date", "" + pYear + "," + pMonth + "," + pDay);
                                 i.putExtra("userID", "" + userID + "");

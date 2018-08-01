@@ -286,6 +286,23 @@ namespace DBCommunication
 
             }
         }
+        public bool GetNonWorkingDay(string date)
+        {
+            try
+            {
+                GetNonWorkingDay getNonWorkingDay = new GetNonWorkingDay();
+                return getNonWorkingDay.Execute(date);
+            }
+            catch (Exception ex)
+            {
+                
+                throw ex;
+            }
+            finally
+            {
+
+            }
+        }
 
         public bool InsertNonWorkingDays(NonWorkingDays nonWorkingDays)
         {

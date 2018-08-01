@@ -65,7 +65,7 @@ namespace OrdinacijaDevExpress.FormDoctor
         {
             if (vistitDoctor != null)
             {
-                DialogResult dialogResult = XtraMessageBox.Show("Sure", "You really want to delete the selected element?", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = XtraMessageBox.Show("You really want to delete the selected element?", "Sure", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     if (!_DB.DeleteVisitDoctor(vistitDoctor))

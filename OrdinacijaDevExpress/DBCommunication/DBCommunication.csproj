@@ -71,6 +71,7 @@
     <Compile Include="DBCommunicationGET\GetDiagnosisForPatient.cs" />
     <Compile Include="DBCommunicationGET\GetDoctor.cs" />
     <Compile Include="DBCommunicationGET\GetDoctorID.cs" />
+    <Compile Include="DBCommunicationGET\GetNonWorkingDay.cs" />
     <Compile Include="DBCommunicationGET\GetNonWorkingDays.cs" />
     <Compile Include="DBCommunicationGET\GetPatient.cs" />
     <Compile Include="DBCommunicationGET\GetPatientForDoctor.cs" />

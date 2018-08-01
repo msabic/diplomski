@@ -25,6 +25,7 @@ namespace DBCommunication
         bool UpdatePatient(Patient patient);
         bool DeletePatient(Patient patient);
         List<NonWorkingDays> GetNonWorkingDays();
+        bool GetNonWorkingDay(string date);
         bool InsertNonWorkingDays(NonWorkingDays nonWorkingDays);
         bool UpdateNonWokringDays(NonWorkingDays nonWorkingDays);
         bool DeleteNonWorkingDays(NonWorkingDays nonWorkingDays);

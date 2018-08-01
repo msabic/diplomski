@@ -103,7 +103,7 @@ namespace OrdinacijaDevExpress
         {
             if(working_time!=null)
             {
-                DialogResult dialogResult = XtraMessageBox.Show("Sure", "You really want to delete the selected element?", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = XtraMessageBox.Show("You really want to delete the selected element?", "Sure", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                     {
                         if (!_DB.DeleteWorkingDay(working_time))

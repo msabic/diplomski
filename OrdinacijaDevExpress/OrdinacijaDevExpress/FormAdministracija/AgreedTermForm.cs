@@ -177,7 +177,7 @@ namespace OrdinacijaDevExpress
         {
             if (agreedTerm != null)
             {
-                DialogResult dialogResult = XtraMessageBox.Show("Sure", "You really want to delete the selected element?", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = XtraMessageBox.Show( "You really want to delete the selected element?", "Sure", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     if (!_DB.DeleteAgreedTerm(agreedTerm))
@@ -237,70 +237,52 @@ namespace OrdinacijaDevExpress
         }
         private void DateCalendar_DateSelected(object sender, DateRangeEventArgs e)
         {
-            DateTime date = DateCalendar.SelectionStart;
-            if(date.Day%2==0)
-            {
-               if(parni)
-                {
-                    jutro = true;
-                }
-                else
-                {
-                    jutro = false;
-                }
-            }
-            else
-            {
-                if(neparni)
-                {
-                    jutro = true;
-                }
-                else
-                {
-                    jutro = false;
-                }
-            }
             
-            if(jutro)
-            {
-                List<Term> temp = new List<Term>();
-                foreach (Term t in _termAM)
+            DateTime date = DateCalendar.SelectionStart;
+            if (!_DB.GetNonWorkingDay(date.ToString("yyyy-MM-dd")) && date.DayOfWeek.ToString() != "Saturday" && date.DayOfWeek.ToString() != "Sunday") {
+                if (date.Day % 2 == 0)
+                {if (parni){jutro = true;}else { jutro = false; }}else{ if (neparni){jutro = true;}else{ jutro = false;}}
+                if (jutro)
                 {
-
-                    foreach (AgreedTerm a in _agreedTerm)
+                    List<Term> temp = new List<Term>();
+                    foreach (Term t in _termAM)
                     {
-                        if (t.Time == a.Time)
+
+                        foreach (AgreedTerm a in _agreedTerm)
                         {
-                            temp.Add(t);
+                            if (t.Time == a.Time)
+                            {
+                                temp.Add(t);
+                            }
                         }
                     }
+                    foreach (Term t in temp)
+                    {
+                        _termAM.Remove(t);
+                    }
+                    FreeTermLE.Properties.DataSource = _termAM;
                 }
-                foreach (Term t in temp)
-                {
-                    _termAM.Remove(t);
-                }
-                FreeTermLE.Properties.DataSource = _termAM;
-            }
-            else
-            {
-               
-                List<Term> temp = new List<Term>();
-                foreach (Term t in _termPM)
+                else
                 {
 
-                    foreach (AgreedTerm a in _agreedTerm)
+                    List<Term> temp = new List<Term>();
+                    foreach (Term t in _termPM)
                     {
-                        if (t.Time == a.Time)
+
+                        foreach (AgreedTerm a in _agreedTerm)
                         {
-                            temp.Add(t);
+                            if (t.Time == a.Time)
+                            {
+                                temp.Add(t);
+                            }
                         }
                     }
+                    foreach (Term t in temp)
+                    {
+                        _termPM.Remove(t);
+                    }
+                    FreeTermLE.Properties.DataSource = _termPM;
                 }
-                foreach(Term t in temp)
-                {
-                    _termPM.Remove(t);
-                }
-                FreeTermLE.Properties.DataSource = _termPM;
             }
         }
     }

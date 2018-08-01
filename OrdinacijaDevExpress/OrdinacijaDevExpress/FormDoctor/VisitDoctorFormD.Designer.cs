@@ -73,8 +73,10 @@
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
             this.ribbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbon.ShowToolbarCustomizeItem = false;
             this.ribbon.Size = new System.Drawing.Size(1199, 143);
             this.ribbon.StatusBar = this.ribbonStatusBar;
+            this.ribbon.Toolbar.ShowCustomizeItem = false;
             // 
             // EditBarItem
             // 

@@ -185,7 +185,7 @@ namespace OrdinacijaDevExpress.FormDoctor
         {
             if (patient != null)
             {
-                DialogResult dialogResult = XtraMessageBox.Show("Sure", "Some Title", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = XtraMessageBox.Show("You really want to delete the selected element?", "Sure", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     if (!_DB.DeletePatient(patient))
