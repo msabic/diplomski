@@ -41,6 +41,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.WorkingTimeGridControl = new DevExpress.XtraGrid.GridControl();
             this.WorkingTimeGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.WorkingDayID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.WorkingDayOdd_Even = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.WorkingDayMorning_Afternoon = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Odd_EvenCB.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Morning_AfternoonCB.Properties)).BeginInit();
@@ -178,9 +181,38 @@
             // 
             // WorkingTimeGridView
             // 
+            this.WorkingTimeGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.WorkingDayID,
+            this.WorkingDayOdd_Even,
+            this.WorkingDayMorning_Afternoon});
             this.WorkingTimeGridView.GridControl = this.WorkingTimeGridControl;
             this.WorkingTimeGridView.Name = "WorkingTimeGridView";
             this.WorkingTimeGridView.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.WorkingTimeGridView_RowClick);
+            // 
+            // WorkingDayID
+            // 
+            this.WorkingDayID.Caption = "ID";
+            this.WorkingDayID.FieldName = "ID";
+            this.WorkingDayID.Name = "WorkingDayID";
+            this.WorkingDayID.OptionsColumn.AllowEdit = false;
+            // 
+            // WorkingDayOdd_Even
+            // 
+            this.WorkingDayOdd_Even.Caption = "Odd_Even";
+            this.WorkingDayOdd_Even.FieldName = "Odd_Even";
+            this.WorkingDayOdd_Even.Name = "WorkingDayOdd_Even";
+            this.WorkingDayOdd_Even.OptionsColumn.AllowEdit = false;
+            this.WorkingDayOdd_Even.Visible = true;
+            this.WorkingDayOdd_Even.VisibleIndex = 0;
+            // 
+            // WorkingDayMorning_Afternoon
+            // 
+            this.WorkingDayMorning_Afternoon.Caption = "Morning_Afternoon";
+            this.WorkingDayMorning_Afternoon.FieldName = "Morning_Afternoon";
+            this.WorkingDayMorning_Afternoon.Name = "WorkingDayMorning_Afternoon";
+            this.WorkingDayMorning_Afternoon.OptionsColumn.AllowEdit = false;
+            this.WorkingDayMorning_Afternoon.Visible = true;
+            this.WorkingDayMorning_Afternoon.VisibleIndex = 1;
             // 
             // WorkingDaysForm
             // 
@@ -221,5 +253,8 @@
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraGrid.GridControl WorkingTimeGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView WorkingTimeGridView;
+        private DevExpress.XtraGrid.Columns.GridColumn WorkingDayID;
+        private DevExpress.XtraGrid.Columns.GridColumn WorkingDayOdd_Even;
+        private DevExpress.XtraGrid.Columns.GridColumn WorkingDayMorning_Afternoon;
     }
 }

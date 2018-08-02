@@ -105,6 +105,7 @@ namespace OrdinacijaDevExpress
                 SurnameTE.Text = patient.Surname;
                 EmailTE.Text = patient.Email;
                 ConactTE.Text = patient.Contact;
+                DoctorLE.EditValue = patient.Doctor;
                 
             }
             catch 

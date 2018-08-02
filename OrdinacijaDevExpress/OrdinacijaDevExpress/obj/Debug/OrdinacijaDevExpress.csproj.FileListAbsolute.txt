@@ -356,3 +356,4 @@ C:\Users\Public\diplomski\OrdinacijaDevExpress\OrdinacijaDevExpress\obj\Debug\Or
 C:\Users\Public\diplomski\OrdinacijaDevExpress\OrdinacijaDevExpress\obj\Debug\OrdinacijaDevExpress.FormDoctor.PatientInfoForm.resources
 C:\Users\Public\diplomski\OrdinacijaDevExpress\OrdinacijaDevExpress\obj\Debug\OrdinacijaDevExpress.FormDoctor.ReferralFormD.resources
 C:\Users\Public\diplomski\OrdinacijaDevExpress\OrdinacijaDevExpress\obj\Debug\OrdinacijaDevExpress.FormDoctor.VisitDoctorFormD.resources
+C:\Users\CorNet Mijo\Desktop\diplomski\OrdinacijaDevExpress\OrdinacijaDevExpress\obj\Debug\OrdinacijaDevExpress.FormDoctor.AgreedTermAllFormD.resources

@@ -40,6 +40,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.NonWorkingDaysGridControl = new DevExpress.XtraGrid.GridControl();
             this.NonWorkingDaysGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.NonWorkingDayID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.NonWorkingDayName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.NonWorkingDayDate = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NamteTE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NonWorkingDaysGridControl)).BeginInit();
@@ -145,9 +148,38 @@
             // 
             // NonWorkingDaysGridView
             // 
+            this.NonWorkingDaysGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.NonWorkingDayID,
+            this.NonWorkingDayName,
+            this.NonWorkingDayDate});
             this.NonWorkingDaysGridView.GridControl = this.NonWorkingDaysGridControl;
             this.NonWorkingDaysGridView.Name = "NonWorkingDaysGridView";
             this.NonWorkingDaysGridView.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.NonWorkingDaysGridView_RowClick);
+            // 
+            // NonWorkingDayID
+            // 
+            this.NonWorkingDayID.Caption = "ID";
+            this.NonWorkingDayID.FieldName = "ID";
+            this.NonWorkingDayID.Name = "NonWorkingDayID";
+            this.NonWorkingDayID.OptionsColumn.AllowEdit = false;
+            // 
+            // NonWorkingDayName
+            // 
+            this.NonWorkingDayName.Caption = "Name";
+            this.NonWorkingDayName.FieldName = "Name";
+            this.NonWorkingDayName.Name = "NonWorkingDayName";
+            this.NonWorkingDayName.OptionsColumn.AllowEdit = false;
+            this.NonWorkingDayName.Visible = true;
+            this.NonWorkingDayName.VisibleIndex = 0;
+            // 
+            // NonWorkingDayDate
+            // 
+            this.NonWorkingDayDate.Caption = "Date";
+            this.NonWorkingDayDate.FieldName = "Date";
+            this.NonWorkingDayDate.Name = "NonWorkingDayDate";
+            this.NonWorkingDayDate.OptionsColumn.AllowEdit = false;
+            this.NonWorkingDayDate.Visible = true;
+            this.NonWorkingDayDate.VisibleIndex = 1;
             // 
             // NonWorkingDaysForm
             // 
@@ -184,5 +216,8 @@
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraGrid.GridControl NonWorkingDaysGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView NonWorkingDaysGridView;
+        private DevExpress.XtraGrid.Columns.GridColumn NonWorkingDayID;
+        private DevExpress.XtraGrid.Columns.GridColumn NonWorkingDayName;
+        private DevExpress.XtraGrid.Columns.GridColumn NonWorkingDayDate;
     }
 }

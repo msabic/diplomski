@@ -135,6 +135,8 @@ namespace OrdinacijaDevExpress
                 DescriptionME.Text = prescription.Description;
                 DateTE.DateTime = prescription.Date;
                 NameTE.Text = prescription.Name;
+                PatientLE.EditValue = prescription.Patient;
+                DoctorLE.EditValue = prescription.Doctor;
 
             }
             catch

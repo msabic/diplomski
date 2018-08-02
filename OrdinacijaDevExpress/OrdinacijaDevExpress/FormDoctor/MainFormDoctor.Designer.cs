@@ -40,8 +40,10 @@
             this.EditPatientBarItem = new DevExpress.XtraBars.BarButtonItem();
             this.DeletePatientBarItem = new DevExpress.XtraBars.BarButtonItem();
             this.ChangePasswordBarITem = new DevExpress.XtraBars.BarButtonItem();
+            this.AgreedTermAllBarItem = new DevExpress.XtraBars.BarButtonItem();
             this.PatientPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.Patient = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -80,9 +82,10 @@
             this.NewPatientBarItem,
             this.EditPatientBarItem,
             this.DeletePatientBarItem,
-            this.ChangePasswordBarITem});
+            this.ChangePasswordBarITem,
+            this.AgreedTermAllBarItem});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 20;
+            this.ribbon.MaxItemId = 21;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.PatientPage,
@@ -193,10 +196,21 @@
             this.ChangePasswordBarITem.Name = "ChangePasswordBarITem";
             this.ChangePasswordBarITem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ChangePasswordBarITem_ItemClick);
             // 
+            // AgreedTermAllBarItem
+            // 
+            this.AgreedTermAllBarItem.Caption = "Agreed term";
+            this.AgreedTermAllBarItem.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+            this.AgreedTermAllBarItem.Glyph = ((System.Drawing.Image)(resources.GetObject("AgreedTermAllBarItem.Glyph")));
+            this.AgreedTermAllBarItem.Id = 20;
+            this.AgreedTermAllBarItem.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("AgreedTermAllBarItem.LargeGlyph")));
+            this.AgreedTermAllBarItem.Name = "AgreedTermAllBarItem";
+            this.AgreedTermAllBarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.AgreedTermAllBarItem_ItemClick);
+            // 
             // PatientPage
             // 
             this.PatientPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.Patient});
+            this.Patient,
+            this.ribbonPageGroup3});
             this.PatientPage.Name = "PatientPage";
             this.PatientPage.Text = "Patient";
             // 
@@ -212,6 +226,12 @@
             this.Patient.ItemLinks.Add(this.AgreedTermBarItem);
             this.Patient.Name = "Patient";
             this.Patient.Text = "Patient";
+            // 
+            // ribbonPageGroup3
+            // 
+            this.ribbonPageGroup3.ItemLinks.Add(this.AgreedTermAllBarItem);
+            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
+            this.ribbonPageGroup3.Text = "All user";
             // 
             // ribbonPage2
             // 
@@ -425,5 +445,7 @@
         private DevExpress.XtraBars.BarButtonItem ChangePasswordBarITem;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
+        private DevExpress.XtraBars.BarButtonItem AgreedTermAllBarItem;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
     }
 }

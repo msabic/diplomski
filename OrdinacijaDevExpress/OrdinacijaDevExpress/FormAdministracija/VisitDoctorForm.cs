@@ -109,8 +109,9 @@ namespace OrdinacijaDevExpress
                 ReasonME.Text = visitDoctor.Reason;
                 DescriptionME.Text = visitDoctor.Description;
                 DateTE.DateTime = visitDoctor.Date;
-               
 
+                PatientLE.EditValue = visitDoctor.Patient;
+                DoctorLE.EditValue = visitDoctor.Doctor;
             }
             catch
             {

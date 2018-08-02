@@ -84,6 +84,7 @@ namespace OrdinacijaDevExpress
                 SurnameTE.Text = doctor.Surname;
                 EmailTE.Text = doctor.Email;
                 ContactTE.Text = doctor.Contact;
+                WorkingTimeLE.EditValue = doctor.Working_time;
                
             }
             catch

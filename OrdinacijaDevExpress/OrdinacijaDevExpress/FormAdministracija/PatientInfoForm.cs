@@ -129,6 +129,7 @@ namespace OrdinacijaDevExpress
                 UCIDTE.Text=patientInfo.UCID;
                 RelationshipStatusCB.Checked=patientInfo.Relationship_status;
                 SmokerCE.Checked=patientInfo.Smoker;
+                PatientLE.EditValue = patientInfo.Patient;
             }
             catch
             {

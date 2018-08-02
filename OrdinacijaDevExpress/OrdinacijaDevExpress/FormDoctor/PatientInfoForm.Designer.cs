@@ -240,7 +240,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayoutStore = System.Windows.Forms.ImageLayout.Tile;
             this.BackgroundImageStore = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImageStore")));
-            this.ClientSize = new System.Drawing.Size(410, 488);
+            this.ClientSize = new System.Drawing.Size(516, 488);
             this.Controls.Add(this.SmokreCB);
             this.Controls.Add(this.RelationShipCB);
             this.Controls.Add(this.UCIDLBL);

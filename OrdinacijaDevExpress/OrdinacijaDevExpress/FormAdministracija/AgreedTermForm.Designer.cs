@@ -160,6 +160,7 @@
             this.AgreedTermGridView.GridControl = this.AgreedTermGridControl;
             this.AgreedTermGridView.Name = "AgreedTermGridView";
             this.AgreedTermGridView.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.AgreedTermGridView_RowClick);
+            this.AgreedTermGridView.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.AgreedTermGridView_CustomColumnDisplayText);
             // 
             // AgreedTermID
             // 

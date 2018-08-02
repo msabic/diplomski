@@ -80,6 +80,12 @@
     <Compile Include="FormDoctor\AddPatientFormD.Designer.cs">
       <DependentUpon>AddPatientFormD.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDoctor\AgreedTermAllFormD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDoctor\AgreedTermAllFormD.Designer.cs">
+      <DependentUpon>AgreedTermAllFormD.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDoctor\ChangePAsswordFormDcs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDoctor\AddPatientFormD.resx">
       <DependentUpon>AddPatientFormD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDoctor\AgreedTermAllFormD.resx">
+      <DependentUpon>AgreedTermAllFormD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDoctor\ChangePAsswordFormDcs.resx">
       <DependentUpon>ChangePAsswordFormDcs.cs</DependentUpon>

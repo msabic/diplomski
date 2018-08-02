@@ -132,7 +132,8 @@ namespace OrdinacijaDevExpress
 
                 DescriptionME.Text = diagnosis.Description;
                 NameTE.Text = diagnosis.Name;
-
+                PatientLE.EditValue = diagnosis.Patient;
+                DoctorLE.EditValue = diagnosis.Doctor;
 
             }
             catch

@@ -208,11 +208,37 @@ namespace OrdinacijaDevExpress
                 object row = view.GetRow(e.RowHandle);
                 agreedTerm = (AgreedTerm)row;
                 DateCalendar.SetDate(agreedTerm.Date);
+                PatientLE.EditValue = agreedTerm.Patient;
+                DoctorLE.EditValue = agreedTerm.Doctor;
                 HideShowElement(true);
             }
             catch
             {
 
+            }
+        }
+
+        private void AgreedTermGridView_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
+        {
+            if (e.Column.Name == "AgreedTermPatient")
+            {
+                foreach (Patient p in _patient)
+                {
+                    if (e.Value.ToString() == p.ID.ToString())
+                    {
+                        e.DisplayText = p.Name + " " + p.Surname;
+                    }
+                }
+            }
+            if (e.Column.Name == "AgreedTermDoctor")
+            {
+                foreach (Doctor dr in _doctor)
+                {
+                    if (e.Value.ToString() == dr.ID.ToString())
+                    {
+                        e.DisplayText = dr.Name + " " + dr.Surname;
+                    }
+                }
             }
         }
 

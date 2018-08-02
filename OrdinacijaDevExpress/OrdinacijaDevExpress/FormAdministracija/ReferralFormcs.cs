@@ -131,7 +131,8 @@ namespace OrdinacijaDevExpress
 
                 DescriptionME.Text = referral.Description;
                 NameTE.Text = referral.Name;
-
+                PatientLE.EditValue = referral.Patient;
+                DoctorLE.EditValue = referral.Doctor;
 
             }
             catch

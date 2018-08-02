@@ -210,5 +210,15 @@ namespace OrdinacijaDevExpress.FormDoctor
             Application.Exit();
 
         }
+
+        private void AgreedTermAllBarItem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+            using (FormDoctor.AgreedTermAllFormD _agreedTerm_all_form = new FormDoctor.AgreedTermAllFormD(_DB, doctorID))
+            {
+                _agreedTerm_all_form.StartPosition = FormStartPosition.CenterScreen;
+                _agreedTerm_all_form.ShowDialog();
+            }
+        }
     }
 }
