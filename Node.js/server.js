@@ -129,13 +129,15 @@ app.get('/DeletePacijent', function(req,res) {
 });} else {
 res.status(400).send('Bad Request');
 }})
+
 app.get('/InsertPacijent', function(req,res) {
   if(req.headers.name && req.headers.surname && req.headers.email && req.headers.contact && req.headers.doktor){
     
     const password=generatedPassword;
     console.log(password);
     console.log(md5(password));
-  db.InsertPacijent(req.headers.name,req.headers.surname,req.headers.email,md5(password),req.headers.contact,req.headers.doktor).then((resoult) => {
+  db.InsertPacijent(req.headers.name,req.headers.surname,req.headers.email,md5(password),
+  req.headers.contact,req.headers.doktor).then((resoult) => {
     mailer.sendMail(req.headers.email,
       'Kreiranje računa',
       `<h3>U aplikaciju se možete prijaviti pomoću lozinke ${password}<h3>`,

@@ -62,6 +62,7 @@
             this.ActivePatient = new DevExpress.XtraGrid.Columns.GridColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.PrescriptionBarItem = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PatientGridControl)).BeginInit();
@@ -83,9 +84,10 @@
             this.EditPatientBarItem,
             this.DeletePatientBarItem,
             this.ChangePasswordBarITem,
-            this.AgreedTermAllBarItem});
+            this.AgreedTermAllBarItem,
+            this.PrescriptionBarItem});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 21;
+            this.ribbon.MaxItemId = 22;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.PatientPage,
@@ -223,6 +225,7 @@
             this.Patient.ItemLinks.Add(this.VisitDoctorBarItem);
             this.Patient.ItemLinks.Add(this.DiagnoseBarItme);
             this.Patient.ItemLinks.Add(this.ReferalBarItem);
+            this.Patient.ItemLinks.Add(this.PrescriptionBarItem);
             this.Patient.ItemLinks.Add(this.AgreedTermBarItem);
             this.Patient.Name = "Patient";
             this.Patient.Text = "Patient";
@@ -386,6 +389,15 @@
             this.label1.Size = new System.Drawing.Size(0, 16);
             this.label1.TabIndex = 10;
             // 
+            // PrescriptionBarItem
+            // 
+            this.PrescriptionBarItem.Caption = "Prescription";
+            this.PrescriptionBarItem.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+            this.PrescriptionBarItem.Glyph = ((System.Drawing.Image)(resources.GetObject("PrescriptionBarItem.Glyph")));
+            this.PrescriptionBarItem.Id = 21;
+            this.PrescriptionBarItem.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("PrescriptionBarItem.LargeGlyph")));
+            this.PrescriptionBarItem.Name = "PrescriptionBarItem";
+            // 
             // MainFormDoctor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -447,5 +459,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.BarButtonItem AgreedTermAllBarItem;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
+        private DevExpress.XtraBars.BarButtonItem PrescriptionBarItem;
     }
 }
