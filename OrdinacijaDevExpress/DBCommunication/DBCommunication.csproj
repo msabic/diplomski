@@ -79,6 +79,7 @@
     <Compile Include="DBCommunicationGET\GetPatientInfo.cs" />
     <Compile Include="DBCommunicationGET\GetPatientInfoID.cs" />
     <Compile Include="DBCommunicationGET\GetPrescription.cs" />
+    <Compile Include="DBCommunicationGET\GetPrescriptionForPatient.cs" />
     <Compile Include="DBCommunicationGET\GetReferral.cs" />
     <Compile Include="DBCommunicationGET\GetReferralForPatient.cs" />
     <Compile Include="DBCommunicationGET\GetVisitDoctor.cs" />

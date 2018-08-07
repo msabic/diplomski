@@ -446,6 +446,7 @@ namespace DBCommunication
 
             }
         }
+        
         public List<Prescription> GetPrescription()
         {
             try
@@ -463,7 +464,23 @@ namespace DBCommunication
 
             }
         }
+        public List<Prescription> GetPrescriptionForPatient(int patientID)
+        {
+            try
+            {
+                GetPrescriptionForPatient getPrescriptionForPatient = new GetPrescriptionForPatient();
+                return getPrescriptionForPatient.Execute(patientID);
+            }
+            catch (Exception ex)
+            {
+                return null;
+                throw ex;
+            }
+            finally
+            {
 
+            }
+        }
         public bool InsertPrescription(Prescription prescription)
         {
             try

@@ -35,6 +35,7 @@ namespace DBCommunication
         bool UpdateVisitDoctor(VisitDoctor visitDoctor);
         bool DeleteVisitDoctor(VisitDoctor visitDoctor);
         List<Prescription> GetPrescription();
+        List<Prescription> GetPrescriptionForPatient(int patientID);
         bool InsertPrescription(Prescription prescription);
         bool UpdatePrescription(Prescription prescription);
         bool DeletePrescription(Prescription prescription);

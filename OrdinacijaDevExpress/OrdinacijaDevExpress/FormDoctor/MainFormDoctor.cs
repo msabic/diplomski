@@ -220,5 +220,21 @@ namespace OrdinacijaDevExpress.FormDoctor
                 _agreedTerm_all_form.ShowDialog();
             }
         }
+
+        private void PrescriptionBarItem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (patient != null)
+            {
+                using (FormDoctor.PrescriptionFormD _prescription_form = new FormDoctor.PrescriptionFormD(_DB, doctorID, patient.ID))
+            {
+                _prescription_form.StartPosition = FormStartPosition.CenterScreen;
+                _prescription_form.ShowDialog();
+            }
+            }
+            else
+            {
+                XtraMessageBox.Show("Patient is not selected!");
+            }
+        }
     }
 }

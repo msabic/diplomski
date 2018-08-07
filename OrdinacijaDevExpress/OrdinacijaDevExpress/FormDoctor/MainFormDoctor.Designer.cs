@@ -41,6 +41,7 @@
             this.DeletePatientBarItem = new DevExpress.XtraBars.BarButtonItem();
             this.ChangePasswordBarITem = new DevExpress.XtraBars.BarButtonItem();
             this.AgreedTermAllBarItem = new DevExpress.XtraBars.BarButtonItem();
+            this.PrescriptionBarItem = new DevExpress.XtraBars.BarButtonItem();
             this.PatientPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.Patient = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -62,7 +63,6 @@
             this.ActivePatient = new DevExpress.XtraGrid.Columns.GridColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.PrescriptionBarItem = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PatientGridControl)).BeginInit();
@@ -207,6 +207,16 @@
             this.AgreedTermAllBarItem.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("AgreedTermAllBarItem.LargeGlyph")));
             this.AgreedTermAllBarItem.Name = "AgreedTermAllBarItem";
             this.AgreedTermAllBarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.AgreedTermAllBarItem_ItemClick);
+            // 
+            // PrescriptionBarItem
+            // 
+            this.PrescriptionBarItem.Caption = "Prescription";
+            this.PrescriptionBarItem.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+            this.PrescriptionBarItem.Glyph = ((System.Drawing.Image)(resources.GetObject("PrescriptionBarItem.Glyph")));
+            this.PrescriptionBarItem.Id = 21;
+            this.PrescriptionBarItem.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("PrescriptionBarItem.LargeGlyph")));
+            this.PrescriptionBarItem.Name = "PrescriptionBarItem";
+            this.PrescriptionBarItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.PrescriptionBarItem_ItemClick);
             // 
             // PatientPage
             // 
@@ -388,15 +398,6 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 16);
             this.label1.TabIndex = 10;
-            // 
-            // PrescriptionBarItem
-            // 
-            this.PrescriptionBarItem.Caption = "Prescription";
-            this.PrescriptionBarItem.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-            this.PrescriptionBarItem.Glyph = ((System.Drawing.Image)(resources.GetObject("PrescriptionBarItem.Glyph")));
-            this.PrescriptionBarItem.Id = 21;
-            this.PrescriptionBarItem.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("PrescriptionBarItem.LargeGlyph")));
-            this.PrescriptionBarItem.Name = "PrescriptionBarItem";
             // 
             // MainFormDoctor
             // 
